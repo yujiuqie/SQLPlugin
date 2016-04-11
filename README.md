@@ -1,5 +1,7 @@
 # SQLPlugin
 
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+
 SQLPlugin is a plugin for Xcode. This plugin will list all files with database type in your simulator directories.
 
 ![Screenshots1](Screenshots/Screenshots1.png)
