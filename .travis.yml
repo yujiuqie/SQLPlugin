@@ -1,3 +1,5 @@
 language: objective-c
 xcode_project: SQLPlugin.xcodeproj
-xcode_scheme:SQLPlugin
+xcode_scheme: SQLPlugin
+script:
+  - make ci
