@@ -133,7 +133,7 @@ NSTextFieldDelegate
             //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
         }
         else{
-            [[SQLStoreSharedManager sharedManager] getAllTablesinPath:path completion:^(NSArray<SQLTableDescription *> *tables) {
+            [[SQLStoreSharedManager sharedManager] getAllTablesinPath:path completion:^(NSArray *tables) {
                 SQLDatabaseDescription *database = [[SQLDatabaseDescription alloc] init];
                 database.name = path.lastPathComponent;
                 database.path = path;

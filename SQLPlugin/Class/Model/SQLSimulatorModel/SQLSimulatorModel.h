@@ -37,8 +37,8 @@
 @property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *simulatorId;
-@property (nonatomic, strong) NSMutableArray<SQLDirectoryModel *> *dirs;
-@property (nonatomic, strong) NSMutableArray<SQLDatabaseModel *> *databases;
+@property (nonatomic, strong) NSMutableArray *dirs;
+@property (nonatomic, strong) NSMutableArray *databases;
 
 #pragma mark - NSCoding
 
@@ -52,7 +52,7 @@
 @property (nonatomic, strong) NSString *simulatorId;
 @property (nonatomic, strong) NSString *systemVersion;
 @property (nonatomic, strong) NSString *deviceVersion;
-@property (nonatomic, strong) NSMutableArray<SQLApplicationModel *> *applications;
+@property (nonatomic, strong) NSMutableArray *applications;
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL xcodeConfig;
 

@@ -31,7 +31,7 @@ static SQLDatabaseManager *_sharedManager = nil;
     return _sharedManager;
 }
 
-- (void)addDatabaseItems:(NSMutableArray<SQLDatabaseModel *> *)items
+- (void)addDatabaseItems:(NSMutableArray *)items
 {
     [items enumerateObjectsUsingBlock:^(SQLDatabaseModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self addDatabaseItem:obj];

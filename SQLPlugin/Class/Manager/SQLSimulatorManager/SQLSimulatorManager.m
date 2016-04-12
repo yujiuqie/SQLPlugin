@@ -12,7 +12,7 @@
 
 @interface SQLSimulatorManager()
 
-@property (nonatomic,strong,readwrite) NSMutableArray<SQLSimulatorModel *> *allSimulators;
+@property (nonatomic,strong,readwrite) NSMutableArray *allSimulators;
 @property (nonatomic,strong) NSDictionary *deviceInfos;
 
 @end
@@ -122,7 +122,7 @@ static SQLSimulatorManager *_sharedManager = nil;
     }
 }
 
-- (NSArray *)fetchAppsWithSelectedSimulators:(NSArray<SQLSimulatorModel *> *)selectedList
+- (NSArray *)fetchAppsWithSelectedSimulators:(NSArray *)selectedList
 {
     NSMutableArray *list = [NSMutableArray array];
     
@@ -197,7 +197,7 @@ static SQLSimulatorManager *_sharedManager = nil;
     return apps;
 }
 
-- (NSArray<SQLDatabaseModel *> *)fetchdatabaseInPath:(NSString *)aPath
+- (NSArray *)fetchdatabaseInPath:(NSString *)aPath
 {
     NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:aPath];
     
@@ -283,7 +283,7 @@ static SQLSimulatorManager *_sharedManager = nil;
     return nil;
 }
 
-- (NSArray<SQLDirectoryModel *> *)fetchAppDirsWithDeviceId:(NSString *)deviceId andAppId:(NSString *)appId
+- (NSArray *)fetchAppDirsWithDeviceId:(NSString *)deviceId andAppId:(NSString *)appId
 {
     NSMutableArray *list = [NSMutableArray array];
     

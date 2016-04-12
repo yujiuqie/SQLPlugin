@@ -13,7 +13,7 @@
 
 + (instancetype)sharedManager;
 
-- (void)addDatabaseItems:(NSMutableArray<SQLDatabaseModel *> *)items;
+- (void)addDatabaseItems:(NSMutableArray *)items;
 
 - (void)addDatabaseItem:(SQLDatabaseModel *)item;
 

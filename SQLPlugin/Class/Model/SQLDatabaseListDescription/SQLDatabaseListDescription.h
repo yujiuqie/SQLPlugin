@@ -12,6 +12,6 @@
 
 @interface SQLDatabaseListDescription : NSObject<NSOutlineViewDataSource,NSOutlineViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray<SQLDatabaseDescription *> *databases;
+@property (nonatomic, strong) NSMutableArray *databases;
 
 @end
