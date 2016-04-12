@@ -54,7 +54,7 @@ static SQLWindowsManager *_sharedManager = nil;
         return;
     }
     
-    [windows enumerateObjectsUsingBlock:^(SQLMainViewController *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [windows enumerateObjectsUsingBlock:^(SQLMainViewController *obj, NSUInteger idx, BOOL * stop) {
         if ([obj.window isEqualTo:aWindow]) {
             [obj close];
             [windows removeObject:obj];

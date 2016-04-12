@@ -74,7 +74,7 @@ NSTextFieldDelegate
 
 #pragma mark - NSWindowDelegate
 
--(BOOL)windowShouldClose:(nonnull id)sender
+-(BOOL)windowShouldClose:(id)sender
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self clearInfos];
@@ -144,7 +144,7 @@ NSTextFieldDelegate
                     _sqliteList.databases = [NSMutableArray array];
                 }
                 
-                [_sqliteList.databases enumerateObjectsUsingBlock:^(SQLDatabaseDescription * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [_sqliteList.databases enumerateObjectsUsingBlock:^(SQLDatabaseDescription * obj, NSUInteger idx, BOOL * stop) {
                     //
                     if ([obj.path isEqualToString:path]) {
                         [_sqliteList.databases removeObjectAtIndex:idx];
@@ -181,7 +181,7 @@ NSTextFieldDelegate
         [self refreshSimulator];
     }
     else{
-        [databasesList enumerateObjectsUsingBlock:^(SQLDatabaseModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [databasesList enumerateObjectsUsingBlock:^(SQLDatabaseModel * obj, NSUInteger idx, BOOL * stop) {
             [self addFetchOperation:obj.path];
         }];
     }

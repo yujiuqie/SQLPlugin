@@ -10,7 +10,7 @@
 
 @implementation SQLDatabaseListDescription
 
--(NSInteger)outlineView:(nonnull NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
+-(NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
     if(!item){
         return [self.databases count];
@@ -20,12 +20,12 @@
     }
 }
 
--(BOOL)outlineView:(nonnull NSOutlineView *)outlineView isItemExpandable:(nonnull id)item
+-(BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
     return [self.databases count];
 }
 
--(id)outlineView:(nonnull NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
+-(id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
     if(!item){
         return [self.databases objectAtIndex:index];

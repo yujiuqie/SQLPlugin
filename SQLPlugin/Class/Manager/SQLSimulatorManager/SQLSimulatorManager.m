@@ -246,7 +246,7 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (SQLSimulatorModel *)deviceInfoWithId:(NSString *)deviceId
 {
     __block SQLSimulatorModel *model = nil;
-    [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * obj, NSUInteger idx, BOOL * stop) {
         if ([obj.simulatorId isEqualToString:deviceId]) {
             model = obj;
             *stop = YES;
@@ -346,7 +346,7 @@ static SQLSimulatorManager *_sharedManager = nil;
 {
     __block SQLSimulatorModel * existSimulator = nil;
     
-    [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * _Nonnull simulator, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * simulator, NSUInteger idx, BOOL * stop) {
         if ([simulator.simulatorId isEqualToString:deviceId]) {
             existSimulator = simulator;
             *stop = YES;
