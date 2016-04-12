@@ -41,4 +41,16 @@
     return [_path lastPathComponent];
 }
 
+- (NSString *)selectedPropertName
+{
+    if (!_selectedPropertName || [_selectedPropertName length] == 0) {
+        if (_properties && [_properties count] > 0) {
+            SQLTableProperty *property = [_properties firstObject];
+            return property.name;
+        }
+    }
+    
+    return _selectedPropertName;
+}
+
 @end
