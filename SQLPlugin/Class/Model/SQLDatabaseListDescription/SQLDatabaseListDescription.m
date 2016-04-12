@@ -35,7 +35,7 @@
     }
 }
 
-- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
+- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item
 {
     return [item outlineView:outlineView viewForTableColumn:tableColumn item:item];
 }

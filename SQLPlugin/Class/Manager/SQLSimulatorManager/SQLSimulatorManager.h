@@ -13,7 +13,7 @@
 
 @interface SQLSimulatorManager : NSObject
 
-@property (nonatomic,strong,readonly) NSMutableArray<SQLSimulatorModel *> *allSimulators;
+@property (nonatomic,strong,readonly) NSMutableArray *allSimulators;
 
 + (instancetype)sharedManager;
 

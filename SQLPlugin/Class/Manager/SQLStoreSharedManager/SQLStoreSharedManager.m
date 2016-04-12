@@ -49,7 +49,7 @@ static SQLStoreSharedManager *_sharedManager = nil;
     return (self.databaseQueue != nil);
 }
 
--(void)getAllTablesinPath:(NSString *)path completion:(void (^)(NSArray<SQLTableDescription *> *))completion
+-(void)getAllTablesinPath:(NSString *)path completion:(void (^)(NSArray *))completion
 {
     [self.databaseQueue inDatabase:^(FMDatabase *db) {
         NSMutableArray *tables = [[NSMutableArray alloc] init];

@@ -17,8 +17,8 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *selectedPropertName;
 @property (nonatomic, assign) BOOL desc;
-@property (nonatomic, strong) NSArray<SQLTableProperty *> *properties;
-@property (nonatomic, strong) NSArray<SQLTableDescription*> *childern;
+@property (nonatomic, strong) NSArray *properties;
+@property (nonatomic, strong) NSArray *childern;
 
 - (NSString *)databaseName;
 - (NSString *)selectedPropertName;

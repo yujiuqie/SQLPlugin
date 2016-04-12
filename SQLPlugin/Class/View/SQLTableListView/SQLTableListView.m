@@ -44,7 +44,7 @@ NSOutlineViewDelegate
     }
 }
 
-- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item {
     
     if(!item){
         return [self.databases outlineView:outlineView viewForTableColumn:tableColumn item:item];
@@ -64,7 +64,7 @@ NSOutlineViewDelegate
     [self.outlineView reloadData];
 }
 
--(void)outlineViewSelectionDidChange:(nonnull NSNotification *)notification{
+-(void)outlineViewSelectionDidChange:(NSNotification *)notification{
     NSOutlineView *outlineView = notification.object;
     id selectedItem = [outlineView itemAtRow:outlineView.selectedRow];
     

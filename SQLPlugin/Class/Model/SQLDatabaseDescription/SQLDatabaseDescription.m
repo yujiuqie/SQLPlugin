@@ -35,7 +35,7 @@
     return self.tables[index];
 }
 
-- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item {
     
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLDatabaseNameView" owner:self];
     

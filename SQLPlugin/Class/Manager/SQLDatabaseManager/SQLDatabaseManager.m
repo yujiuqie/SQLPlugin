@@ -31,9 +31,9 @@ static SQLDatabaseManager *_sharedManager = nil;
     return _sharedManager;
 }
 
-- (void)addDatabaseItems:(NSMutableArray<SQLDatabaseModel *> *)items
+- (void)addDatabaseItems:(NSMutableArray *)items
 {
-    [items enumerateObjectsUsingBlock:^(SQLDatabaseModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [items enumerateObjectsUsingBlock:^(SQLDatabaseModel * obj, NSUInteger idx, BOOL * stop) {
         [self addDatabaseItem:obj];
     }];
 }
@@ -108,7 +108,7 @@ static SQLDatabaseManager *_sharedManager = nil;
 - (SQLDatabaseModel *)databaseInPath:(NSString *)path
 {
     __block SQLDatabaseModel *database = nil;
-    [self.recordDatabaseList enumerateObjectsUsingBlock:^(SQLDatabaseModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.recordDatabaseList enumerateObjectsUsingBlock:^(SQLDatabaseModel *  obj, NSUInteger idx, BOOL * stop) {
         if ([obj.path isEqualToString:path]) {
             database = obj;
             *stop = YES;

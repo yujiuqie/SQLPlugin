@@ -125,17 +125,17 @@ NSTableViewDelegate
     }
 }
 
--(NSInteger)numberOfRowsInTableView:(nonnull NSTableView *)tableView
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     return self.rows.count;
 }
 
--(CGFloat)tableView:(nonnull NSTableView *)tableView heightOfRow:(NSInteger)row
+-(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
     return 20.0f;
 }
 
--(id)tableView:(nonnull NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     NSUInteger rowIndex = row;

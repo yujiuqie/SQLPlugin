@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSArray<SQLTableDescription *> *tables;
+@property (nonatomic, strong) NSArray *tables;
 
 @end
