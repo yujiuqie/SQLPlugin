@@ -9,27 +9,28 @@
 #import "SQLTableDescription.h"
 
 @implementation SQLTableDescription
-- (NSInteger)outlineView:(nonnull NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
+
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
 {
     return 0;
 }
 
-- (id)outlineView:(nonnull NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
 {
     return nil;
 }
 
-- (BOOL)outlineView:(nonnull NSOutlineView *)outlineView isItemExpandable:(nonnull id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
     return NO;
 }
 
-- (id)outlineView:(nonnull NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(nullable id)item
+- (nullable id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn byItem:(nullable id)item
 {
     return [NSString stringWithFormat:@"%@ (%@)",self.name, self.rows];
 }
 
-- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item
+- (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item
 {
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLTableNameView" owner:self];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ rows)",self.name,self.rows];

@@ -19,7 +19,7 @@ NSOutlineViewDelegate
 
 @implementation SQLTableListView
 
--(NSInteger)outlineView:(nonnull NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
 {
     if(!item){
         return [self.databases outlineView:outlineView numberOfChildrenOfItem:item];
@@ -29,12 +29,12 @@ NSOutlineViewDelegate
     }
 }
 
--(BOOL)outlineView:(nonnull NSOutlineView *)outlineView isItemExpandable:(nonnull id)item
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
     return [item outlineView:outlineView isItemExpandable:item];
 }
 
--(id)outlineView:(nonnull NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
 {
     if(!item){
         return [self.databases outlineView:outlineView child:index ofItem:item];
@@ -44,8 +44,8 @@ NSOutlineViewDelegate
     }
 }
 
-- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item {
-    
+- (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item
+{
     if(!item){
         return [self.databases outlineView:outlineView viewForTableColumn:tableColumn item:item];
     }
