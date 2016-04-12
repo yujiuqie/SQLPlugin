@@ -23,7 +23,7 @@ With SQLPlugin you can easily to get all database type files in your simulator d
 
 After installed, You can use *shift + command + v* to open plugin window.
 
-Or select *SQL -> Run* in the Xcode Menu to open plugin window.
+Or select *SQL -> Run* from the Window Menu to open plugin window.
 
 All the files in database type will list out automatically after the plugin window loaded.
 
