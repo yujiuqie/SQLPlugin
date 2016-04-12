@@ -1,3 +1,7 @@
 language: objective-c
 xcode_project: SQLPlugin.xcodeproj
 xcode_scheme: SQLPlugin
+
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
