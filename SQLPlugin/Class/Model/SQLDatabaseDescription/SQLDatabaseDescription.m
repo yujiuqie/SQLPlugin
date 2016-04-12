@@ -12,7 +12,7 @@
 
 @implementation SQLDatabaseDescription
 
--(NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+-(NSInteger)outlineView:(nonnull NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
 {
     if(item == nil)
     {
@@ -21,12 +21,12 @@
     return self.tables.count;
 }
 
--(BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+-(BOOL)outlineView:(nonnull NSOutlineView *)outlineView isItemExpandable:(nonnull id)item
 {
     return YES;
 }
 
--(id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+-(id)outlineView:(nonnull NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
 {
     if(item == nil)
     {
@@ -35,7 +35,7 @@
     return self.tables[index];
 }
 
-- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+- (NSView *)outlineView:(nonnull NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(nonnull id)item {
     
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLDatabaseNameView" owner:self];
     
