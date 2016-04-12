@@ -145,4 +145,20 @@ NSTableViewDelegate
     return [NSString stringWithFormat:@"%@",rowValues[columnIndex]];
 }
 
+- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn
+{
+    NSUInteger columnIndex = [tableColumn.identifier integerValue];
+    SQLTableProperty *property = [self.table.properties objectAtIndex:columnIndex];
+    
+    if ([self.table.selectedPropertName isEqualToString:property.name]) {
+        self.table.desc = !self.table.desc;
+    }
+    else
+    {
+        self.table.selectedPropertName = property.name;
+    }
+    
+    [self fetchRowForOffset];
+}
+
 @end

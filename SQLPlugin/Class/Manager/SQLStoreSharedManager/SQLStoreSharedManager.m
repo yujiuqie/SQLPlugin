@@ -112,7 +112,7 @@ static SQLStoreSharedManager *_sharedManager = nil;
 
 -(void)getRowsWithOffset:(NSNumber*)offset withTableDescription:(SQLTableDescription*)table completion:(void(^)(NSArray*))completion
 {
-    [self getRowsWithCommand:[NSString stringWithFormat:@"SELECT * FROM %@ LIMIT %@,%d" ,table.name, offset, 50] withTableDescription:table completion:completion];
+    [self getRowsWithCommand:[NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ %@ LIMIT %@,%d" ,table.name,table.selectedPropertName,(table.desc ? @"DESC" : @"ASC"), offset, 50] withTableDescription:table completion:completion];
 }
 
 @end

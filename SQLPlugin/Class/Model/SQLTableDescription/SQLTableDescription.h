@@ -15,9 +15,12 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *rows;
 @property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSString *selectedPropertName;
+@property (nonatomic, assign) BOOL desc;
 @property (nonatomic, strong) NSArray<SQLTableProperty *> *properties;
 @property (nonatomic, strong) NSArray<SQLTableDescription*> *childern;
 
 - (NSString *)databaseName;
+- (NSString *)selectedPropertName;
 
 @end
