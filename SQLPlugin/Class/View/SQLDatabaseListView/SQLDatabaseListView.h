@@ -10,6 +10,6 @@
 
 @interface SQLDatabaseListView : NSOutlineView
 
-@property (nonatomic,weak) IBOutlet NSMenu *databaseItemMenu;
+@property (nonatomic, weak) IBOutlet NSMenu *databaseItemMenu;
 
 @end

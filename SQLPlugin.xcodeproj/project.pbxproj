@@ -12,19 +12,26 @@
 		061AB5E41CB2253600EDCB4C /* SQLPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 061AB5E31CB2253600EDCB4C /* SQLPlugin.xcscheme */; };
 		061AB5E71CB2253600EDCB4C /* SQLPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 061AB5E61CB2253600EDCB4C /* SQLPlugin.m */; };
 		061AB5EA1CB2253600EDCB4C /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 061AB5E91CB2253600EDCB4C /* NSObject_Extension.m */; };
-		0634DDB31CB417810083EEFD /* ic_refresh_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0634DDB21CB417810083EEFD /* ic_refresh_black_18dp.png */; };
-		0636ADFC1CB4BAC50011EEA0 /* ic_add_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADFB1CB4BAC50011EEA0 /* ic_add_black_18dp.png */; };
+		0625C3181CBC8D5C007C990F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FA1CBC8D5C007C990F /* FMDatabase.m */; };
+		0625C3191CBC8D5C007C990F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FC1CBC8D5C007C990F /* FMDatabaseAdditions.m */; };
+		0625C31A1CBC8D5C007C990F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FE1CBC8D5C007C990F /* FMDatabasePool.m */; };
+		0625C31B1CBC8D5C007C990F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3001CBC8D5C007C990F /* FMDatabaseQueue.m */; };
+		0625C31C1CBC8D5C007C990F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3031CBC8D5C007C990F /* FMResultSet.m */; };
+		0625C31D1CBC8D5C007C990F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3041CBC8D5C007C990F /* Info.plist */; };
+		0625C31E1CBC8D5C007C990F /* ic_add_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */; };
+		0625C31F1CBC8D5C007C990F /* ic_add_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */; };
+		0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */; };
+		0625C3211CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */; };
+		0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */; };
+		0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */; };
+		0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */; };
+		0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */; };
+		0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */; };
+		0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */; };
+		0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */; };
 		063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */; };
-		065E4C831CB257E8004A3820 /* ic_navigate_before_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 065E4C7C1CB257E8004A3820 /* ic_navigate_before_black_24dp.png */; };
-		065E4C841CB257E8004A3820 /* ic_navigate_next_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 065E4C7D1CB257E8004A3820 /* ic_navigate_next_black_24dp.png */; };
-		065E4C851CB257E8004A3820 /* ic_phone_iphone_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 065E4C7E1CB257E8004A3820 /* ic_phone_iphone_black_24dp.png */; };
-		065E4C891CB25981004A3820 /* ic_insert_drive_file_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 065E4C871CB25981004A3820 /* ic_insert_drive_file_black_24dp.png */; };
-		065E4C8A1CB25981004A3820 /* ic_pie_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 065E4C881CB25981004A3820 /* ic_pie_chart_black_24dp.png */; };
 		06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */; };
 		06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */; };
-		06B004CD1CBBDC640043E3D8 /* ic_delete_forever_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B004CB1CBBDC640043E3D8 /* ic_delete_forever_black_18dp.png */; };
-		06C3BBC41CB415FD00A1F522 /* ic_open_in_browser_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C3BBBE1CB415FD00A1F522 /* ic_open_in_browser_black_18dp.png */; };
-		06C3BBC51CB415FD00A1F522 /* ic_open_in_new_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C3BBBF1CB415FD00A1F522 /* ic_open_in_new_black_18dp.png */; };
 		06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */; };
 		06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3311CB34CDB0089DC5C /* SQLStoreSharedManager.m */; };
 		06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3341CB34CDB0089DC5C /* SQLWindowsManager.m */; };
@@ -37,13 +44,7 @@
 		06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */; };
 		06DDD3691CB3561B0089DC5C /* SQLDatabaseListDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3681CB3561B0089DC5C /* SQLDatabaseListDescription.m */; };
 		06DDD36D1CB3AFDE0089DC5C /* SQLSimulatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */; };
-		06E1CBB11CB2379300C08E57 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1CBA71CB2379300C08E57 /* FMDatabase.m */; };
-		06E1CBB21CB2379300C08E57 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1CBA91CB2379300C08E57 /* FMDatabaseAdditions.m */; };
-		06E1CBB31CB2379300C08E57 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1CBAB1CB2379300C08E57 /* FMDatabasePool.m */; };
-		06E1CBB41CB2379300C08E57 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1CBAD1CB2379300C08E57 /* FMDatabaseQueue.m */; };
-		06E1CBB51CB2379300C08E57 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E1CBB01CB2379300C08E57 /* FMResultSet.m */; };
 		06E1CBB71CB237CE00C08E57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */; };
-		06F96DB01CB4B3BF0030A731 /* ic_add_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F96DAE1CB4B3BF0030A731 /* ic_add_black_24dp.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,22 +57,41 @@
 		061AB5E81CB2253600EDCB4C /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
 		061AB5E91CB2253600EDCB4C /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
 		061AB5EB1CB2253600EDCB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0634DDB21CB417810083EEFD /* ic_refresh_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh_black_18dp.png; sourceTree = "<group>"; };
-		0636ADFB1CB4BAC50011EEA0 /* ic_add_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_18dp.png; sourceTree = "<group>"; };
+		0625C2F91CBC8D5C007C990F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0625C2FA1CBC8D5C007C990F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0625C2FB1CBC8D5C007C990F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0625C2FC1CBC8D5C007C990F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0625C2FD1CBC8D5C007C990F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		0625C2FE1CBC8D5C007C990F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		0625C2FF1CBC8D5C007C990F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		0625C3001CBC8D5C007C990F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		0625C3011CBC8D5C007C990F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		0625C3021CBC8D5C007C990F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		0625C3031CBC8D5C007C990F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		0625C3041CBC8D5C007C990F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0625C3061CBC8D5C007C990F /* DVTFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTFoundation.h; sourceTree = "<group>"; };
+		0625C3071CBC8D5C007C990F /* DVTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTKit.h; sourceTree = "<group>"; };
+		0625C3081CBC8D5C007C990F /* IDEFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
+		0625C3091CBC8D5C007C990F /* IDEKeyBindingPreferenceSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKeyBindingPreferenceSet.h; sourceTree = "<group>"; };
+		0625C30A1CBC8D5C007C990F /* IDEKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
+		0625C30B1CBC8D5C007C990F /* IDESourceEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
+		0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_18dp.png; sourceTree = "<group>"; };
+		0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_24dp.png; sourceTree = "<group>"; };
+		0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_delete_forever_black_18dp.png; sourceTree = "<group>"; };
+		0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_drive_file_black_24dp.png; sourceTree = "<group>"; };
+		0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_before_black_24dp.png; sourceTree = "<group>"; };
+		0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_next_black_24dp.png; sourceTree = "<group>"; };
+		0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_browser_black_18dp.png; sourceTree = "<group>"; };
+		0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_new_black_18dp.png; sourceTree = "<group>"; };
+		0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone_iphone_black_24dp.png; sourceTree = "<group>"; };
+		0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pie_chart_black_24dp.png; sourceTree = "<group>"; };
+		0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh_black_18dp.png; sourceTree = "<group>"; };
 		063A7D0E1CBB7939003AA338 /* SQLDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDatabaseManager.h; sourceTree = "<group>"; };
 		063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDatabaseManager.m; sourceTree = "<group>"; };
-		065E4C7C1CB257E8004A3820 /* ic_navigate_before_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_before_black_24dp.png; sourceTree = "<group>"; };
-		065E4C7D1CB257E8004A3820 /* ic_navigate_next_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_next_black_24dp.png; sourceTree = "<group>"; };
-		065E4C7E1CB257E8004A3820 /* ic_phone_iphone_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone_iphone_black_24dp.png; sourceTree = "<group>"; };
-		065E4C871CB25981004A3820 /* ic_insert_drive_file_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_drive_file_black_24dp.png; sourceTree = "<group>"; };
-		065E4C881CB25981004A3820 /* ic_pie_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pie_chart_black_24dp.png; sourceTree = "<group>"; };
 		06A459E91CB4123500A0A260 /* SQLDatabaseListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLDatabaseListView.h; path = SQLDatabaseListView/SQLDatabaseListView.h; sourceTree = "<group>"; };
 		06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLDatabaseListView.m; path = SQLDatabaseListView/SQLDatabaseListView.m; sourceTree = "<group>"; };
 		06B004C71CBBD85A0043E3D8 /* SQLMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLMainWindow.h; path = SQLMainWindow/SQLMainWindow.h; sourceTree = "<group>"; };
 		06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLMainWindow.m; path = SQLMainWindow/SQLMainWindow.m; sourceTree = "<group>"; };
-		06B004CB1CBBDC640043E3D8 /* ic_delete_forever_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_delete_forever_black_18dp.png; sourceTree = "<group>"; };
-		06C3BBBE1CB415FD00A1F522 /* ic_open_in_browser_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_browser_black_18dp.png; sourceTree = "<group>"; };
-		06C3BBBF1CB415FD00A1F522 /* ic_open_in_new_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_new_black_18dp.png; sourceTree = "<group>"; };
 		06DDD32D1CB34CDB0089DC5C /* SQLSimulatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLSimulatorManager.h; sourceTree = "<group>"; };
 		06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLSimulatorManager.m; sourceTree = "<group>"; };
 		06DDD3301CB34CDB0089DC5C /* SQLStoreSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLStoreSharedManager.h; sourceTree = "<group>"; };
@@ -96,25 +116,7 @@
 		06DDD3681CB3561B0089DC5C /* SQLDatabaseListDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLDatabaseListDescription.m; path = SQLDatabaseListDescription/SQLDatabaseListDescription.m; sourceTree = "<group>"; };
 		06DDD36B1CB3AFDE0089DC5C /* SQLSimulatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLSimulatorModel.h; path = SQLSimulatorModel/SQLSimulatorModel.h; sourceTree = "<group>"; };
 		06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLSimulatorModel.m; path = SQLSimulatorModel/SQLSimulatorModel.m; sourceTree = "<group>"; };
-		06E1CB631CB22DEB00C08E57 /* IDEKeyBindingPreferenceSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKeyBindingPreferenceSet.h; sourceTree = "<group>"; };
-		06E1CBA61CB2379300C08E57 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		06E1CBA71CB2379300C08E57 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		06E1CBA81CB2379300C08E57 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		06E1CBA91CB2379300C08E57 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		06E1CBAA1CB2379300C08E57 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		06E1CBAB1CB2379300C08E57 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		06E1CBAC1CB2379300C08E57 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		06E1CBAD1CB2379300C08E57 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		06E1CBAE1CB2379300C08E57 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		06E1CBAF1CB2379300C08E57 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		06E1CBB01CB2379300C08E57 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		06F6EF491CB2846B0002D26D /* DVTFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTFoundation.h; sourceTree = "<group>"; };
-		06F6EF4A1CB2846B0002D26D /* DVTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTKit.h; sourceTree = "<group>"; };
-		06F6EF4B1CB2846B0002D26D /* IDEFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
-		06F6EF4C1CB2846B0002D26D /* IDEKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
-		06F6EF4D1CB2846B0002D26D /* IDESourceEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
-		06F96DAE1CB4B3BF0030A731 /* ic_add_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_24dp.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +163,8 @@
 		061AB5E11CB2253600EDCB4C /* SQLPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				0625C2F71CBC8D5C007C990F /* Other */,
 				06DDD32A1CB34CDB0089DC5C /* Class */,
-				06E1CBB81CB23E7500C08E57 /* Resource */,
-				06E1CBA51CB2379300C08E57 /* FMDB */,
-				06E1CB621CB22DEB00C08E57 /* IDE */,
 				061AB5E51CB2253600EDCB4C /* SQLPlugin.h */,
 				061AB5E61CB2253600EDCB4C /* SQLPlugin.m */,
 				061AB5E81CB2253600EDCB4C /* NSObject_Extension.h */,
@@ -181,6 +181,66 @@
 				061AB5E31CB2253600EDCB4C /* SQLPlugin.xcscheme */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0625C2F71CBC8D5C007C990F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				0625C2F81CBC8D5C007C990F /* FMDB */,
+				0625C3051CBC8D5C007C990F /* IDE */,
+				0625C30C1CBC8D5C007C990F /* Resource */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		0625C2F81CBC8D5C007C990F /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				0625C2F91CBC8D5C007C990F /* FMDatabase.h */,
+				0625C2FA1CBC8D5C007C990F /* FMDatabase.m */,
+				0625C2FB1CBC8D5C007C990F /* FMDatabaseAdditions.h */,
+				0625C2FC1CBC8D5C007C990F /* FMDatabaseAdditions.m */,
+				0625C2FD1CBC8D5C007C990F /* FMDatabasePool.h */,
+				0625C2FE1CBC8D5C007C990F /* FMDatabasePool.m */,
+				0625C2FF1CBC8D5C007C990F /* FMDatabaseQueue.h */,
+				0625C3001CBC8D5C007C990F /* FMDatabaseQueue.m */,
+				0625C3011CBC8D5C007C990F /* FMDB.h */,
+				0625C3021CBC8D5C007C990F /* FMResultSet.h */,
+				0625C3031CBC8D5C007C990F /* FMResultSet.m */,
+				0625C3041CBC8D5C007C990F /* Info.plist */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		0625C3051CBC8D5C007C990F /* IDE */ = {
+			isa = PBXGroup;
+			children = (
+				0625C3061CBC8D5C007C990F /* DVTFoundation.h */,
+				0625C3071CBC8D5C007C990F /* DVTKit.h */,
+				0625C3081CBC8D5C007C990F /* IDEFoundation.h */,
+				0625C3091CBC8D5C007C990F /* IDEKeyBindingPreferenceSet.h */,
+				0625C30A1CBC8D5C007C990F /* IDEKit.h */,
+				0625C30B1CBC8D5C007C990F /* IDESourceEditor.h */,
+			);
+			path = IDE;
+			sourceTree = "<group>";
+		};
+		0625C30C1CBC8D5C007C990F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */,
+				0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */,
+				0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */,
+				0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */,
+				0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */,
+				0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */,
+				0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */,
+				0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */,
+				0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */,
+				0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */,
+				0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		063A7D0D1CBB7939003AA338 /* SQLDatabaseManager */ = {
@@ -364,55 +424,6 @@
 			name = SQLSimulatorModel;
 			sourceTree = "<group>";
 		};
-		06E1CB621CB22DEB00C08E57 /* IDE */ = {
-			isa = PBXGroup;
-			children = (
-				06F6EF491CB2846B0002D26D /* DVTFoundation.h */,
-				06F6EF4A1CB2846B0002D26D /* DVTKit.h */,
-				06F6EF4B1CB2846B0002D26D /* IDEFoundation.h */,
-				06F6EF4C1CB2846B0002D26D /* IDEKit.h */,
-				06F6EF4D1CB2846B0002D26D /* IDESourceEditor.h */,
-				06E1CB631CB22DEB00C08E57 /* IDEKeyBindingPreferenceSet.h */,
-			);
-			path = IDE;
-			sourceTree = "<group>";
-		};
-		06E1CBA51CB2379300C08E57 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				06E1CBA61CB2379300C08E57 /* FMDatabase.h */,
-				06E1CBA71CB2379300C08E57 /* FMDatabase.m */,
-				06E1CBA81CB2379300C08E57 /* FMDatabaseAdditions.h */,
-				06E1CBA91CB2379300C08E57 /* FMDatabaseAdditions.m */,
-				06E1CBAA1CB2379300C08E57 /* FMDatabasePool.h */,
-				06E1CBAB1CB2379300C08E57 /* FMDatabasePool.m */,
-				06E1CBAC1CB2379300C08E57 /* FMDatabaseQueue.h */,
-				06E1CBAD1CB2379300C08E57 /* FMDatabaseQueue.m */,
-				06E1CBAE1CB2379300C08E57 /* FMDB.h */,
-				06E1CBAF1CB2379300C08E57 /* FMResultSet.h */,
-				06E1CBB01CB2379300C08E57 /* FMResultSet.m */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
-		06E1CBB81CB23E7500C08E57 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				06B004CB1CBBDC640043E3D8 /* ic_delete_forever_black_18dp.png */,
-				0636ADFB1CB4BAC50011EEA0 /* ic_add_black_18dp.png */,
-				06F96DAE1CB4B3BF0030A731 /* ic_add_black_24dp.png */,
-				0634DDB21CB417810083EEFD /* ic_refresh_black_18dp.png */,
-				06C3BBBE1CB415FD00A1F522 /* ic_open_in_browser_black_18dp.png */,
-				06C3BBBF1CB415FD00A1F522 /* ic_open_in_new_black_18dp.png */,
-				065E4C871CB25981004A3820 /* ic_insert_drive_file_black_24dp.png */,
-				065E4C881CB25981004A3820 /* ic_pie_chart_black_24dp.png */,
-				065E4C7C1CB257E8004A3820 /* ic_navigate_before_black_24dp.png */,
-				065E4C7D1CB257E8004A3820 /* ic_navigate_next_black_24dp.png */,
-				065E4C7E1CB257E8004A3820 /* ic_phone_iphone_black_24dp.png */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,19 +480,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C3BBC51CB415FD00A1F522 /* ic_open_in_new_black_18dp.png in Resources */,
-				065E4C891CB25981004A3820 /* ic_insert_drive_file_black_24dp.png in Resources */,
-				0636ADFC1CB4BAC50011EEA0 /* ic_add_black_18dp.png in Resources */,
-				0634DDB31CB417810083EEFD /* ic_refresh_black_18dp.png in Resources */,
-				065E4C851CB257E8004A3820 /* ic_phone_iphone_black_24dp.png in Resources */,
-				06B004CD1CBBDC640043E3D8 /* ic_delete_forever_black_18dp.png in Resources */,
-				06C3BBC41CB415FD00A1F522 /* ic_open_in_browser_black_18dp.png in Resources */,
-				065E4C841CB257E8004A3820 /* ic_navigate_next_black_24dp.png in Resources */,
-				06F96DB01CB4B3BF0030A731 /* ic_add_black_24dp.png in Resources */,
+				0625C31F1CBC8D5C007C990F /* ic_add_black_24dp.png in Resources */,
+				0625C3211CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png in Resources */,
+				0625C31E1CBC8D5C007C990F /* ic_add_black_18dp.png in Resources */,
 				061AB5E41CB2253600EDCB4C /* SQLPlugin.xcscheme in Resources */,
-				065E4C831CB257E8004A3820 /* ic_navigate_before_black_24dp.png in Resources */,
 				06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */,
-				065E4C8A1CB25981004A3820 /* ic_pie_chart_black_24dp.png in Resources */,
+				0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */,
+				0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */,
+				0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */,
+				0625C31D1CBC8D5C007C990F /* Info.plist in Resources */,
+				0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */,
+				0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */,
+				0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */,
+				0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */,
+				0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,24 +506,24 @@
 			files = (
 				06DDD3691CB3561B0089DC5C /* SQLDatabaseListDescription.m in Sources */,
 				06DDD3621CB34CDB0089DC5C /* SQLTableListView.m in Sources */,
+				0625C31A1CBC8D5C007C990F /* FMDatabasePool.m in Sources */,
 				06DDD35F1CB34CDB0089DC5C /* SQLDatabaseDescription.m in Sources */,
-				06E1CBB31CB2379300C08E57 /* FMDatabasePool.m in Sources */,
-				06E1CBB41CB2379300C08E57 /* FMDatabaseQueue.m in Sources */,
 				06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */,
+				0625C31B1CBC8D5C007C990F /* FMDatabaseQueue.m in Sources */,
+				0625C3181CBC8D5C007C990F /* FMDatabase.m in Sources */,
+				0625C3191CBC8D5C007C990F /* FMDatabaseAdditions.m in Sources */,
 				06DDD3641CB34CDB0089DC5C /* SQLMainViewController.m in Sources */,
+				0625C31C1CBC8D5C007C990F /* FMResultSet.m in Sources */,
 				061AB5E71CB2253600EDCB4C /* SQLPlugin.m in Sources */,
 				06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */,
-				06E1CBB51CB2379300C08E57 /* FMResultSet.m in Sources */,
 				06DDD36D1CB3AFDE0089DC5C /* SQLSimulatorModel.m in Sources */,
 				06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */,
 				06DDD3611CB34CDB0089DC5C /* SQLTableDetailView.m in Sources */,
 				06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */,
 				06DDD35D1CB34CDB0089DC5C /* SQLTableProperty.m in Sources */,
-				06E1CBB11CB2379300C08E57 /* FMDatabase.m in Sources */,
 				063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */,
 				06DDD3601CB34CDB0089DC5C /* SQLTableDescription.m in Sources */,
 				061AB5EA1CB2253600EDCB4C /* NSObject_Extension.m in Sources */,
-				06E1CBB21CB2379300C08E57 /* FMDatabaseAdditions.m in Sources */,
 				06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

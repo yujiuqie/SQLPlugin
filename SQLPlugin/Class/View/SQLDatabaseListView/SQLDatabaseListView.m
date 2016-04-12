@@ -19,11 +19,13 @@
 {
     NSPoint point = [self convertPoint:[event locationInWindow] fromView:nil];
     NSInteger row = [self rowAtPoint:point];
-    
-    if ( row == -1)
+
+    if (row == -1)
     {
         return nil;
     }
+    
+    [self selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
     
     return _databaseItemMenu;
 }
