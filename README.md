@@ -23,22 +23,28 @@ With SQLPlugin you can easily to get all database type files in your simulator d
 
 After installed, You can use *shift + command + v* to open plugin window.
 
+Or select *SQL -> Run* in the Xcode Menu to open plugin window.
+
 All the files in database type will list out automatically after the plugin window loaded.
 
 You can also add any file in database type by click *Add* button or just drag them into your plugin window.
 
 ## Install
 
-Install through [Alcatraz](http://alcatraz.io/), the package manager for Xcode.
+#### 1. Install through [Alcatraz](http://alcatraz.io/), the package manager for Xcode.
 
-Alternatively, clone the project:
+#### 2. Install through terminal, open up your terminal and paste this:
 
-1. Build the project to install the plugin. The plugin will be installed in `/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin`.
+>curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | sh
 
-2. Restart Xcode so the plugin bundle is loaded.
+#### 3. Download the repository from Github and build it in Xcode. The plugin will be installed in 
 
+>/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
+
+You'll need to restart Xcode after the installation.
 
 ## License
+```
 The MIT License (MIT)
 
 Copyright (c) 2016 Alfred Jiang
@@ -60,3 +66,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
