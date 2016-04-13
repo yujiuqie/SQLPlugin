@@ -10,7 +10,7 @@ With SQLPlugin you can easily to get all database type files in your simulator d
 
 ## Features
 
-- Load all files with extension of sqlite \ db \ sql in your simulator directories. 
+- Load all files with extension of `sqlite \ db \ sql` in your simulator directories. 
 - Quick to view all rows in your database's table.
 
 ## Missing Features
@@ -21,23 +21,35 @@ With SQLPlugin you can easily to get all database type files in your simulator d
 
 ## How to use
 
-After installed, You can use *shift + command + v* to open plugin window.
+After installed, You can use `shift + command + v` to open plugin window.
 
-Or select *SQL -> Run* from the Window Menu to open plugin window.
+Or select `SQL -> Run` from the Window Menu to open plugin window.
 
 All the files in database type will list out automatically after the plugin window loaded.
 
-You can also add any file in database type by click *Add* button or just drag them into your plugin window.
+You can also add any file in database type by click `Add` button or just drag them into your plugin window.
 
 ## Install
 
 1. Install through [Alcatraz](http://alcatraz.io/), the package manager for Xcode.
 2. Install through terminal, open up your terminal and paste this:
-        `curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | sh`
+```bash
+curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | sh
+```
 3. Download the repository from Github and build it in Xcode. The plugin will be installed in 
-        `/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin`
+```bash
+/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
+```
 
 You'll need to restart Xcode after the installation.
+
+## Uninstall
+
+Open up your terminal and paste this:
+
+```bash
+rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
+```
 
 ## License
 ```
