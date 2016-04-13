@@ -46,8 +46,7 @@ You'll need to restart Xcode after the installation.
 
 ## Uninstall
 
-Open up your terminal and paste this:
-
+* Open up your terminal and paste this:
 ```bash
 rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
