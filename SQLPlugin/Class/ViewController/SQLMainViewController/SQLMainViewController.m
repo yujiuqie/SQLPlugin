@@ -113,7 +113,10 @@ NSTextFieldDelegate
         
         if ([openFileControl runModal] == NSModalResponseOK )
         {
-            [self addFetchOperation:openFileControl.URLs.firstObject.path];
+            if ([openFileControl.URLs count] > 0) {
+                NSString *path = (NSString *)[(NSURL *)[openFileControl.URLs firstObject] path];
+                [self addFetchOperation:path];
+            }
         }
     });
 }
