@@ -38,7 +38,7 @@ curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | s
 ```
 * Download the repository from Github and build it in Xcode. The plugin will be installed in 
 ```bash
-/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
+~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
 
 You'll need to restart Xcode after the installation.
