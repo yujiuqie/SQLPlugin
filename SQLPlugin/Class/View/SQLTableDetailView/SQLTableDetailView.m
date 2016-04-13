@@ -76,7 +76,7 @@ NSTableViewDelegate
         NSString *identifier = @([self.table.properties indexOfObject:property]).stringValue; // Make a distinct one for each column
         NSString *header = property.name; // Or whatever you want to show the user
         
-        column.headerCell.stringValue = header;
+        [column.headerCell setStringValue:header];
         column.identifier = identifier;
         [self.detailView addTableColumn:column];
     }
