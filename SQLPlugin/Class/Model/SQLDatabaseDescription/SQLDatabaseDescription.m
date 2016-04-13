@@ -12,7 +12,7 @@
 
 @implementation SQLDatabaseDescription
 
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
     if(item == nil)
     {
@@ -26,7 +26,7 @@
     return YES;
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
     if(item == nil)
     {
@@ -35,7 +35,7 @@
     return self.tables[index];
 }
 
-- (nullable NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(nullable NSTableColumn *)tableColumn item:(id)item {
+- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
     
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLDatabaseNameView" owner:self];
     
