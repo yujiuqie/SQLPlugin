@@ -31,15 +31,15 @@ You can also add any file in database type by click `Add` button or just drag th
 
 ## Install
 
-1. Install through [Alcatraz](http://alcatraz.io/), the package manager for Xcode.
-2. Install through terminal, open up your terminal and paste this:
-```bash
-curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | sh
-```
-3. Download the repository from Github and build it in Xcode. The plugin will be installed in 
-```bash
-/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
-```
+* Install through [Alcatraz](http://alcatraz.io/), the package manager for Xcode.
+* Install through terminal, open up your terminal and paste this:
+        ```bash
+        curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | sh
+        ```
+* Download the repository from Github and build it in Xcode. The plugin will be installed in 
+        ```bash
+        /Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
+        ```
 
 You'll need to restart Xcode after the installation.
 
