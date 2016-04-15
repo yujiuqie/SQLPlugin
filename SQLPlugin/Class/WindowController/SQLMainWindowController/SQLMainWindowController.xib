@@ -378,7 +378,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="faa-mb-wpu"/>
-                <menuItem title="Reveal in Finder" image="ic_open_in_browser_black_18dp" id="Wa5-Id-dha">
+                <menuItem title="Reveal in Finder" image="ic_folder_open_black_18dp" id="Wa5-Id-dha">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="revealInFinder:" target="-2" id="79R-wu-GB9"/>
@@ -420,11 +420,11 @@
         <image name="ic_computer_black_24dp" width="24" height="24"/>
         <image name="ic_delete_forever_black_18dp" width="18" height="18"/>
         <image name="ic_description_black_24dp" width="24" height="24"/>
+        <image name="ic_folder_open_black_18dp" width="18" height="18"/>
         <image name="ic_insert_chart_black_18dp" width="18" height="18"/>
         <image name="ic_insert_chart_black_24dp" width="24" height="24"/>
         <image name="ic_navigate_before_black_24dp" width="24" height="24"/>
         <image name="ic_navigate_next_black_24dp" width="24" height="24"/>
-        <image name="ic_open_in_browser_black_18dp" width="18" height="18"/>
         <image name="ic_open_in_new_black_18dp" width="18" height="18"/>
         <image name="ic_phone_iphone_black_24dp" width="24" height="24"/>
         <image name="ic_pie_chart_black_24dp" width="24" height="24"/>

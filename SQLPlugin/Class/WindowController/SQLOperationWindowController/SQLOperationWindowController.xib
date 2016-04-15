@@ -26,7 +26,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="720" height="458"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <splitView dividerStyle="thin" translatesAutoresizingMaskIntoConstraints="NO" id="Us0-Vo-a2O">
                         <rect key="frame" x="0.0" y="0.0" width="720" height="458"/>
@@ -152,11 +152,35 @@
                                                     <constraint firstAttribute="height" constant="1" id="d7C-fh-JPG"/>
                                                 </constraints>
                                             </customView>
+                                            <textField horizontalHuggingPriority="248" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-Vj-I3Y">
+                                                <rect key="frame" x="119" y="127" width="33" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="Sck-hz-Mr5"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Path" id="Cqw-ve-n0u">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-Hb-Ksa">
+                                                <rect key="frame" x="152" y="123" width="22" height="25"/>
+                                                <buttonCell key="cell" type="squareTextured" title="Help" bezelStyle="texturedSquare" image="ic_folder_open_black_18dp" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ddP-dm-aqK">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="didPressHelpButton:" target="-2" id="1qM-KO-HXA"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="4aG-p6-HQw" firstAttribute="top" secondItem="8O5-WR-oBx" secondAttribute="bottom" constant="3" id="0QC-NG-DOI"/>
+                                            <constraint firstItem="rCU-Hb-Ksa" firstAttribute="leading" secondItem="Ld1-Vj-I3Y" secondAttribute="trailing" constant="2" id="2C1-FT-RRt"/>
                                             <constraint firstAttribute="trailing" secondItem="fkq-Ve-Je7" secondAttribute="trailing" constant="5" id="2q3-hS-a9N"/>
+                                            <constraint firstItem="Ld1-Vj-I3Y" firstAttribute="centerY" secondItem="Rf1-ZD-Xve" secondAttribute="centerY" id="342-gg-DLa"/>
                                             <constraint firstItem="8O5-WR-oBx" firstAttribute="leading" secondItem="ZG8-7s-gy7" secondAttribute="leading" constant="5" id="3cQ-bC-8ml"/>
+                                            <constraint firstItem="rCU-Hb-Ksa" firstAttribute="centerY" secondItem="Ld1-Vj-I3Y" secondAttribute="centerY" id="8Sc-vv-3xG"/>
                                             <constraint firstAttribute="trailing" secondItem="4aG-p6-HQw" secondAttribute="trailing" id="9Ce-Mo-adC"/>
                                             <constraint firstItem="n2M-Es-zwg" firstAttribute="centerY" secondItem="Rf1-ZD-Xve" secondAttribute="centerY" id="9pS-Je-1AW"/>
                                             <constraint firstAttribute="trailing" secondItem="UG6-Zp-lFO" secondAttribute="trailing" id="As8-iU-4QM"/>
@@ -179,6 +203,7 @@
                                             <constraint firstItem="U9k-dx-LMF" firstAttribute="centerY" secondItem="n2M-Es-zwg" secondAttribute="centerY" id="mQ9-D6-x6a"/>
                                             <constraint firstItem="n2M-Es-zwg" firstAttribute="leading" secondItem="U9k-dx-LMF" secondAttribute="trailing" constant="10" id="ocx-Yi-LLK"/>
                                             <constraint firstItem="Afl-WA-Foa" firstAttribute="centerY" secondItem="54I-Ig-Oad" secondAttribute="centerY" id="s0K-ux-RRb"/>
+                                            <constraint firstItem="Ld1-Vj-I3Y" firstAttribute="leading" secondItem="Rf1-ZD-Xve" secondAttribute="trailing" constant="5" id="wjJ-AZ-FUW"/>
                                             <constraint firstAttribute="bottom" secondItem="4aG-p6-HQw" secondAttribute="bottom" constant="1" id="yiY-0b-jIk"/>
                                             <constraint firstAttribute="trailing" secondItem="C2d-Y8-GZ6" secondAttribute="trailing" constant="5" id="zde-2o-Hau"/>
                                         </constraints>
@@ -202,7 +227,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="zcm-VX-1li" viewBased="YES" id="l0H-uZ-mdt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="718" height="286"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="718" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -280,8 +305,19 @@
             </connections>
             <point key="canvasLocation" x="330" y="193"/>
         </window>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5xB-B9-qhw">
+            <rect key="frame" x="0.0" y="0.0" width="38" height="23"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="j08-3I-0Qb">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="274" y="-87.5"/>
+        </textField>
     </objects>
     <resources>
+        <image name="ic_folder_open_black_18dp" width="18" height="18"/>
         <image name="ic_format_list_bulleted_18pt" width="18" height="18"/>
         <image name="ic_help_outline_black_18dp" width="18" height="18"/>
         <image name="ic_history_18pt" width="18" height="18"/>

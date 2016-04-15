@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06003C111CC12CB5000D5C92 /* ic_folder_open_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */; };
 		060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352361CC099430021AB81 /* ic_computer_18pt.png */; };
 		060352391CC099430021AB81 /* ic_computer_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352371CC099430021AB81 /* ic_computer_black_24dp.png */; };
 		0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */; };
@@ -26,7 +27,6 @@
 		0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */; };
 		0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */; };
 		0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */; };
-		0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */; };
 		0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */; };
 		0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */; };
 		0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */; };
@@ -59,9 +59,11 @@
 		06EB450F1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB450E1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png */; };
 		06EB45111CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB45101CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png */; };
 		06EB45131CC0CFE900291DDD /* ic_history_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB45121CC0CFE900291DDD /* ic_history_18pt.png */; };
+		06F793DC1CC1243100D5A1C7 /* SQLKeybindingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_folder_open_black_18dp.png; sourceTree = "<group>"; };
 		060352361CC099430021AB81 /* ic_computer_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_18pt.png; sourceTree = "<group>"; };
 		060352371CC099430021AB81 /* ic_computer_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_black_24dp.png; sourceTree = "<group>"; };
 		0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_24dp.png; sourceTree = "<group>"; };
@@ -97,7 +99,6 @@
 		0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_delete_forever_black_18dp.png; sourceTree = "<group>"; };
 		0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_before_black_24dp.png; sourceTree = "<group>"; };
 		0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_next_black_24dp.png; sourceTree = "<group>"; };
-		0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_browser_black_18dp.png; sourceTree = "<group>"; };
 		0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_new_black_18dp.png; sourceTree = "<group>"; };
 		0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone_iphone_black_24dp.png; sourceTree = "<group>"; };
 		0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pie_chart_black_24dp.png; sourceTree = "<group>"; };
@@ -147,6 +148,8 @@
 		06EB450E1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_play_arrow_black_18dp.png; sourceTree = "<group>"; };
 		06EB45101CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_remove_circle_outline_18pt.png; sourceTree = "<group>"; };
 		06EB45121CC0CFE900291DDD /* ic_history_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history_18pt.png; sourceTree = "<group>"; };
+		06F793DA1CC1243100D5A1C7 /* SQLKeybindingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLKeybindingManager.h; path = SQLKeybindingManager/SQLKeybindingManager.h; sourceTree = "<group>"; };
+		06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLKeybindingManager.m; path = SQLKeybindingManager/SQLKeybindingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,7 @@
 		0625C30C1CBC8D5C007C990F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */,
 				064E06BA1CC11B5200CE6F9D /* ic_format_list_bulleted_18pt.png */,
 				0658C08B1CC0EB92001FEEFE /* ic_pie_chart_black_18dp.png */,
 				0658C0891CC0D34F001FEEFE /* ic_help_outline_black_18dp.png */,
@@ -275,7 +279,6 @@
 				0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */,
 				0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */,
 				0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */,
-				0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */,
 				0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */,
 				0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */,
 				0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */,
@@ -390,6 +393,7 @@
 		06DDD32B1CB34CDB0089DC5C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				06F793D91CC1240900D5A1C7 /* SQLKeybindingManager */,
 				0658C07B1CC0C768001FEEFE /* SQLCommandManager */,
 				063A7D0D1CBB7939003AA338 /* SQLDatabaseManager */,
 				06DDD32C1CB34CDB0089DC5C /* SQLSimulatorManager */,
@@ -486,6 +490,15 @@
 			name = SQLSimulatorModel;
 			sourceTree = "<group>";
 		};
+		06F793D91CC1240900D5A1C7 /* SQLKeybindingManager */ = {
+			isa = PBXGroup;
+			children = (
+				06F793DA1CC1243100D5A1C7 /* SQLKeybindingManager.h */,
+				06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */,
+			);
+			name = SQLKeybindingManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -552,7 +565,6 @@
 				0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */,
 				06EB450F1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png in Resources */,
 				0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */,
-				0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */,
 				0625C31D1CBC8D5C007C990F /* Info.plist in Resources */,
 				0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */,
 				0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */,
@@ -565,6 +577,7 @@
 				0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */,
 				0658C0861CC0CC38001FEEFE /* ic_description_black_24dp.png in Resources */,
 				064E06BB1CC11B5200CE6F9D /* ic_format_list_bulleted_18pt.png in Resources */,
+				06003C111CC12CB5000D5C92 /* ic_folder_open_black_18dp.png in Resources */,
 				0658C0881CC0D093001FEEFE /* ic_close_18pt.png in Resources */,
 				0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */,
 				06CE27901CC0B52700ADC45F /* ic_insert_chart_black_18dp.png in Resources */,
@@ -578,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F793DC1CC1243100D5A1C7 /* SQLKeybindingManager.m in Sources */,
 				06DDD3621CB34CDB0089DC5C /* SQLTableListView.m in Sources */,
 				0625C31A1CBC8D5C007C990F /* FMDatabasePool.m in Sources */,
 				06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */,

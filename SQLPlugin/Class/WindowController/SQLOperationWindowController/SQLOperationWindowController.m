@@ -88,6 +88,11 @@ NSTextFieldDelegate
     
 }
 
+-(IBAction)didPressPathButton:(NSButton *)sender
+{
+    
+}
+
 -(IBAction)didPressHelpButton:(NSButton *)sender
 {
     
