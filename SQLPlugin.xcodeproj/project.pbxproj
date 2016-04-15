@@ -38,6 +38,7 @@
 		0658C0881CC0D093001FEEFE /* ic_close_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0658C0871CC0D093001FEEFE /* ic_close_18pt.png */; };
 		0658C08A1CC0D34F001FEEFE /* ic_help_outline_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0658C0891CC0D34F001FEEFE /* ic_help_outline_black_18dp.png */; };
 		0658C08C1CC0EB92001FEEFE /* ic_pie_chart_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0658C08B1CC0EB92001FEEFE /* ic_pie_chart_black_18dp.png */; };
+		06766A421CC13D0E00F44700 /* SQLCSVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06766A411CC13D0E00F44700 /* SQLCSVManager.m */; };
 		06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */; };
 		06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */; };
 		06B4F8BB1CBCA69A0012F727 /* SQLDatabaseDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B41CBCA69A0012F727 /* SQLDatabaseDescription.m */; };
@@ -112,6 +113,8 @@
 		0658C0871CC0D093001FEEFE /* ic_close_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_close_18pt.png; sourceTree = "<group>"; };
 		0658C0891CC0D34F001FEEFE /* ic_help_outline_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_help_outline_black_18dp.png; sourceTree = "<group>"; };
 		0658C08B1CC0EB92001FEEFE /* ic_pie_chart_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pie_chart_black_18dp.png; sourceTree = "<group>"; };
+		06766A401CC13D0E00F44700 /* SQLCSVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLCSVManager.h; path = SQLCSVManager/SQLCSVManager.h; sourceTree = "<group>"; };
+		06766A411CC13D0E00F44700 /* SQLCSVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLCSVManager.m; path = SQLCSVManager/SQLCSVManager.m; sourceTree = "<group>"; };
 		06A459E91CB4123500A0A260 /* SQLDatabaseListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLDatabaseListView.h; path = SQLDatabaseListView/SQLDatabaseListView.h; sourceTree = "<group>"; };
 		06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLDatabaseListView.m; path = SQLDatabaseListView/SQLDatabaseListView.m; sourceTree = "<group>"; };
 		06B004C71CBBD85A0043E3D8 /* SQLMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLMainWindow.h; path = SQLMainWindow/SQLMainWindow.h; sourceTree = "<group>"; };
@@ -305,6 +308,15 @@
 			path = SQLCommandManager;
 			sourceTree = "<group>";
 		};
+		06766A3F1CC13CF700F44700 /* SQLCSVManager */ = {
+			isa = PBXGroup;
+			children = (
+				06766A401CC13D0E00F44700 /* SQLCSVManager.h */,
+				06766A411CC13D0E00F44700 /* SQLCSVManager.m */,
+			);
+			name = SQLCSVManager;
+			sourceTree = "<group>";
+		};
 		06A459E81CB4121100A0A260 /* SQLDatabaseListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +405,7 @@
 		06DDD32B1CB34CDB0089DC5C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				06766A3F1CC13CF700F44700 /* SQLCSVManager */,
 				06F793D91CC1240900D5A1C7 /* SQLKeybindingManager */,
 				0658C07B1CC0C768001FEEFE /* SQLCommandManager */,
 				063A7D0D1CBB7939003AA338 /* SQLDatabaseManager */,
@@ -607,6 +620,7 @@
 				06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */,
 				06B4F8BD1CBCA69A0012F727 /* SQLTableDescription.m in Sources */,
 				06DDD3611CB34CDB0089DC5C /* SQLTableDetailView.m in Sources */,
+				06766A421CC13D0E00F44700 /* SQLCSVManager.m in Sources */,
 				06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */,
 				06DDD35D1CB34CDB0089DC5C /* SQLTableProperty.m in Sources */,
 				06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */,

@@ -10,6 +10,7 @@
 #import "SQLTableDetailView.h"
 #import "SQLSimulatorModel.h"
 #import "SQLCommandManager.h"
+#import "SQLWindowsManager.h"
 
 @interface SQLOperationWindowController ()
 <
@@ -23,8 +24,9 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSTextField *textFieldSQLCommand;
 @property (nonatomic, weak) IBOutlet NSTextField *textFieldErrorLog;
 @property (nonatomic, weak) IBOutlet SQLTableDetailView *tableDetailView;
-@property (weak) IBOutlet NSView *seperatorView;
-@property (weak) IBOutlet NSView *seperatorViewBottom;
+@property (nonatomic, weak) IBOutlet NSView *seperatorView;
+@property (nonatomic, weak) IBOutlet NSView *seperatorViewBottom;
+@property (nonatomic, strong) SQLOperationWindowController *sqlQueryVC;
 
 @end
 
@@ -39,14 +41,14 @@ NSTextFieldDelegate
 -(void)awakeFromNib
 {
     CALayer *viewLayer = [CALayer layer];
-    [viewLayer setBackgroundColor:[NSColor lightGrayColor].CGColor]; //RGB plus Alpha Channel
-    [self.seperatorView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+    [viewLayer setBackgroundColor:[NSColor lightGrayColor].CGColor];
+    [self.seperatorView setWantsLayer:YES];
     [self.seperatorView setLayer:viewLayer];
     self.seperatorView.layer.backgroundColor = [NSColor grayColor].CGColor;
     
     CALayer *viewLayerBottom = [CALayer layer];
-    [viewLayerBottom setBackgroundColor:[NSColor lightGrayColor].CGColor]; //RGB plus Alpha Channel
-    [self.seperatorViewBottom setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
+    [viewLayerBottom setBackgroundColor:[NSColor lightGrayColor].CGColor];
+    [self.seperatorViewBottom setWantsLayer:YES]; 
     [self.seperatorViewBottom setLayer:viewLayerBottom];
     self.seperatorViewBottom.layer.backgroundColor = [NSColor grayColor].CGColor;
     
@@ -100,7 +102,12 @@ NSTextFieldDelegate
 
 -(IBAction)didPressCloseButton:(NSButton *)sender
 {
-    [self close];
+    if (!_sqlQueryVC) {
+        _sqlQueryVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
+    }
+    
+    [_sqlQueryVC.window center];
+    [_sqlQueryVC.window makeKeyAndOrderFront:nil];
 }
 
 -(IBAction)didPressRunButton:(NSButton *)sender

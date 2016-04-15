@@ -35,7 +35,7 @@
     }
     else if([cell isKindOfClass:[SQLTableDescription class]]){
         SQLTableDescription *table = (SQLTableDescription *)cell;
-        [item setEnabled:(([table.rows integerValue] > 0) ? YES : NO)];
+        [item setEnabled:(([table.rowCount integerValue] > 0) ? YES : NO)];
     }
     
     return _databaseItemMenu;

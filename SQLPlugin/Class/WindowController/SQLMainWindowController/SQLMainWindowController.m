@@ -15,6 +15,7 @@
 #import "SQLWindowsManager.h"
 #import "SQLDatabaseManager.h"
 #import "SQLSimulatorManager.h"
+#import "SQLCSVManager.h"
 #import "SQLDatabaseListView.h"
 #import "SQLSimulatorModel.h"
 
@@ -109,7 +110,7 @@ NSTextFieldDelegate
 
 -(IBAction)didPressCSVButton:(NSButton *)sender
 {
-    //TODO::
+    [self exportTable:nil];
 }
 
 -(IBAction)didPressSimulatorButton:(NSButton *)sender
@@ -190,7 +191,7 @@ NSTextFieldDelegate
 -(void)didSelectTable:(SQLTableDescription *)table
 {
     self.tableDetailView.table = table;
-    self.csvButton.enabled = ([table.rows integerValue] > 0) ? YES : NO;
+    self.csvButton.enabled = ([table.rowCount integerValue] > 0) ? YES : NO;
     self.sqlButton.enabled = YES;
 }
 
@@ -285,6 +286,7 @@ NSTextFieldDelegate
 
 #pragma mark - Menu Operation
 - (IBAction)executeSQL:(NSMenuItem *)sender {
+    [self didPressSQLButton:nil];
 }
 
 - (IBAction)refreshDatabase:(NSMenuItem *)sender
@@ -370,6 +372,44 @@ NSTextFieldDelegate
 
 - (IBAction)exportTable:(NSMenuItem *)sender {
     
+    id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
+    
+    NSString *path = @"";
+    
+    if([cell isKindOfClass:[SQLTableDescription class]]){
+        path = ((SQLTableDescription *)cell).path;
+    }
+    
+    if ([path length] == 0) {
+        return;
+    }
+    
+    NSString *name = [self.tableDetailView.table.name stringByAppendingPathExtension:@"csv"];
+    
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    
+    [panel setAllowsOtherFileTypes:NO];
+    [panel setExtensionHidden:NO];
+    [panel setCanCreateDirectories:YES];
+    [panel setNameFieldStringValue:name];
+    [panel setTitle:[NSString stringWithFormat:@"Saving %@",name]]; // Window title
+    
+    NSInteger result = [panel runModal];
+    NSError *error = nil;
+    
+    if (result == NSModalResponseOK) {
+        NSString *path0 = [[panel URL] path];
+        
+        __weak SQLMainWindowController *weakSelf = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            __strong SQLMainWindowController *strongSelf = weakSelf;
+            [[SQLCSVManager sharedManager] exportTo:path0 withTable:strongSelf.tableDetailView.table];
+        });
+        
+        if (error) {
+            [NSApp presentError:error];
+        }
+    }
 }
 
 - (IBAction)removeReference:(NSMenuItem *)sender

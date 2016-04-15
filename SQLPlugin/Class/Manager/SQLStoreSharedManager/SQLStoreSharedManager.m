@@ -72,7 +72,7 @@ static SQLStoreSharedManager *_sharedManager = nil;
             FMResultSet *count = [db executeQuery:[NSString stringWithFormat:@"SELECT Count(*) FROM %@", table.name]];
             while([count next])
             {
-                table.rows = count.resultDictionary[@"Count(*)"];
+                table.rowCount = count.resultDictionary[@"Count(*)"];
             }
             [tables addObject:table];
         }

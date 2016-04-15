@@ -13,12 +13,12 @@
 @interface SQLTableDescription : NSObject <NSOutlineViewDataSource>
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *rows;
 @property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong) NSNumber *rowCount;
 @property (nonatomic, strong) NSString *selectedPropertName;
 @property (nonatomic, assign) BOOL desc;
 @property (nonatomic, strong) NSArray *properties;
-@property (nonatomic, strong) NSArray *childern;
+@property (nonatomic, strong) NSArray *rows;
 
 - (NSString *)databaseName;
 - (NSString *)selectedPropertName;

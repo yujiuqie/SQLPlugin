@@ -27,13 +27,13 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    return [NSString stringWithFormat:@"%@ (%@)",self.name, self.rows];
+    return [NSString stringWithFormat:@"%@ (%@)",self.name, self.rowCount];
 }
 
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLTableNameView" owner:self];
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ rows)",self.name,self.rows];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ rows)",self.name,self.rowCount];
     return cell;
 }
 

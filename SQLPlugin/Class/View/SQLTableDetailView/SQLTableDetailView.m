@@ -18,7 +18,7 @@ NSTableViewDelegate
 
 @property (nonatomic, weak) IBOutlet NSTableView *detailView;
 @property (nonatomic, strong) NSNumber *offset;
-@property (nonatomic, strong) NSArray *rows;
+
 @end
 
 @implementation SQLTableDetailView
@@ -34,7 +34,7 @@ NSTableViewDelegate
 
 -(void)awakeFromNib
 {
-    self.rows = [[NSMutableArray alloc] init];
+    self.table.rows = [[NSMutableArray alloc] init];
     [self clearColumns];
     self.leftButton.target = self;
     self.leftButton.action = NSSelectorFromString(@"didPressLeftButton:");
@@ -62,7 +62,7 @@ NSTableViewDelegate
 
 -(void)reloadUI
 {
-    self.rows = @[];
+    self.table.rows = @[];
     self.offset = @(0);
     self.leftButton.enabled = NO;
     self.rightButton.enabled = NO;
@@ -103,9 +103,10 @@ NSTableViewDelegate
         else
         {
             [[SQLStoreSharedManager sharedManager] getRowsWithOffset:self.offset withTableDescription:self.table completion:^(NSArray *rows) {
-                self.rows = rows;
+
+                self.table.rows = rows;
                 
-                if(self.rows.count + self.offset.intValue != self.table.rows.intValue){
+                if(self.table.rows.count + self.offset.intValue != [self.table.rowCount integerValue]){
                     self.rightButton.enabled = YES;
                 }
                 else{
@@ -127,7 +128,7 @@ NSTableViewDelegate
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return self.rows.count;
+    return [self.table.rows count];
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
@@ -140,7 +141,7 @@ NSTableViewDelegate
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     NSUInteger rowIndex = row;
     
-    NSArray *rowValues = self.rows[rowIndex];
+    NSArray *rowValues = self.table.rows[rowIndex];
     
     return [NSString stringWithFormat:@"%@",rowValues[columnIndex]];
 }
