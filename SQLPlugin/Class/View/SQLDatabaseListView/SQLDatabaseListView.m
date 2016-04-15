@@ -34,7 +34,8 @@
         [item setEnabled:NO];
     }
     else if([cell isKindOfClass:[SQLTableDescription class]]){
-        [item setEnabled:YES];
+        SQLTableDescription *table = (SQLTableDescription *)cell;
+        [item setEnabled:(([table.rows integerValue] > 0) ? YES : NO)];
     }
     
     return _databaseItemMenu;

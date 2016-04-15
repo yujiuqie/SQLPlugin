@@ -34,6 +34,8 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSButton *simulatorButton;
 @property (nonatomic, weak) IBOutlet NSButton *leftButton;
 @property (nonatomic, weak) IBOutlet NSButton *rightButton;
+@property (nonatomic, weak) IBOutlet NSButton *csvButton;
+@property (nonatomic, weak) IBOutlet NSButton *sqlButton;
 @property (nonatomic, weak) IBOutlet NSView *seperatorView;
 
 @property (nonatomic, strong) SQLDatabaseListDescription *sqliteList;
@@ -54,6 +56,8 @@ NSTextFieldDelegate
     
     self.rightButton.enabled = NO;
     self.leftButton.enabled = NO;
+    self.csvButton.enabled = NO;
+    self.sqlButton.enabled = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAddNewDatabasePath:) name:@"NOTI_ADD_NEW_DATABASE_PATH" object:nil];
     
@@ -93,8 +97,20 @@ NSTextFieldDelegate
 
 #pragma mark - Did Press Button
 
+-(IBAction)didPressSQLButton:(NSButton *)sender
+{
+  
+}
+
+-(IBAction)didPressCSVButton:(NSButton *)sender
+{
+
+}
+
 -(IBAction)didPressSimulatorButton:(NSButton *)sender
 {
+    self.csvButton.enabled = NO;
+    self.sqlButton.enabled = NO;
     self.tableDetailView.table = nil;
     self.tableListView.databases = nil;
     [self refreshSimulator];
@@ -102,23 +118,24 @@ NSTextFieldDelegate
 
 -(IBAction)didPressOpenButton:(NSButton *)sender
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSOpenPanel* openFileControl = [NSOpenPanel openPanel];
-        
-        NSArray *fileTypes = @[@"sqlite", @"sql", @"db"];
-        
-        openFileControl.canChooseFiles = YES;
-        openFileControl.allowedFileTypes = fileTypes;
-        openFileControl.allowsMultipleSelection = NO;
-        
-        if ([openFileControl runModal] == NSModalResponseOK )
-        {
-            if ([openFileControl.URLs count] > 0) {
-                NSString *path = (NSString *)[(NSURL *)[openFileControl.URLs firstObject] path];
-                [self addFetchOperation:path];
-            }
+    self.csvButton.enabled = NO;
+    self.sqlButton.enabled = NO;
+    
+    NSOpenPanel* openFileControl = [NSOpenPanel openPanel];
+    
+    NSArray *fileTypes = @[@"sqlite", @"sql", @"db"];
+    
+    openFileControl.canChooseFiles = YES;
+    openFileControl.allowedFileTypes = fileTypes;
+    openFileControl.allowsMultipleSelection = NO;
+    
+    if ([openFileControl runModal] == NSModalResponseOK )
+    {
+        if ([openFileControl.URLs count] > 0) {
+            NSString *path = (NSString *)[(NSURL *)[openFileControl.URLs firstObject] path];
+            [self addFetchOperation:path];
         }
-    });
+    }
 }
 
 -(void)fetchDatabaseInPath:(NSString*)path
@@ -165,14 +182,18 @@ NSTextFieldDelegate
 
 #pragma mark - SQLTableListDelegate
 
--(void)didSelectTable:(SQLTableDescription*)table
+-(void)didSelectTable:(SQLTableDescription *)table
 {
     self.tableDetailView.table = table;
+    self.csvButton.enabled = ([table.rows integerValue] > 0) ? YES : NO;
+    self.sqlButton.enabled = YES;
 }
 
--(void)didSelectDatabase:(SQLDatabaseDescription*)database
+-(void)didSelectDatabase:(SQLDatabaseDescription *)database
 {
     self.tableDetailView.table = nil;
+    self.csvButton.enabled = NO;
+    self.sqlButton.enabled = YES;
 }
 
 #pragma mark - Action

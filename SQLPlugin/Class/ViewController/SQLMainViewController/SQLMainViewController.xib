@@ -6,11 +6,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SQLMainViewController">
             <connections>
+                <outlet property="csvButton" destination="DEp-zg-VOK" id="dro-7Y-1KF"/>
                 <outlet property="databaseList" destination="26I-8e-wOE" id="pLV-YV-duL"/>
                 <outlet property="leftButton" destination="ndq-D4-dWm" id="iI2-Fg-9CZ"/>
                 <outlet property="rightButton" destination="pa8-1q-w6s" id="TVt-qP-2TB"/>
                 <outlet property="seperatorView" destination="6HD-3D-8DG" id="d29-o0-qmg"/>
                 <outlet property="simulatorButton" destination="O7A-U3-7Nk" id="kxu-Nk-fLO"/>
+                <outlet property="sqlButton" destination="skg-1W-MXQ" id="Ztt-xh-6Vc"/>
                 <outlet property="tableDetailView" destination="W2l-Js-CfV" id="5vm-Il-8wB"/>
                 <outlet property="tableListView" destination="5kp-W6-5Ol" id="uzi-bc-uzf"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="7TB-fy-RLZ"/>
@@ -315,7 +317,7 @@
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
                         <connections>
-                            <action selector="didPressSimulatorButton:" target="-2" id="9Yq-GN-Lgn"/>
+                            <action selector="didPressCSVButton:" target="-2" id="Oqj-n5-xBq"/>
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="skg-1W-MXQ">
@@ -329,7 +331,7 @@
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
                         <connections>
-                            <action selector="didPressSimulatorButton:" target="-2" id="Kdb-b7-27W"/>
+                            <action selector="didPressSQLButton:" target="-2" id="dfu-6L-8xs"/>
                         </connections>
                     </button>
                 </subviews>
