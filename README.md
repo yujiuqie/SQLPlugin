@@ -11,14 +11,14 @@ With SQLPlugin you can easily to get all database type files in your simulator d
 
 ## Features
 
-- Load all files with extension of `sqlite \ db \ sql` in your simulator directories. 
-- Quick to view all rows in your database's table.
-
-## Missing Features
-
-- Full SQL operation. This plugin only support view all rows in your database's table.
-- Test coverage
-
+<ul>
+<li>[x] Database browser for SQLite</li>
+<li>[x] Automatically load all databases in simulator directory</li>
+<li>[x] Add / delete / export database</li>
+<li>[ ] Full database operations</li>
+<li>[ ] Export table as CSV file</li>
+<li>[ ] Test coverage</li>
+</ul>
 
 ## How to use
 
