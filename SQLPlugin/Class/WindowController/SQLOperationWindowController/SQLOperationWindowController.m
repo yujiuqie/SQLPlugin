@@ -152,9 +152,16 @@ NSTextFieldDelegate
 - (void)setCurrentDatabase:(SQLDatabaseModel *)currentDatabase
 {
     _currentDatabase = currentDatabase;
+    
     if (![currentDatabase databaseName] || [[currentDatabase databaseName] length] == 0) {
         return;
     }
+    
+    if (![@[@"sqlite", @"sql", @"db"] containsObject:[currentDatabase.path pathExtension]]) {
+        return;
+    }
+    
+    [[SQLStoreSharedManager sharedManager] openDatabaseAtPath:currentDatabase.path];
     
     SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:currentDatabase.path]];
     
