@@ -1,5 +1,5 @@
 //
-//  SQLOperationViewController.h
+//  SQLOperationWindowController.h
 //  SQLPlugin
 //
 //  Created by viktyz on 16/4/15.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SQLOperationViewController : NSWindowController
+@interface SQLOperationWindowController : NSWindowController
 
 @end

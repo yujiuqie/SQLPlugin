@@ -1,18 +1,18 @@
 //
-//  SQLOperationViewController.m
+//  SQLOperationWindowController.m
 //  SQLPlugin
 //
 //  Created by viktyz on 16/4/15.
 //  Copyright © 2016年 Alfred Jiang. All rights reserved.
 //
 
-#import "SQLOperationViewController.h"
+#import "SQLOperationWindowController.h"
 
-@interface SQLOperationViewController ()
+@interface SQLOperationWindowController ()
 
 @end
 
-@implementation SQLOperationViewController
+@implementation SQLOperationWindowController
 
 - (void)windowDidLoad {
     [super windowDidLoad];

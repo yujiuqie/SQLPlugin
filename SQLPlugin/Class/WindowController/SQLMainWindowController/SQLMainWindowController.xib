@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SQLMainViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="SQLMainWindowController">
             <connections>
                 <outlet property="csvButton" destination="DEp-zg-VOK" id="dro-7Y-1KF"/>
                 <outlet property="databaseList" destination="26I-8e-wOE" id="pLV-YV-duL"/>

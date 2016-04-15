@@ -8,7 +8,7 @@
 
 #import "SQLPlugin.h"
 #import "IDEKeyBindingPreferenceSet.h"
-#import "SQLMainViewController.h"
+#import "SQLMainWindowController.h"
 #import "SQLWindowsManager.h"
 #import "SQLSimulatorManager.h"
 #import "IDEKit.h"
@@ -24,7 +24,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @property (nonatomic, strong) NSMenuItem *sqlPluginMenuItem;
-@property (nonatomic, strong) SQLMainViewController *sqlMainVC;
+@property (nonatomic, strong) SQLMainWindowController *sqlMainVC;
 
 @end
 

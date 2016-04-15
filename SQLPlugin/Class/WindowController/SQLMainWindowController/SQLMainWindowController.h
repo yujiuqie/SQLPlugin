@@ -1,5 +1,5 @@
 //
-//  SQLMainViewController.h
+//  SQLMainWindowController.h
 //  SQLPlugin
 //
 //  Created by viktyz on 16/4/4.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SQLMainViewController : NSWindowController
+@interface SQLMainWindowController : NSWindowController
 
 @end

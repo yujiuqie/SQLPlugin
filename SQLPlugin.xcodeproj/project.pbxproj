@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060352341CC092230021AB81 /* SQLOperationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060352321CC092230021AB81 /* SQLOperationViewController.m */; };
-		060352351CC092230021AB81 /* SQLOperationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060352331CC092230021AB81 /* SQLOperationViewController.xib */; };
 		060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352361CC099430021AB81 /* ic_computer_18pt.png */; };
 		060352391CC099430021AB81 /* ic_computer_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352371CC099430021AB81 /* ic_computer_black_24dp.png */; };
 		0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */; };
@@ -41,22 +39,21 @@
 		06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */; };
 		06B4F8BD1CBCA69A0012F727 /* SQLTableDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */; };
 		06CE27901CC0B52700ADC45F /* ic_insert_chart_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */; };
+		06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */; };
+		06CE279B1CC0C3EF00ADC45F /* SQLMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */; };
+		06CE279C1CC0C3EF00ADC45F /* SQLOperationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */; };
+		06CE279D1CC0C3EF00ADC45F /* SQLOperationWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */; };
 		06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */; };
 		06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3311CB34CDB0089DC5C /* SQLStoreSharedManager.m */; };
 		06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3341CB34CDB0089DC5C /* SQLWindowsManager.m */; };
 		06DDD35D1CB34CDB0089DC5C /* SQLTableProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD33E1CB34CDB0089DC5C /* SQLTableProperty.m */; };
 		06DDD3611CB34CDB0089DC5C /* SQLTableDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34B1CB34CDB0089DC5C /* SQLTableDetailView.m */; };
 		06DDD3621CB34CDB0089DC5C /* SQLTableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34F1CB34CDB0089DC5C /* SQLTableListView.m */; };
-		06DDD3641CB34CDB0089DC5C /* SQLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */; };
-		06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */; };
 		06DDD36D1CB3AFDE0089DC5C /* SQLSimulatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */; };
 		06E1CBB71CB237CE00C08E57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		060352311CC092230021AB81 /* SQLOperationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLOperationViewController.h; path = SQLOperationViewController/SQLOperationViewController.h; sourceTree = "<group>"; };
-		060352321CC092230021AB81 /* SQLOperationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLOperationViewController.m; path = SQLOperationViewController/SQLOperationViewController.m; sourceTree = "<group>"; };
-		060352331CC092230021AB81 /* SQLOperationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SQLOperationViewController.xib; path = SQLOperationViewController/SQLOperationViewController.xib; sourceTree = "<group>"; };
 		060352361CC099430021AB81 /* ic_computer_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_18pt.png; sourceTree = "<group>"; };
 		060352371CC099430021AB81 /* ic_computer_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_black_24dp.png; sourceTree = "<group>"; };
 		0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_24dp.png; sourceTree = "<group>"; };
@@ -111,6 +108,12 @@
 		06B4F8B91CBCA69A0012F727 /* SQLTableDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableDescription.h; sourceTree = "<group>"; };
 		06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTableDescription.m; sourceTree = "<group>"; };
 		06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_18dp.png; sourceTree = "<group>"; };
+		06CE27931CC0C3EF00ADC45F /* SQLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainWindowController.h; sourceTree = "<group>"; };
+		06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainWindowController.m; sourceTree = "<group>"; };
+		06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLMainWindowController.xib; sourceTree = "<group>"; };
+		06CE27971CC0C3EF00ADC45F /* SQLOperationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLOperationWindowController.h; sourceTree = "<group>"; };
+		06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLOperationWindowController.m; sourceTree = "<group>"; };
+		06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLOperationWindowController.xib; sourceTree = "<group>"; };
 		06DDD32D1CB34CDB0089DC5C /* SQLSimulatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLSimulatorManager.h; sourceTree = "<group>"; };
 		06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLSimulatorManager.m; sourceTree = "<group>"; };
 		06DDD3301CB34CDB0089DC5C /* SQLStoreSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLStoreSharedManager.h; sourceTree = "<group>"; };
@@ -124,9 +127,6 @@
 		06DDD34C1CB34CDB0089DC5C /* SQLTableListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableListProtocol.h; sourceTree = "<group>"; };
 		06DDD34E1CB34CDB0089DC5C /* SQLTableListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableListView.h; sourceTree = "<group>"; };
 		06DDD34F1CB34CDB0089DC5C /* SQLTableListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTableListView.m; sourceTree = "<group>"; };
-		06DDD3551CB34CDB0089DC5C /* SQLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainViewController.h; sourceTree = "<group>"; };
-		06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainViewController.m; sourceTree = "<group>"; };
-		06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLMainViewController.xib; sourceTree = "<group>"; };
 		06DDD36B1CB3AFDE0089DC5C /* SQLSimulatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLSimulatorModel.h; path = SQLSimulatorModel/SQLSimulatorModel.h; sourceTree = "<group>"; };
 		06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLSimulatorModel.m; path = SQLSimulatorModel/SQLSimulatorModel.m; sourceTree = "<group>"; };
 		06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -146,16 +146,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		060352301CC08F660021AB81 /* SQLOperationViewController */ = {
-			isa = PBXGroup;
-			children = (
-				060352311CC092230021AB81 /* SQLOperationViewController.h */,
-				060352321CC092230021AB81 /* SQLOperationViewController.m */,
-				060352331CC092230021AB81 /* SQLOperationViewController.xib */,
-			);
-			name = SQLOperationViewController;
-			sourceTree = "<group>";
-		};
 		061AB5D11CB2253600EDCB4C = {
 			isa = PBXGroup;
 			children = (
@@ -324,13 +314,42 @@
 			path = SQLTableDescription;
 			sourceTree = "<group>";
 		};
+		06CE27911CC0C3EF00ADC45F /* WindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27921CC0C3EF00ADC45F /* SQLMainWindowController */,
+				06CE27961CC0C3EF00ADC45F /* SQLOperationWindowController */,
+			);
+			path = WindowController;
+			sourceTree = "<group>";
+		};
+		06CE27921CC0C3EF00ADC45F /* SQLMainWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27931CC0C3EF00ADC45F /* SQLMainWindowController.h */,
+				06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */,
+				06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */,
+			);
+			path = SQLMainWindowController;
+			sourceTree = "<group>";
+		};
+		06CE27961CC0C3EF00ADC45F /* SQLOperationWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27971CC0C3EF00ADC45F /* SQLOperationWindowController.h */,
+				06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */,
+				06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */,
+			);
+			path = SQLOperationWindowController;
+			sourceTree = "<group>";
+		};
 		06DDD32A1CB34CDB0089DC5C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				06CE27911CC0C3EF00ADC45F /* WindowController */,
 				06DDD32B1CB34CDB0089DC5C /* Manager */,
 				06DDD3351CB34CDB0089DC5C /* Model */,
 				06DDD3421CB34CDB0089DC5C /* View */,
-				06DDD3531CB34CDB0089DC5C /* ViewController */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -424,25 +443,6 @@
 			path = SQLTableListView;
 			sourceTree = "<group>";
 		};
-		06DDD3531CB34CDB0089DC5C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				060352301CC08F660021AB81 /* SQLOperationViewController */,
-				06DDD3541CB34CDB0089DC5C /* SQLMainViewController */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		06DDD3541CB34CDB0089DC5C /* SQLMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				06DDD3551CB34CDB0089DC5C /* SQLMainViewController.h */,
-				06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */,
-				06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */,
-			);
-			path = SQLMainViewController;
-			sourceTree = "<group>";
-		};
 		06DDD36A1CB3AFCD0089DC5C /* SQLSimulatorModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,12 +509,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				060352391CC099430021AB81 /* ic_computer_black_24dp.png in Resources */,
-				060352351CC092230021AB81 /* SQLOperationViewController.xib in Resources */,
+				06CE279B1CC0C3EF00ADC45F /* SQLMainWindowController.xib in Resources */,
 				0625C31F1CBC8D5C007C990F /* ic_add_black_24dp.png in Resources */,
 				0625C3211CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png in Resources */,
 				0625C31E1CBC8D5C007C990F /* ic_add_black_18dp.png in Resources */,
 				061AB5E41CB2253600EDCB4C /* SQLPlugin.xcscheme in Resources */,
-				06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */,
 				0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */,
 				0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */,
 				0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */,
@@ -523,6 +522,7 @@
 				0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */,
 				0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */,
 				060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */,
+				06CE279D1CC0C3EF00ADC45F /* SQLOperationWindowController.xib in Resources */,
 				0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */,
 				0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */,
 				0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */,
@@ -541,12 +541,11 @@
 				0625C31A1CBC8D5C007C990F /* FMDatabasePool.m in Sources */,
 				06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */,
 				0625C31B1CBC8D5C007C990F /* FMDatabaseQueue.m in Sources */,
+				06CE279C1CC0C3EF00ADC45F /* SQLOperationWindowController.m in Sources */,
 				06B4F8BB1CBCA69A0012F727 /* SQLDatabaseDescription.m in Sources */,
 				0625C3181CBC8D5C007C990F /* FMDatabase.m in Sources */,
 				0625C3191CBC8D5C007C990F /* FMDatabaseAdditions.m in Sources */,
-				06DDD3641CB34CDB0089DC5C /* SQLMainViewController.m in Sources */,
 				0625C31C1CBC8D5C007C990F /* FMResultSet.m in Sources */,
-				060352341CC092230021AB81 /* SQLOperationViewController.m in Sources */,
 				061AB5E71CB2253600EDCB4C /* SQLPlugin.m in Sources */,
 				06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */,
 				06DDD36D1CB3AFDE0089DC5C /* SQLSimulatorModel.m in Sources */,
@@ -558,6 +557,7 @@
 				06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */,
 				063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */,
 				061AB5EA1CB2253600EDCB4C /* NSObject_Extension.m in Sources */,
+				06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */,
 				06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

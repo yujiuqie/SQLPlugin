@@ -1,12 +1,12 @@
 //
-//  SQLMainViewController.m
+//  SQLMainWindowController.m
 //  SQLPlugin
 //
 //  Created by viktyz on 16/4/4.
 //  Copyright © 2016年 Alfred Jiang. All rights reserved.
 //
 
-#import "SQLMainViewController.h"
+#import "SQLMainWindowController.h"
 #import "SQLTableListView.h"
 #import "SQLTableDetailView.h"
 #import "SQLStoreSharedManager.h"
@@ -18,7 +18,7 @@
 #import "SQLDatabaseListView.h"
 #import "SQLSimulatorModel.h"
 
-@interface SQLMainViewController ()
+@interface SQLMainWindowController ()
 <
 SQLTableListDelegate,
 NSWindowDelegate,
@@ -42,7 +42,7 @@ NSTextFieldDelegate
 
 @end
 
-@implementation SQLMainViewController
+@implementation SQLMainWindowController
 
 #pragma mark - NSViewController Lifecycle
 - (void)windowDidLoad {

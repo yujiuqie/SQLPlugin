@@ -7,7 +7,7 @@
 //
 
 #import "SQLWindowsManager.h"
-#import "SQLMainViewController.h"
+#import "SQLMainWindowController.h"
 
 @interface SQLWindowsManager()
 
@@ -32,14 +32,14 @@ static SQLWindowsManager *_sharedManager = nil;
     return _sharedManager;
 }
 
-- (SQLMainViewController *)createWindowController
+- (SQLMainWindowController *)createWindowController
 {
-    SQLMainViewController *mainVC = [[SQLMainViewController alloc] initWithWindowNibName:@"SQLMainViewController"];
+    SQLMainWindowController *mainVC = [[SQLMainWindowController alloc] initWithWindowNibName:@"SQLMainWindowController"];
     [self addWindowController:mainVC];
     return mainVC;
 }
 
-- (void)addWindowController:(SQLMainViewController *)aWindow
+- (void)addWindowController:(SQLMainWindowController *)aWindow
 {
     if (!windows) {
         windows = [NSMutableArray array];
@@ -54,7 +54,7 @@ static SQLWindowsManager *_sharedManager = nil;
         return;
     }
     
-    [windows enumerateObjectsUsingBlock:^(SQLMainViewController *obj, NSUInteger idx, BOOL * stop) {
+    [windows enumerateObjectsUsingBlock:^(SQLMainWindowController *obj, NSUInteger idx, BOOL * stop) {
         if ([obj.window isEqualTo:aWindow]) {
             [obj close];
             [windows removeObject:obj];

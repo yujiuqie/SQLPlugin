@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class SQLMainViewController;
+@class SQLMainWindowController;
 
 @interface SQLWindowsManager : NSObject
 
@@ -16,7 +16,7 @@
 
 +(instancetype)sharedManager;
 
-- (SQLMainViewController *)createWindowController;
+- (SQLMainWindowController *)createWindowController;
 - (void)removeWindow:(NSWindow *)aWindow;
 
 @end
