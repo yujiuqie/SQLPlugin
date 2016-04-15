@@ -258,12 +258,10 @@ NSTextFieldDelegate
 }
 
 #pragma mark - Menu Operation
-
-- (IBAction)add:(id)sender {
-    [self didPressOpenButton:nil];
+- (IBAction)executeSQL:(NSMenuItem *)sender {
 }
 
-- (IBAction)refreshDatabase:(id)sender
+- (IBAction)refreshDatabase:(NSMenuItem *)sender
 {
     id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
     
@@ -285,7 +283,7 @@ NSTextFieldDelegate
     [self addFetchOperation:database.path];
 }
 
-- (IBAction)revealInFinder:(id)sender
+- (IBAction)revealInFinder:(NSMenuItem *)sender
 {
     id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
     
@@ -305,29 +303,7 @@ NSTextFieldDelegate
     [[NSWorkspace sharedWorkspace] selectFile:path inFileViewerRootedAtPath:@""];
 }
 
-- (IBAction)moveToTrash:(id)sender
-{
-    NSString *path = [self removeSelectedItemReference];
-    
-    if ([path length] == 0) {
-        return;
-    }
-    
-    NSError *error = nil;
-    
-    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-    
-    if (error) {
-        [NSApp presentError:error];
-    }
-}
-
-- (IBAction)removeReference:(id)sender
-{
-    [self removeSelectedItemReference];
-}
-
-- (IBAction)export:(id)sender
+- (IBAction)exportDatabase:(NSMenuItem *)sender
 {
     id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
     
@@ -363,6 +339,33 @@ NSTextFieldDelegate
         if (error) {
             [NSApp presentError:error];
         }
+    }
+}
+
+- (IBAction)exportTable:(NSMenuItem *)sender {
+    
+}
+
+- (IBAction)removeReference:(NSMenuItem *)sender
+{
+    [self removeSelectedItemReference];
+}
+
+
+- (IBAction)moveToTrash:(NSMenuItem *)sender
+{
+    NSString *path = [self removeSelectedItemReference];
+    
+    if ([path length] == 0) {
+        return;
+    }
+    
+    NSError *error = nil;
+    
+    [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    
+    if (error) {
+        [NSApp presentError:error];
     }
 }
 

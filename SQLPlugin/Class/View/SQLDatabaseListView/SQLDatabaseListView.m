@@ -27,6 +27,16 @@
     
     [self selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
     
+    id cell = [self itemAtRow:self.selectedRow];
+    NSMenuItem *item = [_databaseItemMenu itemWithTitle:@"Save to CSV"];
+    
+    if ([cell isKindOfClass:[SQLDatabaseDescription class]]) {
+        [item setEnabled:NO];
+    }
+    else if([cell isKindOfClass:[SQLTableDescription class]]){
+        [item setEnabled:YES];
+    }
+    
     return _databaseItemMenu;
 }
 
