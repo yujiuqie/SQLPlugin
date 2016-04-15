@@ -25,22 +25,17 @@ static SQLKeybindingManager *_sharedManager = nil;
 
 #pragma mark -
 
-- (id<IDEKeyboardShortcut>)keyboardShortcutFromUserDefaults
+- (id<IDEKeyboardShortcut>)keyboardShortcutFrom:(NSString *)keybinding
 {
     Class<IDEKeyboardShortcut> _IDEKeyboardShortcut = NSClassFromString(@"IDEKeyboardShortcut");
-    return [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[self keyBindingFromUserDefaults]];
+    return [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[[NSUserDefaults standardUserDefaults] valueForKey:keybinding]];
 }
 
-- (void)setupKeyBindingsIfNeeded
+- (void)setupKeyBinding:(NSString *)keybinding withShortcut:(NSString *)shortcut
 {
-    if (IsEmpty([self keyBindingFromUserDefaults])) {
-        [self saveKeyBindingToUserDefaults:SP_DEFAULT_SHORTCUT forKey:DEFAULTS_KEY_BINDING];
+    if (IsEmpty([[NSUserDefaults standardUserDefaults] valueForKey:keybinding])) {
+        [self saveKeyBindingToUserDefaults:shortcut forKey:keybinding];
     }
-}
-
-- (NSString *)keyBindingFromUserDefaults
-{
-    return [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_KEY_BINDING];
 }
 
 - (void)saveKeyBindingToUserDefaults:(NSString *)keyBinding forKey:(NSString *)defaultsKey
@@ -64,11 +59,6 @@ static SQLKeybindingManager *_sharedManager = nil;
     [menuItem setKeyEquivalentModifierMask:[keyboardShortcut modifierMask]];
 }
 
-- (id<IDEKeyBinding>)currentUserCPKeyBinding
-{
-    return [self menuKeyBindingWithItemTitle:SP_MENU_ITEM_TITLE underMenuCalled:SP_MENU_ITEM_TITLE_GROUP];
-}
-
 - (id<IDEMenuKeyBinding>)menuKeyBindingWithItemTitle:(NSString *)itemTitle underMenuCalled:(NSString *)menuName
 {
     Class<IDEKeyBindingPreferenceSet> _IDEKeyBindingPreferenceSet = NSClassFromString(@"IDEKeyBindingPreferenceSet");
@@ -86,7 +76,7 @@ static SQLKeybindingManager *_sharedManager = nil;
     return nil;
 }
 
-- (void)installStandardKeyBinding
+- (void)installStandardKeyBinding:(NSString *)keybinding withTitle:(NSString *)kTitle parent:(NSString *)kParent group:(NSString *)kGroup
 {
     Class<IDEKeyBindingPreferenceSet> _IDEKeyBindingPreferenceSet = NSClassFromString(@"IDEKeyBindingPreferenceSet");
     
@@ -96,17 +86,17 @@ static SQLKeybindingManager *_sharedManager = nil;
     
     Class<IDEKeyboardShortcut> _IDEKeyboardShortcut = NSClassFromString(@"IDEKeyboardShortcut");
     
-    id<IDEKeyboardShortcut> defaultShortcut = [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[self keyBindingFromUserDefaults]];
+    id<IDEKeyboardShortcut> defaultShortcut = [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[[NSUserDefaults standardUserDefaults] valueForKey:keybinding]];
     
     Class<IDEMenuKeyBinding> _IDEMenuKeyBinding = NSClassFromString(@"IDEMenuKeyBinding");
     
-    id<IDEMenuKeyBinding> cpKeyBinding = [_IDEMenuKeyBinding keyBindingWithTitle:SP_MENU_ITEM_TITLE
-                                                                     parentTitle:SP_MENU_PARENT_TITLE
-                                                                           group:SP_MENU_ITEM_TITLE_GROUP
+    id<IDEMenuKeyBinding> cpKeyBinding = [_IDEMenuKeyBinding keyBindingWithTitle:kTitle
+                                                                     parentTitle:kParent
+                                                                           group:kGroup
                                                                          actions:[NSArray arrayWithObject:@"whatever:"]
                                                                keyboardShortcuts:[NSArray arrayWithObject:defaultShortcut]];
     
-    [cpKeyBinding setCommandIdentifier:SP_MENU_ITEM_TITLE];
+    [cpKeyBinding setCommandIdentifier:kTitle];
     
     [menuKeyBindingSet insertObject:cpKeyBinding inKeyBindingsAtIndex:0];
     [menuKeyBindingSet updateDictionary];

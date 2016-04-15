@@ -10,23 +10,14 @@
 #import <AppKit/AppKit.h>
 #import "IDEKeyBindingPreferenceSet.h"
 
-#define SP_DEFAULT_SHORTCUT      @"$@V" // for key binding system
-#define DEFAULTS_KEY_BINDING     @"SQLPluginKeyBinding"
-
-#define SP_MENU_PARENT_TITLE     @"SQL"
-#define SP_MENU_ITEM_TITLE       @"Run"
-#define SP_MENU_ITEM_TITLE_GROUP @"TitleGroup"
-
 @interface SQLKeybindingManager : NSObject
 
 + (instancetype)sharedManager;
 
-- (void)setupKeyBindingsIfNeeded;
-- (void)installStandardKeyBinding;
+- (void)setupKeyBinding:(NSString *)keybinding withShortcut:(NSString *)shortcut;
+- (void)installStandardKeyBinding:(NSString *)keybinding withTitle:(NSString *)kTitle parent:(NSString *)kParent group:(NSString *)kGroup;
 
-- (id<IDEKeyboardShortcut>)keyboardShortcutFromUserDefaults;
-- (NSString *)keyBindingFromUserDefaults;
-- (id<IDEKeyBinding>)currentUserCPKeyBinding;
+- (id<IDEKeyboardShortcut>)keyboardShortcutFrom:(NSString *)keybinding;
 
 - (void)updateMenuItem:(NSMenuItem *)menuItem withShortcut:(id<IDEKeyboardShortcut>)keyboardShortcut;
 - (id<IDEMenuKeyBinding>)menuKeyBindingWithItemTitle:(NSString *)itemTitle underMenuCalled:(NSString *)menuName;

@@ -12,6 +12,13 @@
 #import "SQLSimulatorManager.h"
 #import "SQLKeybindingManager.h"
 
+#define SP_DEFAULT_SHORTCUT      @"$@V" // for key binding system
+#define DEFAULTS_KEY_BINDING     @"SQLPluginKeyBinding"
+
+#define SP_MENU_PARENT_TITLE     @"SQL"
+#define SP_MENU_ITEM_TITLE       @"Run"
+#define SP_MENU_ITEM_TITLE_GROUP @"TitleGroup"
+
 static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindingSetDidActivateNotification";
 
 @interface SQLPlugin()
@@ -46,8 +53,13 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
-    [[SQLKeybindingManager sharedManager] setupKeyBindingsIfNeeded];
-    [[SQLKeybindingManager sharedManager] installStandardKeyBinding];
+    [[SQLKeybindingManager sharedManager] setupKeyBinding:DEFAULTS_KEY_BINDING
+                                               withShortcut:SP_DEFAULT_SHORTCUT];
+    
+    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:DEFAULTS_KEY_BINDING
+                                                          withTitle:SP_MENU_ITEM_TITLE
+                                                             parent:SP_MENU_PARENT_TITLE
+                                                              group:SP_MENU_ITEM_TITLE_GROUP];
     [self addPluginMenu];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -123,7 +135,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [pluginsMenuItem.submenu addItem:self.sqlPluginMenuItem];
     
     [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlPluginMenuItem
-                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFromUserDefaults]];
+                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:DEFAULTS_KEY_BINDING]];
 }
 
 - (void)openAboutWindow
@@ -155,7 +167,8 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 - (void)keyBindingsHaveChanged:(NSNotification *)notification
 {
-    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] currentUserCPKeyBinding]
+    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_TITLE
+                                                                                                             underMenuCalled:SP_MENU_ITEM_TITLE_GROUP]
                                                forMenuItem:self.sqlPluginMenuItem
                                                defaultsKey:DEFAULTS_KEY_BINDING];
 }
