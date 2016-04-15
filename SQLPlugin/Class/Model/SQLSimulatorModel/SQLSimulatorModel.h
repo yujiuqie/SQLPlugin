@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *path;
 
+- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath;
 - (NSString *)databaseName;
 
 #pragma mark - NSCoding

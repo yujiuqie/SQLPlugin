@@ -57,12 +57,19 @@ NSTableViewDelegate
 -(void)setTable:(SQLTableDescription *)table
 {
     _table = table;
+    _table.rows = @[];
+    [self reloadUI];
+    [self fetchRowForOffset];
+}
+
+- (void)refreshTable:(SQLTableDescription *)table
+{
+    _table = table;
     [self reloadUI];
 }
 
 -(void)reloadUI
 {
-    self.table.rows = @[];
     self.offset = @(0);
     self.leftButton.enabled = NO;
     self.rightButton.enabled = NO;
@@ -82,8 +89,6 @@ NSTableViewDelegate
     }
     
     [self.detailView reloadData];
-    
-    [self fetchRowForOffset];
 }
 
 -(void)fetchRowForOffset
@@ -148,6 +153,10 @@ NSTableViewDelegate
 
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn
 {
+    if (!_table.name) {
+        return;
+    }
+    
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     SQLTableProperty *property = [self.table.properties objectAtIndex:columnIndex];
     

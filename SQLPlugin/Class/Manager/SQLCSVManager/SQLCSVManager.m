@@ -35,7 +35,7 @@ static SQLCSVManager *_sharedManager = nil;
             
             NSMutableArray *titles = [NSMutableArray arrayWithCapacity:[table.properties count]];
             [table.properties enumerateObjectsUsingBlock:^(SQLTableProperty *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [titles addObject:[NSString stringWithFormat:@"'%@'",obj.name]];
+                [titles addObject:[NSString stringWithFormat:@"'%@'",obj.name]];//TODO:: if property name equal to ID , csv can not open. Need add ''.
             }];
             
             NSString* header = [[titles componentsJoinedByString:@";"]  stringByAppendingString:@"\n"];

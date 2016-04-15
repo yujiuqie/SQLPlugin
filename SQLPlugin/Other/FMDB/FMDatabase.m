@@ -8,6 +8,8 @@
 #import <sqlite3.h>
 #endif
 
+NSString * const FMDATABASEERRORNOTIFICATION = @"FMDATABASEERRORNOTIFICATION";
+
 @interface FMDatabase ()
 
 - (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
@@ -488,6 +490,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 #pragma mark Error routines
 
 - (NSString*)lastErrorMessage {
+    [[NSNotificationCenter defaultCenter] postNotificationName:FMDATABASEERRORNOTIFICATION object:[NSString stringWithFormat:@"DB Error: %d \"%@\"", sqlite3_errcode(_db), [NSString stringWithUTF8String:sqlite3_errmsg(_db)]]];
     return [NSString stringWithUTF8String:sqlite3_errmsg(_db)];
 }
 

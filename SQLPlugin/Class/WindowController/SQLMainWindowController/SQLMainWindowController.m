@@ -36,7 +36,6 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSButton *leftButton;
 @property (nonatomic, weak) IBOutlet NSButton *rightButton;
 @property (nonatomic, weak) IBOutlet NSButton *csvButton;
-@property (nonatomic, weak) IBOutlet NSButton *sqlButton;
 @property (nonatomic, weak) IBOutlet NSView *seperatorView;
 @property (nonatomic, strong) SQLDatabaseListDescription *sqliteList;
 @property (nonatomic, strong) SQLOperationWindowController *operationVC;
@@ -45,7 +44,13 @@ NSTextFieldDelegate
 
 @implementation SQLMainWindowController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - NSViewController Lifecycle
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
@@ -58,7 +63,6 @@ NSTextFieldDelegate
     self.rightButton.enabled = NO;
     self.leftButton.enabled = NO;
     self.csvButton.enabled = NO;
-    self.sqlButton.enabled = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAddNewDatabasePath:) name:@"NOTI_ADD_NEW_DATABASE_PATH" object:nil];
     
@@ -104,8 +108,20 @@ NSTextFieldDelegate
         _operationVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
     }
     
+    id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
+    
+    NSString *path = @"";
+    
+    if ([cell isKindOfClass:[SQLDatabaseDescription class]]) {
+        path = ((SQLDatabaseDescription *)cell).path;
+    }
+    else if([cell isKindOfClass:[SQLTableDescription class]]){
+        path = ((SQLTableDescription *)cell).path;
+    }
+
     [_operationVC.window center];
-    [_operationVC.window makeKeyAndOrderFront:self.window];
+    [_operationVC.window makeKeyAndOrderFront:nil];
+    _operationVC.currentDatabase = [[SQLDatabaseManager sharedManager] databaseInPath:path];
 }
 
 -(IBAction)didPressCSVButton:(NSButton *)sender
@@ -116,7 +132,6 @@ NSTextFieldDelegate
 -(IBAction)didPressSimulatorButton:(NSButton *)sender
 {
     self.csvButton.enabled = NO;
-    self.sqlButton.enabled = NO;
     self.tableDetailView.table = nil;
     self.tableListView.databases = nil;
     [self refreshSimulator];
@@ -125,7 +140,6 @@ NSTextFieldDelegate
 -(IBAction)didPressOpenButton:(NSButton *)sender
 {
     self.csvButton.enabled = NO;
-    self.sqlButton.enabled = NO;
     
     NSOpenPanel* openFileControl = [NSOpenPanel openPanel];
     
@@ -139,6 +153,7 @@ NSTextFieldDelegate
     {
         if ([openFileControl.URLs count] > 0) {
             NSString *path = (NSString *)[(NSURL *)[openFileControl.URLs firstObject] path];
+            
             [self addFetchOperation:path];
         }
     }
@@ -191,15 +206,13 @@ NSTextFieldDelegate
 -(void)didSelectTable:(SQLTableDescription *)table
 {
     self.tableDetailView.table = table;
-    self.csvButton.enabled = ([table.rowCount integerValue] > 0) ? YES : NO;
-    self.sqlButton.enabled = YES;
+    self.csvButton.enabled = ([table.rowCount integerValue] > 0);
 }
 
 -(void)didSelectDatabase:(SQLDatabaseDescription *)database
 {
     self.tableDetailView.table = nil;
     self.csvButton.enabled = NO;
-    self.sqlButton.enabled = YES;
 }
 
 #pragma mark - Action
@@ -225,8 +238,6 @@ NSTextFieldDelegate
     
     for (SQLApplicationModel *app in apps) {
         
-        [[SQLDatabaseManager sharedManager] addDatabaseItems:app.databases];
-        
         for (SQLDatabaseModel *dbModel in app.databases) {
             [self addFetchOperation:dbModel.path];
         }
@@ -238,6 +249,8 @@ NSTextFieldDelegate
     if (![@[@"sqlite", @"sql", @"db"] containsObject:[aPath pathExtension]]) {
         return;
     }
+    
+    [[SQLDatabaseManager sharedManager] addDatabaseItem:[[SQLDatabaseModel alloc] initWithAppId:@"" path:aPath]];
     
     if(queue == nil){
         queue = [[NSOperationQueue  alloc]init];
@@ -403,7 +416,10 @@ NSTextFieldDelegate
         __weak SQLMainWindowController *weakSelf = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             __strong SQLMainWindowController *strongSelf = weakSelf;
-            [[SQLCSVManager sharedManager] exportTo:path0 withTable:strongSelf.tableDetailView.table];
+            
+            [[SQLStoreSharedManager sharedManager] getTableRowsWithCommand:[NSString stringWithFormat:@"select * from %@",strongSelf.tableDetailView.table.name] inDBPath:path completion:^(SQLTableDescription *table) {
+                [[SQLCSVManager sharedManager] exportTo:path0 withTable:table];
+            }];
         });
         
         if (error) {

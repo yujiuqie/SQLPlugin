@@ -85,6 +85,56 @@ static SQLStoreSharedManager *_sharedManager = nil;
     }];
 }
 
+-(void)getTableRowsWithCommand:(NSString *)command inDBPath:(NSString *)path completion:(void(^)(SQLTableDescription *table))completion
+{
+    [self.databaseQueue inDatabase:^(FMDatabase *db) {
+       
+        
+        SQLTableDescription *table = [[SQLTableDescription alloc] init];
+        table.name = @"";
+        table.path = path;
+        
+        FMResultSet *result = [db executeQuery:[NSString stringWithFormat:@"%@",command]];
+        
+        BOOL cacheProperty = NO;
+        
+        NSMutableArray *rows = [[NSMutableArray alloc] init];
+        
+        while([result next])
+        {
+            NSMutableArray *properties = [[NSMutableArray alloc] init];
+            NSMutableArray *row = [[NSMutableArray alloc] init];
+            [[result.resultDictionary allKeys] enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                if (!cacheProperty) {
+                    SQLTableProperty *property = [[SQLTableProperty alloc] init];
+                    property.name = key;
+                    [properties addObject:property];
+                }
+                
+                [row addObject:result.resultDictionary[key]];
+            }];
+            
+            if (!cacheProperty) {
+                table.properties = properties;
+                cacheProperty = YES;
+            }
+            
+            [rows addObject:row];
+        }
+        
+        table.rows = rows;
+        table.rowCount = [NSNumber numberWithInteger:[rows count]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(completion)
+            {
+                completion(table);
+            }
+        });
+    }];
+}
+
 -(void)getRowsWithCommand:(NSString *)command withTableDescription:(SQLTableDescription*)table completion:(void(^)(NSArray*))completion
 {
     [self.databaseQueue inDatabase:^(FMDatabase *db) {

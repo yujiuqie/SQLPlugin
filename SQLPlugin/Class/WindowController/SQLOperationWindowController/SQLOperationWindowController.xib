@@ -9,8 +9,10 @@
                 <outlet property="clearButton" destination="C2d-Y8-GZ6" id="j3g-Vo-Shk"/>
                 <outlet property="databaseButton" destination="Rf1-ZD-Xve" id="fh0-QL-rId"/>
                 <outlet property="historyCommandButton" destination="Afl-WA-Foa" id="b8U-dn-17e"/>
+                <outlet property="pathLabel" destination="Ld1-Vj-I3Y" id="9T8-L5-nXR"/>
                 <outlet property="seperatorView" destination="UG6-Zp-lFO" id="ERy-Eq-i0B"/>
                 <outlet property="seperatorViewBottom" destination="4aG-p6-HQw" id="69T-AS-DyU"/>
+                <outlet property="showInFinderButton" destination="rCU-Hb-Ksa" id="Tkh-UG-RGR"/>
                 <outlet property="tableDetailView" destination="yK4-3m-Niu" id="xJ1-Pj-0jK"/>
                 <outlet property="textFieldErrorLog" destination="8O5-WR-oBx" id="nKJ-WB-zX3"/>
                 <outlet property="textFieldSQLCommand" destination="fkq-Ve-Je7" id="AQi-08-9kV"/>
@@ -19,7 +21,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="SQLMainWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="573" y="400" width="720" height="458"/>
@@ -69,7 +71,7 @@
                                                 </constraints>
                                                 <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Error Log" drawsBackground="YES" id="8NO-HV-5wr">
                                                     <font key="font" size="10" name=".HelveticaNeueDeskInterface-Regular"/>
-                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="0.14450243060000001" blue="0.1005061715" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                                 <connections>
@@ -126,16 +128,6 @@
                                                     <constraint firstAttribute="height" constant="1" id="WBy-W5-hz1"/>
                                                 </constraints>
                                             </customView>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U9k-dx-LMF">
-                                                <rect key="frame" x="525" y="118" width="93" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Help" bezelStyle="rounded" image="ic_help_outline_black_18dp" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ejs-T4-k7f">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="didPressHelpButton:" target="-2" id="d6J-S8-y2F"/>
-                                                </connections>
-                                            </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z2L-pD-Vgq">
                                                 <rect key="frame" x="579" y="86" width="142" height="32"/>
                                                 <buttonCell key="cell" type="push" title="export result" bezelStyle="rounded" image="ic_insert_chart_black_18dp" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ct0-Th-5BH">
@@ -153,30 +145,27 @@
                                                 </constraints>
                                             </customView>
                                             <textField horizontalHuggingPriority="248" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-Vj-I3Y">
-                                                <rect key="frame" x="119" y="127" width="33" height="17"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="Sck-hz-Mr5"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Path" id="Cqw-ve-n0u">
+                                                <rect key="frame" x="119" y="127" width="4" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" id="Cqw-ve-n0u">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-Hb-Ksa">
-                                                <rect key="frame" x="152" y="123" width="22" height="25"/>
+                                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-Hb-Ksa">
+                                                <rect key="frame" x="131" y="123" width="22" height="25"/>
                                                 <buttonCell key="cell" type="squareTextured" title="Help" bezelStyle="texturedSquare" image="ic_folder_open_black_18dp" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ddP-dm-aqK">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="didPressHelpButton:" target="-2" id="1qM-KO-HXA"/>
+                                                    <action selector="didPressPathButton:" target="-2" id="vRp-R5-2fc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="4aG-p6-HQw" firstAttribute="top" secondItem="8O5-WR-oBx" secondAttribute="bottom" constant="3" id="0QC-NG-DOI"/>
-                                            <constraint firstItem="rCU-Hb-Ksa" firstAttribute="leading" secondItem="Ld1-Vj-I3Y" secondAttribute="trailing" constant="2" id="2C1-FT-RRt"/>
+                                            <constraint firstItem="rCU-Hb-Ksa" firstAttribute="leading" secondItem="Ld1-Vj-I3Y" secondAttribute="trailing" constant="10" id="2C1-FT-RRt"/>
                                             <constraint firstAttribute="trailing" secondItem="fkq-Ve-Je7" secondAttribute="trailing" constant="5" id="2q3-hS-a9N"/>
                                             <constraint firstItem="Ld1-Vj-I3Y" firstAttribute="centerY" secondItem="Rf1-ZD-Xve" secondAttribute="centerY" id="342-gg-DLa"/>
                                             <constraint firstItem="8O5-WR-oBx" firstAttribute="leading" secondItem="ZG8-7s-gy7" secondAttribute="leading" constant="5" id="3cQ-bC-8ml"/>
@@ -195,13 +184,12 @@
                                             <constraint firstItem="Z2L-pD-Vgq" firstAttribute="centerY" secondItem="Afl-WA-Foa" secondAttribute="centerY" id="TLp-gp-djF"/>
                                             <constraint firstItem="UG6-Zp-lFO" firstAttribute="top" secondItem="Rf1-ZD-Xve" secondAttribute="bottom" constant="5" id="Voh-cP-wa7"/>
                                             <constraint firstItem="4aG-p6-HQw" firstAttribute="leading" secondItem="ZG8-7s-gy7" secondAttribute="leading" id="bQg-4W-jEA"/>
+                                            <constraint firstItem="n2M-Es-zwg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rCU-Hb-Ksa" secondAttribute="trailing" constant="10" id="bQw-CN-rUL"/>
                                             <constraint firstItem="fkq-Ve-Je7" firstAttribute="top" secondItem="Afl-WA-Foa" secondAttribute="bottom" constant="5" id="bsT-Qq-shP"/>
                                             <constraint firstItem="8O5-WR-oBx" firstAttribute="top" secondItem="fkq-Ve-Je7" secondAttribute="bottom" constant="3" id="c3w-Ch-XPV"/>
                                             <constraint firstItem="54I-Ig-Oad" firstAttribute="leading" secondItem="ZG8-7s-gy7" secondAttribute="leading" constant="5" id="gjn-3z-R0A"/>
                                             <constraint firstItem="fkq-Ve-Je7" firstAttribute="leading" secondItem="ZG8-7s-gy7" secondAttribute="leading" constant="5" id="hyv-Ua-iUI"/>
                                             <constraint firstAttribute="trailing" secondItem="n2M-Es-zwg" secondAttribute="trailing" constant="5" id="lqC-Zr-Vwh"/>
-                                            <constraint firstItem="U9k-dx-LMF" firstAttribute="centerY" secondItem="n2M-Es-zwg" secondAttribute="centerY" id="mQ9-D6-x6a"/>
-                                            <constraint firstItem="n2M-Es-zwg" firstAttribute="leading" secondItem="U9k-dx-LMF" secondAttribute="trailing" constant="10" id="ocx-Yi-LLK"/>
                                             <constraint firstItem="Afl-WA-Foa" firstAttribute="centerY" secondItem="54I-Ig-Oad" secondAttribute="centerY" id="s0K-ux-RRb"/>
                                             <constraint firstItem="Ld1-Vj-I3Y" firstAttribute="leading" secondItem="Rf1-ZD-Xve" secondAttribute="trailing" constant="5" id="wjJ-AZ-FUW"/>
                                             <constraint firstAttribute="bottom" secondItem="4aG-p6-HQw" secondAttribute="bottom" constant="1" id="yiY-0b-jIk"/>
@@ -226,7 +214,7 @@
                                             <rect key="frame" x="1" y="17" width="718" height="286"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="zcm-VX-1li" viewBased="YES" id="l0H-uZ-mdt">
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="dmo-ZB-9Fn" viewBased="YES" id="l0H-uZ-mdt">
                                                     <rect key="frame" x="0.0" y="0.0" width="718" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -234,7 +222,7 @@
                                                     <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="116" minWidth="40" maxWidth="1000" id="Zm6-cd-Z48">
+                                                        <tableColumn editable="NO" width="116" minWidth="40" maxWidth="1000" id="Zm6-cd-Z48">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -247,7 +235,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn width="596" minWidth="40" maxWidth="1000" id="MIt-S3-zYA">
+                                                        <tableColumn editable="NO" width="596" minWidth="40" maxWidth="1000" id="MIt-S3-zYA">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -261,6 +249,10 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="yK4-3m-Niu" id="TDY-iS-JM4"/>
+                                                        <outlet property="delegate" destination="yK4-3m-Niu" id="LHW-kg-alv"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -273,7 +265,7 @@
                                             <rect key="frame" x="-14" y="9" width="15" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <tableHeaderView key="headerView" id="zcm-VX-1li">
+                                        <tableHeaderView key="headerView" id="dmo-ZB-9Fn">
                                             <rect key="frame" x="0.0" y="0.0" width="718" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
@@ -285,6 +277,9 @@
                                     <constraint firstAttribute="bottom" secondItem="AaL-Mq-vaV" secondAttribute="bottom" id="vpg-AL-Yo0"/>
                                     <constraint firstItem="AaL-Mq-vaV" firstAttribute="top" secondItem="yK4-3m-Niu" secondAttribute="top" id="wPv-Ie-1af"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="detailView" destination="l0H-uZ-mdt" id="KcZ-aH-fmz"/>
+                                </connections>
                             </customView>
                         </subviews>
                         <holdingPriorities>
@@ -319,7 +314,6 @@
     <resources>
         <image name="ic_folder_open_black_18dp" width="18" height="18"/>
         <image name="ic_format_list_bulleted_18pt" width="18" height="18"/>
-        <image name="ic_help_outline_black_18dp" width="18" height="18"/>
         <image name="ic_history_18pt" width="18" height="18"/>
         <image name="ic_insert_chart_black_18dp" width="18" height="18"/>
         <image name="ic_pie_chart_black_18dp" width="18" height="18"/>

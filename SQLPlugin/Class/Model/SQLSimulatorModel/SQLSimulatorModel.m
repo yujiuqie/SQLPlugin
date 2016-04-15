@@ -10,6 +10,16 @@
 
 @implementation SQLDatabaseModel
 
+- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath
+{
+    self = [super init];
+    if (self) {
+        _appId = aId;
+        _path = aPath;
+    }
+    return self;
+}
+
 - (NSString *)databaseName
 {
     return [_path lastPathComponent];

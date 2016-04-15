@@ -17,6 +17,8 @@
 -(BOOL)openDatabaseAtPath:(NSString*)path;
 
 -(void)getAllTablesinPath:(NSString *)path completion:(void (^)(NSArray *))completion;
+-(void)getTableRowsWithCommand:(NSString *)command inDBPath:(NSString *)path completion:(void(^)(SQLTableDescription *table))completion;
+-(void)getRowsWithCommand:(NSString *)command withTableDescription:(SQLTableDescription*)table completion:(void(^)(NSArray*))completion;
 -(void)getRowsWithOffset:(NSNumber*)offset withTableDescription:(SQLTableDescription*)table completion:(void(^)(NSArray*))completion;
 
 @end
