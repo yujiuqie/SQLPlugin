@@ -7,7 +7,6 @@
 //
 
 #import "SQLWindowsManager.h"
-#import "SQLMainWindowController.h"
 
 @interface SQLWindowsManager()
 
@@ -32,20 +31,48 @@ static SQLWindowsManager *_sharedManager = nil;
     return _sharedManager;
 }
 
-- (SQLMainWindowController *)createWindowController
+- (NSWindowController *)windowWithType:(SQLWindowType)windowType
 {
-    SQLMainWindowController *mainVC = [[SQLMainWindowController alloc] initWithWindowNibName:@"SQLMainWindowController"];
-    [self addWindowController:mainVC];
-    return mainVC;
+    Class targetWindowVCClass = nil;
+    
+    switch (windowType) {
+        case SQLWindowType_SQL_Viewer:
+            targetWindowVCClass = [SQLMainWindowController class];
+            break;
+        case SQLWindowType_SQL_Operation:
+            targetWindowVCClass = [SQLOperationWindowController class];
+            break;
+    }
+    
+    if (targetWindowVCClass) {
+        
+        __block NSWindowController *targetVC = nil;
+        
+        [windows enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:targetWindowVCClass]) {
+                targetVC = obj;
+                *stop = YES;
+            }
+        }];
+        
+        if (!targetVC) {
+            targetVC = [[targetWindowVCClass alloc] initWithWindowNibName:NSStringFromClass(targetWindowVCClass)];
+            [self addWindowController:targetVC];
+        }
+        
+        return targetVC;
+    }
+    
+    return nil;
 }
 
-- (void)addWindowController:(SQLMainWindowController *)aWindow
+- (void)addWindowController:(NSWindowController *)aWindowVC
 {
     if (!windows) {
         windows = [NSMutableArray array];
     }
     
-    [windows addObject:aWindow];
+    [windows addObject:aWindowVC];
 }
 
 - (void)removeWindow:(NSWindow *)aWindow
@@ -54,7 +81,7 @@ static SQLWindowsManager *_sharedManager = nil;
         return;
     }
     
-    [windows enumerateObjectsUsingBlock:^(SQLMainWindowController *obj, NSUInteger idx, BOOL * stop) {
+    [windows enumerateObjectsUsingBlock:^(NSWindowController *obj, NSUInteger idx, BOOL * stop) {
         if ([obj.window isEqualTo:aWindow]) {
             [obj close];
             [windows removeObject:obj];

@@ -37,8 +37,8 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSButton *csvButton;
 @property (nonatomic, weak) IBOutlet NSButton *sqlButton;
 @property (nonatomic, weak) IBOutlet NSView *seperatorView;
-
 @property (nonatomic, strong) SQLDatabaseListDescription *sqliteList;
+@property (nonatomic, strong) SQLOperationWindowController *operationVC;
 
 @end
 
@@ -72,7 +72,7 @@ NSTextFieldDelegate
     [self.seperatorView setLayer:viewLayer];
     self.seperatorView.layer.backgroundColor = [NSColor grayColor].CGColor;
     
-    self.window.title = @"SQL Plugin";
+    self.window.title = @"SQL Viewer";
     self.window.delegate = self;
 }
 
@@ -99,12 +99,17 @@ NSTextFieldDelegate
 
 -(IBAction)didPressSQLButton:(NSButton *)sender
 {
-  
+    if (!_operationVC) {
+        _operationVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
+    }
+    
+    [_operationVC.window center];
+    [_operationVC.window makeKeyAndOrderFront:self.window];
 }
 
 -(IBAction)didPressCSVButton:(NSButton *)sender
 {
-
+    //TODO::
 }
 
 -(IBAction)didPressSimulatorButton:(NSButton *)sender

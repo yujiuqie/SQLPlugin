@@ -151,7 +151,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 - (void)openSqlPluginWindow
 {
     if (!_sqlMainVC) {
-        _sqlMainVC = [[SQLWindowsManager sharedManager] createWindowController];
+        _sqlMainVC = (SQLMainWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Viewer];
     }
     
     [_sqlMainVC.window center];

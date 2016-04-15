@@ -10,6 +10,11 @@
 
 @implementation SQLDatabaseModel
 
+- (NSString *)databaseName
+{
+    return [_path lastPathComponent];
+}
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {

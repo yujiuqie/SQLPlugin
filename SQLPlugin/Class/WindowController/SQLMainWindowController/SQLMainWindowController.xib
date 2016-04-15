@@ -326,7 +326,7 @@
                             <constraint firstAttribute="width" constant="55" id="AFa-b0-jbO"/>
                             <constraint firstAttribute="height" constant="45" id="GX5-f4-ZXe"/>
                         </constraints>
-                        <buttonCell key="cell" type="square" title="SQL" bezelStyle="shadowlessSquare" image="ic_computer_black_24dp" imagePosition="above" alignment="center" state="on" inset="2" id="0jg-VU-yrq">
+                        <buttonCell key="cell" type="square" title="Query" bezelStyle="shadowlessSquare" image="ic_computer_black_24dp" imagePosition="above" alignment="center" state="on" inset="2" id="0jg-VU-yrq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>

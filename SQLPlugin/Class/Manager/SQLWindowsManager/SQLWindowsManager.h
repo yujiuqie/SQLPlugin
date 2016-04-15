@@ -7,8 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SQLMainWindowController.h"
+#import "SQLOperationWindowController.h"
 
-@class SQLMainWindowController;
+typedef NS_ENUM(NSInteger, SQLWindowType) {
+    SQLWindowType_SQL_Viewer = 0,
+    SQLWindowType_SQL_Operation
+};
 
 @interface SQLWindowsManager : NSObject
 
@@ -16,7 +21,8 @@
 
 +(instancetype)sharedManager;
 
-- (SQLMainWindowController *)createWindowController;
+- (NSWindowController *)windowWithType:(SQLWindowType)windowType;
+- (void)addWindowController:(NSWindowController *)aWindowVC;
 - (void)removeWindow:(NSWindow *)aWindow;
 
 @end

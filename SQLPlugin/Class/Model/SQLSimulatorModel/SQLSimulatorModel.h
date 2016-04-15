@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *path;
 
+- (NSString *)databaseName;
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;

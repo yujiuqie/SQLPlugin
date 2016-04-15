@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class SQLDatabaseModel;
+
 @interface SQLOperationWindowController : NSWindowController
+
+@property (nonatomic, strong) SQLDatabaseModel *currentDatabase;
 
 @end
