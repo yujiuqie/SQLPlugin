@@ -12,20 +12,26 @@
 #import "SQLSimulatorManager.h"
 #import "SQLKeybindingManager.h"
 
-#define SP_DEFAULT_SHORTCUT      @"$@V" // for key binding system
-#define DEFAULTS_KEY_BINDING     @"SQLPluginKeyBinding"
+#define SP_MENU_PARENT_TITLE            @"SQL"
+#define SP_MENU_ITEM_GROUP_TITLE        @"TitleGroup"
 
-#define SP_MENU_PARENT_TITLE     @"SQL"
-#define SP_MENU_ITEM_TITLE       @"Run"
-#define SP_MENU_ITEM_TITLE_GROUP @"TitleGroup"
+#define SP_SHORTCUT_V                   @"$@V" // for key binding system
+#define KEY_BINDING_V                   @"SQLPluginKeyBindingV"
+#define SP_MENU_ITEM_VIEWER_TITLE       @"SQL Viewer"
+
+#define SP_SHORTCUT_D                   @"$@D" // for key binding system
+#define KEY_BINDING_D                   @"SQLPluginKeyBindingD"
+#define SP_MENU_ITEM_QUERY_TITLE        @"SQL Query"
 
 static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindingSetDidActivateNotification";
 
 @interface SQLPlugin()
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
-@property (nonatomic, strong) NSMenuItem *sqlPluginMenuItem;
+@property (nonatomic, strong) NSMenuItem *sqlViewerMenuItem;
+@property (nonatomic, strong) NSMenuItem *sqlQueryMenuItem;
 @property (nonatomic, strong) SQLMainWindowController *sqlMainVC;
+@property (nonatomic, strong) SQLOperationWindowController *sqlQueryVC;
 
 @end
 
@@ -53,13 +59,22 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
-    [[SQLKeybindingManager sharedManager] setupKeyBinding:DEFAULTS_KEY_BINDING
-                                               withShortcut:SP_DEFAULT_SHORTCUT];
+    [[SQLKeybindingManager sharedManager] setupKeyBinding:KEY_BINDING_V
+                                               withShortcut:SP_SHORTCUT_V];
     
-    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:DEFAULTS_KEY_BINDING
-                                                          withTitle:SP_MENU_ITEM_TITLE
+    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:KEY_BINDING_V
+                                                          withTitle:SP_MENU_ITEM_VIEWER_TITLE
                                                              parent:SP_MENU_PARENT_TITLE
-                                                              group:SP_MENU_ITEM_TITLE_GROUP];
+                                                              group:SP_MENU_ITEM_GROUP_TITLE];
+    
+    [[SQLKeybindingManager sharedManager] setupKeyBinding:KEY_BINDING_D
+                                             withShortcut:SP_SHORTCUT_D];
+    
+    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:KEY_BINDING_D
+                                                          withTitle:SP_MENU_ITEM_QUERY_TITLE
+                                                             parent:SP_MENU_PARENT_TITLE
+                                                              group:SP_MENU_ITEM_GROUP_TITLE];
+    
     [self addPluginMenu];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -128,14 +143,24 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     
     [pluginsMenuItem.submenu addItem:[NSMenuItem separatorItem]];
     
-    self.sqlPluginMenuItem = [[NSMenuItem alloc] init];
-    self.sqlPluginMenuItem.title = SP_MENU_ITEM_TITLE;
-    self.sqlPluginMenuItem.target = self;
-    self.sqlPluginMenuItem.action = @selector(openSqlPluginWindow);
-    [pluginsMenuItem.submenu addItem:self.sqlPluginMenuItem];
+    self.sqlViewerMenuItem = [[NSMenuItem alloc] init];
+    self.sqlViewerMenuItem.title = SP_MENU_ITEM_VIEWER_TITLE;
+    self.sqlViewerMenuItem.target = self;
+    self.sqlViewerMenuItem.action = @selector(openSqlViewerWindow);
+    [pluginsMenuItem.submenu addItem:self.sqlViewerMenuItem];
     
-    [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlPluginMenuItem
-                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:DEFAULTS_KEY_BINDING]];
+    [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlViewerMenuItem
+                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:KEY_BINDING_V]];
+    
+    
+    self.sqlQueryMenuItem = [[NSMenuItem alloc] init];
+    self.sqlQueryMenuItem.title = SP_MENU_ITEM_QUERY_TITLE;
+    self.sqlQueryMenuItem.target = self;
+    self.sqlQueryMenuItem.action = @selector(openSqlQueryWindow);
+    [pluginsMenuItem.submenu addItem:self.sqlQueryMenuItem];
+    
+    [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlQueryMenuItem
+                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:KEY_BINDING_D]];
 }
 
 - (void)openAboutWindow
@@ -155,7 +180,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [alert runModal];
 }
 
-- (void)openSqlPluginWindow
+- (void)openSqlViewerWindow
 {
     if (!_sqlMainVC) {
         _sqlMainVC = (SQLMainWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Viewer];
@@ -165,12 +190,27 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [_sqlMainVC.window makeKeyAndOrderFront:nil];
 }
 
+- (void)openSqlQueryWindow
+{
+    if (!_sqlQueryVC) {
+        _sqlQueryVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
+    }
+    
+    [_sqlQueryVC.window center];
+    [_sqlQueryVC.window makeKeyAndOrderFront:nil];
+}
+
 - (void)keyBindingsHaveChanged:(NSNotification *)notification
 {
-    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_TITLE
-                                                                                                             underMenuCalled:SP_MENU_ITEM_TITLE_GROUP]
-                                               forMenuItem:self.sqlPluginMenuItem
-                                               defaultsKey:DEFAULTS_KEY_BINDING];
+    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_VIEWER_TITLE
+                                                                                                             underMenuCalled:SP_MENU_ITEM_GROUP_TITLE]
+                                               forMenuItem:self.sqlViewerMenuItem
+                                               defaultsKey:KEY_BINDING_V];
+    
+    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_QUERY_TITLE
+                                                                                                             underMenuCalled:SP_MENU_ITEM_GROUP_TITLE]
+                                               forMenuItem:self.sqlQueryMenuItem
+                                               defaultsKey:KEY_BINDING_D];
 }
 
 @end
