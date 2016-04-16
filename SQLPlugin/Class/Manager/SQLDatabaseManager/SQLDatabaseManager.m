@@ -52,8 +52,17 @@ static SQLDatabaseManager *_sharedManager = nil;
 {
     self.recordDatabaseList = [NSMutableArray arrayWithArray:[self recordDatabaseList]];
     
-    if ([self.recordDatabaseList containsObject:item]) {
-        [self.recordDatabaseList removeObject:item];
+    __block SQLDatabaseModel *existdb = nil;
+    
+    [self.recordDatabaseList enumerateObjectsUsingBlock:^(SQLDatabaseModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.path isEqualToString:item.path]) {
+            existdb = obj;
+            *stop = YES;
+        }
+    }];
+    
+    if (existdb) {
+        [self.recordDatabaseList removeObject:existdb];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:[self archiver:self.recordDatabaseList] forKey:SQLDatabaseManagerRecordDatabaseList];

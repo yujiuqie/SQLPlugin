@@ -44,6 +44,10 @@
 		06B4F8BB1CBCA69A0012F727 /* SQLDatabaseDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B41CBCA69A0012F727 /* SQLDatabaseDescription.m */; };
 		06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */; };
 		06B4F8BD1CBCA69A0012F727 /* SQLTableDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */; };
+		06B995BE1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */; };
+		06B995C01CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */; };
+		06B995C21CC1FA04009A2DCD /* ic_description_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */; };
+		06B995C41CC204C7009A2DCD /* ic_help_outline_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */; };
 		06CE27901CC0B52700ADC45F /* ic_insert_chart_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */; };
 		06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */; };
 		06CE279B1CC0C3EF00ADC45F /* SQLMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */; };
@@ -125,6 +129,10 @@
 		06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDatabaseListDescription.m; sourceTree = "<group>"; };
 		06B4F8B91CBCA69A0012F727 /* SQLTableDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableDescription.h; sourceTree = "<group>"; };
 		06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTableDescription.m; sourceTree = "<group>"; };
+		06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_format_list_bulleted_black_24dp.png; sourceTree = "<group>"; };
+		06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_folder_open_black_24dp.png; sourceTree = "<group>"; };
+		06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_description_black_18dp.png; sourceTree = "<group>"; };
+		06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_help_outline_black_24dp.png; sourceTree = "<group>"; };
 		06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_18dp.png; sourceTree = "<group>"; };
 		06CE27931CC0C3EF00ADC45F /* SQLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainWindowController.h; sourceTree = "<group>"; };
 		06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainWindowController.m; sourceTree = "<group>"; };
@@ -264,6 +272,10 @@
 		0625C30C1CBC8D5C007C990F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */,
+				06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */,
+				06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */,
+				06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */,
 				06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */,
 				064E06BA1CC11B5200CE6F9D /* ic_format_list_bulleted_18pt.png */,
 				0658C08B1CC0EB92001FEEFE /* ic_pie_chart_black_18dp.png */,
@@ -580,6 +592,10 @@
 				0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */,
 				0625C31D1CBC8D5C007C990F /* Info.plist in Resources */,
 				0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */,
+				06B995BE1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png in Resources */,
+				06B995C41CC204C7009A2DCD /* ic_help_outline_black_24dp.png in Resources */,
+				06B995C21CC1FA04009A2DCD /* ic_description_black_18dp.png in Resources */,
+				06B995C01CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png in Resources */,
 				0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */,
 				0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */,
 				060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */,

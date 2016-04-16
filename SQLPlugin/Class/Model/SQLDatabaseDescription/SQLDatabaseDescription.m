@@ -52,7 +52,7 @@
         info = database.path;
     }
     
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%lu tables) (%@)",self.name,(unsigned long)[self.tables count],info];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%lu %@) (%@)",self.name,(unsigned long)[self.tables count],[self.tables count] > 0 ? @"tables" : @"table",info];
     
     return cell;
 }

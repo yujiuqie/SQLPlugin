@@ -23,7 +23,6 @@ NSWindowDelegate,
 NSTextFieldDelegate
 >
 
-@property (nonatomic, weak) IBOutlet NSButton *databaseButton;
 @property (nonatomic, weak) IBOutlet NSButton *clearButton;
 @property (nonatomic, weak) IBOutlet NSButton *historyCommandButton;
 @property (nonatomic, weak) IBOutlet NSTextField *textFieldSQLCommand;
@@ -32,8 +31,11 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSView *seperatorView;
 @property (nonatomic, weak) IBOutlet NSView *seperatorViewBottom;
 @property (nonatomic, strong) SQLMainWindowController *sqlMainVC;
-@property (nonatomic, weak) IBOutlet NSTextField *pathLabel;
-@property (nonatomic,weak) IBOutlet NSButton *showInFinderButton;
+@property (nonatomic, weak) IBOutlet NSButton *showInFinderButton;
+@property (nonatomic, weak) IBOutlet NSButton *exportButton;
+@property (nonatomic, weak) IBOutlet NSButton *tableButton;
+@property (nonatomic, strong) NSMutableArray *tables;
+@property (nonatomic, weak) IBOutlet NSButton *runButton;
 
 @end
 
@@ -47,22 +49,62 @@ NSTextFieldDelegate
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [self refreshPathLabel:@""];
     [self refreshTextFieldErrorLog:@""];
+    self.exportButton.enabled = NO;
+    self.tableButton.enabled = NO;
+    self.showInFinderButton.enabled = NO;
+    [self refreshRunButton];
     [self refreshHistoryCommandButton];
+    
+    NSArray *databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
+    
+    if ([databases count] == 0) {
+        [self refreshSimulator];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sqlOperationError:) name:FMDATABASEERRORNOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAddNewDatabasePath:) name:@"NOTI_ADD_NEW_DATABASE_PATH" object:nil];
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:NSControlTextDidChangeNotification object:self.textFieldSQLCommand];
+    
     [self.window registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
 }
 
 #pragma mark - Path
 
-- (void)refreshPathLabel:(NSString *)path
+- (void)refreshPathLabel:(SQLDatabaseModel *)database
 {
-    self.pathLabel.stringValue = path;
-    self.showInFinderButton.hidden = ([path length] == 0);
+    self.window.title = [self pathInfoWith:database];
+    self.showInFinderButton.enabled = ([database.path length] != 0);
+}
+
+- (NSString *)pathInfoWith:(SQLDatabaseModel *)database
+{
+    SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:database.path]];
+    
+    NSString *info = @"";
+    
+    if (model.deviceVersion && model.systemVersion) {
+        info = [NSString stringWithFormat:@"%@-%@",model.deviceVersion,model.systemVersion];
+    }
+    else{
+        info = database.path;
+    }
+    
+    return [NSString stringWithFormat:@"%@ (%@)",[database databaseName],info];
+}
+
+#pragma mark -
+
+- (void)refreshRunButton
+{
+    [self.runButton setEnabled:(([self.textFieldSQLCommand.stringValue length] > 0) && self.currentDatabase)];
+}
+
+- (void)refreshTextFieldSQLCommand:(NSString *)command
+{
+    self.textFieldSQLCommand.stringValue = command;
+    [self refreshRunButton];
+    [self.textFieldSQLCommand becomeFirstResponder];
 }
 
 #pragma mark - Error
@@ -75,7 +117,15 @@ NSTextFieldDelegate
 - (void)refreshTextFieldErrorLog:(NSString *)errString
 {
     self.textFieldErrorLog.stringValue = errString;
+    self.textFieldErrorLog.textColor = [NSColor redColor];
     self.clearButton.enabled = ([errString length] != 0);
+}
+
+- (void)refreshTextFieldInfo:(NSString *)resultString
+{
+    self.textFieldErrorLog.stringValue = resultString;
+    self.textFieldErrorLog.textColor = [NSColor grayColor];
+    self.clearButton.enabled = ([resultString length] != 0);
 }
 
 #pragma mark - NSWindowDelegate
@@ -106,15 +156,42 @@ NSTextFieldDelegate
     
     CALayer *viewLayerBottom = [CALayer layer];
     [viewLayerBottom setBackgroundColor:[NSColor lightGrayColor].CGColor];
-    [self.seperatorViewBottom setWantsLayer:YES]; 
+    [self.seperatorViewBottom setWantsLayer:YES];
     [self.seperatorViewBottom setLayer:viewLayerBottom];
     self.seperatorViewBottom.layer.backgroundColor = [NSColor grayColor].CGColor;
     
-    self.window.title = @"SQL Query";
+    self.window.title = @"SQL Query ( Choose A Database First )";
     self.window.delegate = self;
 }
 
 #pragma mark - Operation
+
+- (void)refreshSimulator
+{
+    [[SQLDatabaseManager sharedManager] clearDatabaseItems];
+    
+    NSArray *apps = [[SQLSimulatorManager sharedManager] fetchAppsWithSelectedSimulators:[[SQLSimulatorManager sharedManager] allSimulators]];
+    
+    for (SQLApplicationModel *app in apps) {
+        
+        for (SQLDatabaseModel *dbModel in app.databases) {
+            SQLDatabaseModel *model = [[SQLDatabaseModel alloc] initWithAppId:dbModel.appId path:dbModel.path];
+            [[SQLDatabaseManager sharedManager] addDatabaseItem:model];
+        }
+    }
+}
+
+- (void)selectTableItem:(NSMenuItem *)item
+{
+    SQLTableDescription *table = [_tables objectAtIndex:item.tag];
+    [self refreshTextFieldSQLCommand:[NSString stringWithFormat:@"select * from %@;",table.name]];
+    
+}
+
+- (void)selectRefreshDatabaseItem:(NSMenuItem *)item
+{
+    [self refreshSimulator];
+}
 
 - (void)selectedDatabaseItem:(NSMenuItem *)item
 {
@@ -163,20 +240,23 @@ NSTextFieldDelegate
     
     [[SQLStoreSharedManager sharedManager] openDatabaseAtPath:currentDatabase.path];
     
-    SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:currentDatabase.path]];
+    [self refreshPathLabel:currentDatabase];
+    [self refreshHistoryCommandButton];
+    [self refreshRunButton];
     
-    NSString *info = @"";
-    
-    if (model.deviceVersion && model.systemVersion) {
-        info = [NSString stringWithFormat:@"%@-%@",model.deviceVersion,model.systemVersion];
-    }
-    else{
-        info = currentDatabase.path;
-    }
-    
-    [self.databaseButton setTitle:[currentDatabase databaseName]];
-    [self refreshPathLabel:info];
-    self.window.title = [currentDatabase databaseName];
+    [[SQLStoreSharedManager sharedManager] getAllTablesinPath:currentDatabase.path
+                                                   completion:^(NSArray * tables) {
+                                                       _tables = [NSMutableArray arrayWithArray:tables];
+                                                       
+                                                       NSInteger count = [_tables count];
+                                                       _tableButton.enabled = count > 0;
+                                                       
+                                                       if (count == 0) {
+                                                           return ;
+                                                       }
+                                                       
+                                                       _tableButton.title = [NSString stringWithFormat:@"%@ ( %ld )",[tables count] > 1 ? @"Tables" : @"Table",count];
+                                                   }];
 }
 
 - (void)refreshTableWithCommand:(NSString *)command
@@ -190,16 +270,22 @@ NSTextFieldDelegate
     [[SQLStoreSharedManager sharedManager] getTableRowsWithCommand:command
                                                           inDBPath:self.currentDatabase.path
                                                         completion:^(SQLTableDescription *table) {
-        [self.tableDetailView refreshTable:table];
-    }];
+                                                            [self.tableDetailView refreshTable:table];
+                                                            
+                                                            self.exportButton.enabled = ([table.rowCount integerValue] > 0);
+                                                            
+                                                            if([self.textFieldErrorLog.stringValue length] == 0)
+                                                            {
+                                                                [self setCurrentDatabase:self.currentDatabase];
+                                                            }
+                                                        }];
 }
 
 #pragma mark - Command Operation
 
 - (void)selectedCommandHistoryItem:(NSMenuItem *)item
 {
-    self.textFieldSQLCommand.stringValue = item.title;
-    [self.textFieldSQLCommand becomeFirstResponder];
+    [self refreshTextFieldSQLCommand:item.title];
 }
 
 - (void)clearCommandHistoryItems:(NSMenuItem *)item
@@ -211,7 +297,7 @@ NSTextFieldDelegate
 - (void)refreshHistoryCommandButton
 {
     NSArray *list = [[SQLCommandManager sharedManager] commandHistoryItems];
-    [self.historyCommandButton setEnabled:(list && [list count] > 0)];
+    [self.historyCommandButton setEnabled:((list && [list count] > 0) && self.currentDatabase)];
 }
 
 #pragma mark - Did Press Button
@@ -221,35 +307,28 @@ NSTextFieldDelegate
     NSArray *databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
     
     if ([databases count] == 0) {
-        return;
+        [self refreshSimulator];
+        databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
     }
     
     NSMenu *menu = [[NSMenu alloc] init];
     [databases enumerateObjectsUsingBlock:^(SQLDatabaseModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:obj.path]];
-        
-        NSString *info = @"";
-        
-        if (model.deviceVersion && model.systemVersion) {
-            info = [NSString stringWithFormat:@"%@-%@",model.deviceVersion,model.systemVersion];
-        }
-        else{
-            info = obj.path;
-        }
-        
-        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@)",[obj databaseName],info] action:@selector(selectedDatabaseItem:) keyEquivalent:@""];
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[self pathInfoWith:obj] action:@selector(selectedDatabaseItem:) keyEquivalent:@""];
         item.tag = idx;
         [menu insertItem:item atIndex:idx];
     }];
     
-    [menu insertItem:[NSMenuItem separatorItem] atIndex:[databases count]];
-    [menu insertItemWithTitle:@"Add New Database" action:@selector(addDatabaseItem:) keyEquivalent:@"" atIndex:([databases count] + 1)];
+    [menu insertItem:[NSMenuItem separatorItem] atIndex:[[menu itemArray] count]];
+    [menu insertItemWithTitle:@"Refresh Database" action:@selector(selectRefreshDatabaseItem:) keyEquivalent:@"" atIndex:[[menu itemArray] count]];
+    
+    [menu insertItem:[NSMenuItem separatorItem] atIndex:[[menu itemArray] count]];
+    [menu insertItemWithTitle:@"Add New Database" action:@selector(addDatabaseItem:) keyEquivalent:@"" atIndex:[[menu itemArray] count]];
     
     [menu popUpMenuPositioningItem:nil atLocation:[NSEvent mouseLocation] inView:nil];
 }
 
--(IBAction)didPressPathButton:(NSButton *)sender
+-(IBAction)didPressShowInFinderButton:(NSButton *)sender
 {
     NSString *path = self.currentDatabase.path;
     
@@ -265,7 +344,7 @@ NSTextFieldDelegate
     //TODO::
 }
 
--(IBAction)didPressCloseButton:(NSButton *)sender
+-(IBAction)didPressViewerButton:(NSButton *)sender
 {
     if (!_sqlMainVC) {
         _sqlMainVC = (SQLMainWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Viewer];
@@ -278,6 +357,22 @@ NSTextFieldDelegate
 -(IBAction)didPressRunButton:(NSButton *)sender
 {
     [self refreshTableWithCommand:self.textFieldSQLCommand.stringValue];
+}
+
+-(IBAction)didPressTableButton:(NSButton *)sender
+{
+    if ([_tables count] == 0) {
+        return;
+    }
+    
+    NSMenu *menu = [[NSMenu alloc] init];
+    [_tables enumerateObjectsUsingBlock:^(SQLTableDescription *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%@ (%@ %@)",obj.name,obj.rowCount,([obj.rowCount integerValue] > 1) ? @"rows" : @"row"] action:@selector(selectTableItem:) keyEquivalent:@""];
+        item.tag = idx;
+        [menu insertItem:item atIndex:idx];
+    }];
+    
+    [menu popUpMenuPositioningItem:nil atLocation:[NSEvent mouseLocation] inView:nil];
 }
 
 -(IBAction)didPressHistoryButton:(NSButton *)sender
@@ -342,16 +437,22 @@ NSTextFieldDelegate
     }
 }
 
-#pragma Control Delegate
+#pragma mark - Control Delegate
 
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector
 {
-    NSLog(@"Selector method is (%@)", NSStringFromSelector( commandSelector ) );
-    if (commandSelector == @selector(insertNewline:)) {
+    [self refreshRunButton];
+    
+    if (commandSelector == @selector(insertNewline:) && [fieldEditor.string hasSuffix:@";"] && self.currentDatabase) {
         [self refreshTableWithCommand:fieldEditor.string];
         return YES;
     }
     return NO;
+}
+
+- (void)controlTextDidChange:(NSNotification *)obj
+{
+    [self refreshRunButton];
 }
 
 @end

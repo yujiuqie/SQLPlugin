@@ -118,7 +118,7 @@ NSTextFieldDelegate
     else if([cell isKindOfClass:[SQLTableDescription class]]){
         path = ((SQLTableDescription *)cell).path;
     }
-
+    
     [_operationVC.window center];
     [_operationVC.window makeKeyAndOrderFront:nil];
     _operationVC.currentDatabase = [[SQLDatabaseManager sharedManager] databaseInPath:path];
@@ -298,6 +298,7 @@ NSTextFieldDelegate
 }
 
 #pragma mark - Menu Operation
+
 - (IBAction)executeSQL:(NSMenuItem *)sender {
     [self didPressSQLButton:nil];
 }

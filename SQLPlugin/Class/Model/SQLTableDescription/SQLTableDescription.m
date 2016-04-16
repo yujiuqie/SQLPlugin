@@ -33,7 +33,7 @@
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLTableNameView" owner:self];
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ rows)",self.name,self.rowCount];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ %@)",self.name,self.rowCount,([self.rowCount integerValue] > 1) ? @"rows" : @"row"];
     return cell;
 }
 
