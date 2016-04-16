@@ -3,32 +3,38 @@
 [![Build Status](https://travis-ci.org/viktyz/SQLPlugin.svg?branch=master)](https://travis-ci.org/viktyz/SQLPlugin)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-SQLPlugin is a plugin for Xcode. This plugin will list all files with database type in your simulator directories.
+SQLPlugin is a plugin for Xcode. There are 2 tools in this plugin for SQL operation. **SQL Viewer** and **SQL Query**.
+
+**SQL Viewer** helps to list all files with database type in your simulator. And **SQL Query** helps to operate your database file.
 
 ![Screenshots1](Screenshots/Screenshots1.png)
 
-With SQLPlugin you can easily to get all database type files in your simulator directories. 
+With SQLPlugin you can easily to operate all kinds of database file ( sqlite \ db \ sql ) in your simulator or other directory.
 
 ## Features
 
 <ul>
-<li>[x] Database browser for SQLite</li>
+<li>[x] Database browser for SQL file ( sqlite \ db \ sql )</li>
 <li>[x] Automatically load all databases in simulator directory</li>
 <li>[x] Add / delete / export database</li>
-<li>[ ] Full database operations</li>
-<li>[ ] Export table as CSV file</li>
+<li>[x] SQL command support</li>
+<li>[x] Export table as CSV file</li>
 <li>[ ] Test coverage</li>
 </ul>
 
 ## How to use
 
-After installed, You can use `shift + command + v` to open plugin window.
+After installed, You can see **SQL** Menu in your Xcode Window Menu.
 
-Or select `SQL -> Run` from the Window Menu to open plugin window.
+![Screenshots0](Screenshots/Screenshots0.png)
 
-All the files in database type will list out automatically after the plugin window loaded.
+**SQL Viewer** helps to list all database files in your simulator. You can use `shift + command + V` to quick open it. All the files with database type in your simulator will list out automatically after **SQL Viewer** window loaded. You can also add any other file with database type by click `Add` button or just drag them into your plugin window.
 
-You can also add any file in database type by click `Add` button or just drag them into your plugin window.
+![Screenshots2](Screenshots/Screenshots2.png)
+
+**SQL Query** helps to operate database file. You can use `shift + command + D` to quick open it. Then you can easily to query your SQL data by SQL commands. You can see the list of databases in your simulator by click `Database` button or `Database -> Refresh Database`. You can also add any other file with database type by click `Database -> Add New Database` or just drag them into your plugin window.
+
+![Screenshots3](Screenshots/Screenshots3.png)
 
 ## Install
 
@@ -50,6 +56,8 @@ You'll need to restart Xcode after the installation.
 ```bash
 rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
+
+The `SQL` Menu will disappear after restart Xcode.
 
 ## License
 ```
