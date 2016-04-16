@@ -25,7 +25,7 @@ With SQLPlugin you can easily to operate all kinds of database file ( sqlite \ d
 
 ## How to use
 
-After installed, You can see **SQL** Menu in your Xcode Window Menu.
+* After installed, You can see **SQL** Menu in your Xcode Window Menu.
 
 ![Screenshots0](Screenshots/Screenshots0.png)
 
