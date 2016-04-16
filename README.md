@@ -48,7 +48,7 @@ curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | s
 ~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
 
-You'll need to restart Xcode after the installation.
+	You'll need to restart Xcode after the installation.
 
 ## Uninstall
 
@@ -57,7 +57,11 @@ You'll need to restart Xcode after the installation.
 rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
 
-The `SQL` Menu will disappear after restart Xcode.
+	The `SQL` Menu will disappear after restart Xcode.
+
+## SQL Help
+
+* [SQL Tutorial](http://www.tutorialspoint.com/sql/sql-select-query.htm) : SQL is a database computer language designed for the retrieval and management of data in relational database. SQL stands for Structured Query Language. This tutorial will give you quick start with SQL.
 
 ## License
 ```
