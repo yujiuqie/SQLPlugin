@@ -9,6 +9,7 @@
 #import "SQLSimulatorManager.h"
 #import "IDEKit.h"
 #import "SQLSimulatorModel.h"
+#import "SQLDatabaseDescription.h"
 
 @interface SQLSimulatorManager()
 
@@ -211,7 +212,7 @@ static SQLSimulatorManager *_sharedManager = nil;
         {
             NSString *fullPath = [aPath stringByAppendingFormat:@"/%@",fileName];
             
-            SQLDatabaseModel *model = [[SQLDatabaseModel alloc] init];
+            SQLDatabaseDescription *model = [[SQLDatabaseDescription alloc] init];
             model.appId = [self appIdWithPath:aPath];
             model.path = fullPath;
             

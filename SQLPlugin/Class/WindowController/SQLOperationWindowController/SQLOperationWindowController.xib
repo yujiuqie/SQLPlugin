@@ -160,7 +160,7 @@
                                                     <constraint firstAttribute="height" constant="45" id="JR0-BS-dQQ"/>
                                                     <constraint firstAttribute="width" constant="50" id="vLi-mO-n1r"/>
                                                 </constraints>
-                                                <buttonCell key="cell" type="square" title="Finder" bezelStyle="shadowlessSquare" image="ic_folder_open_black_24dp" imagePosition="above" alignment="center" imageScaling="proportionallyDown" inset="2" id="2VM-Sd-LDs">
+                                                <buttonCell key="cell" type="square" title="Reveal" bezelStyle="shadowlessSquare" image="ic_folder_open_black_24dp" imagePosition="above" alignment="center" imageScaling="proportionallyDown" inset="2" id="2VM-Sd-LDs">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="10" name=".HelveticaNeueDeskInterface-Regular"/>
                                                 </buttonCell>
@@ -246,7 +246,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="dmo-ZB-9Fn" viewBased="YES" id="l0H-uZ-mdt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="798" height="297"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="798" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

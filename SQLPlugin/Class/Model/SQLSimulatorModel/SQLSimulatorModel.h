@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SQLDatabaseModel : NSObject
-
-@property (nonatomic, strong) NSString *appId;
-@property (nonatomic, strong) NSString *path;
-
-- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath;
-- (NSString *)databaseName;
-
-#pragma mark - NSCoding
-
-- (void)encodeWithCoder:(NSCoder *)aCoder;
-- (id)initWithCoder:(NSCoder *)aDecoder;
-
-@end
+//@interface SQLDatabaseModel : NSObject
+//
+//@property (nonatomic, strong) NSString *appId;
+//@property (nonatomic, strong) NSString *path;
+//
+//- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath;
+//- (NSString *)databaseName;
+//
+//#pragma mark - NSCoding
+//
+//- (void)encodeWithCoder:(NSCoder *)aCoder;
+//- (id)initWithCoder:(NSCoder *)aDecoder;
+//
+//@end
 
 @interface SQLDirectoryModel : NSObject
 

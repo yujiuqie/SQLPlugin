@@ -60,7 +60,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
     [[SQLKeybindingManager sharedManager] setupKeyBinding:KEY_BINDING_V
-                                               withShortcut:SP_SHORTCUT_V];
+                                             withShortcut:SP_SHORTCUT_V];
     
     [[SQLKeybindingManager sharedManager] installStandardKeyBinding:KEY_BINDING_V
                                                           withTitle:SP_MENU_ITEM_VIEWER_TITLE
@@ -199,6 +199,7 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [_sqlQueryVC.window center];
     [_sqlQueryVC.window makeKeyAndOrderFront:nil];
 }
+
 
 - (void)keyBindingsHaveChanged:(NSNotification *)notification
 {

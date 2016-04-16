@@ -12,6 +12,9 @@
 
 @interface SQLDatabaseListDescription : NSObject<NSOutlineViewDataSource,NSOutlineViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *databases;
+@property (nonatomic, strong, readonly) NSArray *databases;
+
+- (void)addDatabase:(SQLDatabaseDescription *)database;
+- (void)removeDatabase:(SQLDatabaseDescription *)database;
 
 @end

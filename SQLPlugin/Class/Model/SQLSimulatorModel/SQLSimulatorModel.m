@@ -8,64 +8,64 @@
 
 #import "SQLSimulatorModel.h"
 
-@implementation SQLDatabaseModel
-
-- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath
-{
-    self = [super init];
-    if (self) {
-        _appId = aId;
-        _path = aPath;
-    }
-    return self;
-}
-
-- (NSString *)databaseName
-{
-    return [_path lastPathComponent];
-}
-
-#pragma mark - NSCoding
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_appId forKey:@"appId"];
-    [aCoder encodeObject:_path forKey:@"path"];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super init]) {
-        _appId = [aDecoder decodeObjectForKey:@"appId"];
-        _path = [aDecoder decodeObjectForKey:@"path"];
-    }
-    return self;
-}
-
-#pragma mark - NSCoping
-
-- (id)copyWithZone:(NSZone *)zone {
-    SQLDatabaseModel *copy = [[[self class] allocWithZone:zone] init];
-    copy.appId = [self.appId copyWithZone:zone];
-    copy.path = [self.path copyWithZone:zone];
-    return copy;
-}
-
-#pragma mark - Equal
-
-- (BOOL)isEqual:(SQLDatabaseModel *)object
-{
-    if ([_appId isEqual:object.appId] && [_path isEqual:object.path]) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (NSUInteger)hash
-{
-    return [self.appId hash] ^ [self.path hash];
-}
-
-@end
+//@implementation SQLDatabaseModel
+//
+//- (instancetype)initWithAppId:(NSString *)aId path:(NSString *)aPath
+//{
+//    self = [super init];
+//    if (self) {
+//        _appId = aId;
+//        _path = aPath;
+//    }
+//    return self;
+//}
+//
+//- (NSString *)databaseName
+//{
+//    return [_path lastPathComponent];
+//}
+//
+//#pragma mark - NSCoding
+//
+//- (void)encodeWithCoder:(NSCoder *)aCoder {
+//    [aCoder encodeObject:_appId forKey:@"appId"];
+//    [aCoder encodeObject:_path forKey:@"path"];
+//}
+//
+//- (id)initWithCoder:(NSCoder *)aDecoder {
+//    if (self = [super init]) {
+//        _appId = [aDecoder decodeObjectForKey:@"appId"];
+//        _path = [aDecoder decodeObjectForKey:@"path"];
+//    }
+//    return self;
+//}
+//
+//#pragma mark - NSCoping
+//
+//- (id)copyWithZone:(NSZone *)zone {
+//    SQLDatabaseModel *copy = [[[self class] allocWithZone:zone] init];
+//    copy.appId = [self.appId copyWithZone:zone];
+//    copy.path = [self.path copyWithZone:zone];
+//    return copy;
+//}
+//
+//#pragma mark - Equal
+//
+//- (BOOL)isEqual:(SQLDatabaseModel *)object
+//{
+//    if ([_appId isEqual:object.appId] && [_path isEqual:object.path]) {
+//        return YES;
+//    }
+//    
+//    return NO;
+//}
+//
+//- (NSUInteger)hash
+//{
+//    return [self.appId hash] ^ [self.path hash];
+//}
+//
+//@end
 
 @implementation SQLDirectoryModel
 

@@ -57,4 +57,9 @@
     return cell;
 }
 
+- (NSString *)databaseName
+{
+    return [_path lastPathComponent];
+}
+
 @end

@@ -8,21 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "SQLSimulatorModel.h"
+#import "SQLDatabaseDescription.h"
 
 @interface SQLDatabaseManager : NSObject
 
+@property (nonatomic, strong, readonly) NSArray *databaseDescriptions;
+
 + (instancetype)sharedManager;
 
-- (void)addDatabaseItems:(NSMutableArray *)items;
+- (void)addDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
 
-- (void)addDatabaseItem:(SQLDatabaseModel *)item;
+- (void)removeDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
 
-- (void)removeDatabaseItem:(SQLDatabaseModel *)item;
+- (SQLDatabaseDescription *)databaseDescriptionInPath:(NSString *)path;
 
-- (NSArray *)recordDatabaseItems;
-
-- (void)clearDatabaseItems;
-
-- (SQLDatabaseModel *)databaseInPath:(NSString *)path;
+- (void)clearDatabaseDescriptions;
 
 @end

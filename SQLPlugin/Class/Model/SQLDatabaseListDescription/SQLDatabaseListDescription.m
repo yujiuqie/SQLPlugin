@@ -7,6 +7,11 @@
 //
 
 #import "SQLDatabaseListDescription.h"
+#import "SQLDatabaseManager.h"
+
+@interface SQLDatabaseListDescription()
+
+@end
 
 @implementation SQLDatabaseListDescription
 
@@ -38,6 +43,23 @@
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     return [item outlineView:outlineView viewForTableColumn:tableColumn item:item];
+}
+
+#pragma mark -
+
+- (NSArray *)databases
+{
+    return [[SQLDatabaseManager sharedManager] databaseDescriptions];
+}
+
+- (void)addDatabase:(SQLDatabaseDescription *)database
+{
+    [[SQLDatabaseManager sharedManager] addDatabaseDescription:database];
+}
+
+- (void)removeDatabase:(SQLDatabaseDescription *)database
+{
+    [[SQLDatabaseManager sharedManager] removeDatabaseDescription:database];
 }
 
 @end

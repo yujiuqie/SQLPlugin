@@ -98,7 +98,7 @@ NSOutlineViewDelegate
     
     NSInteger index = [_databases.databases indexOfObject:itemParent];
     
-    [_databases.databases removeObject:itemParent];
+    [_databases removeDatabase:itemParent];
     
     [self.outlineView removeItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:nil withAnimation:NSTableViewAnimationSlideLeft];
 }

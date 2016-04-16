@@ -16,6 +16,7 @@
 #import "SQLCSVManager.h"
 #import "SQLDatabaseManager.h"
 #import "SQLSimulatorManager.h"
+#import "SQLDatabaseListDescription.h"
 
 @interface SQLOperationWindowController ()
 <
@@ -36,6 +37,7 @@ NSTextFieldDelegate
 @property (nonatomic, weak) IBOutlet NSButton *tableButton;
 @property (nonatomic, strong) NSMutableArray *tables;
 @property (nonatomic, weak) IBOutlet NSButton *runButton;
+@property (nonatomic, strong) NSMutableArray *databases;
 
 @end
 
@@ -56,7 +58,7 @@ NSTextFieldDelegate
     [self refreshRunButton];
     [self refreshHistoryCommandButton];
     
-    NSArray *databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
+    NSArray *databases = [[SQLDatabaseManager sharedManager] databaseDescriptions];
     
     if ([databases count] == 0) {
         [self refreshSimulator];
@@ -71,13 +73,13 @@ NSTextFieldDelegate
 
 #pragma mark - Path
 
-- (void)refreshPathLabel:(SQLDatabaseModel *)database
+- (void)refreshPathLabel:(SQLDatabaseDescription *)database
 {
     self.window.title = [self pathInfoWith:database];
     self.showInFinderButton.enabled = ([database.path length] != 0);
 }
 
-- (NSString *)pathInfoWith:(SQLDatabaseModel *)database
+- (NSString *)pathInfoWith:(SQLDatabaseDescription *)database
 {
     SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:database.path]];
     
@@ -140,9 +142,10 @@ NSTextFieldDelegate
 - (void)notiAddNewDatabasePath:(NSNotification *)noti
 {
     for (NSString *path in noti.object) {
-        SQLDatabaseModel *model = [[SQLDatabaseModel alloc] initWithAppId:@"" path:path];
-        [[SQLDatabaseManager sharedManager] addDatabaseItem:model];
-        [self setCurrentDatabase:model];
+        [self fetchDatabaseInPath:path completion:^(SQLDatabaseDescription *database) {
+            [[SQLDatabaseManager sharedManager] addDatabaseDescription:database];
+            [self setCurrentDatabase:database];
+        }];
     }
 }
 
@@ -166,17 +169,53 @@ NSTextFieldDelegate
 
 #pragma mark - Operation
 
+//- (NSString *)tablesCountInPath:(NSString *)path
+//{
+//    if (!_databases || [_databases count] == 0) {
+//        return ;
+//    }
+//}
+
+-(void)fetchDatabaseInPath:(NSString*)path completion:(void (^)(SQLDatabaseDescription *))completion
+{
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:NO];
+    if(!fileExists)
+    {
+        //        [self showAlert:[NSString stringWithFormat:@"%@ Doesn't Exist",path]];
+    }
+    else
+    {
+        BOOL isOpened = [[SQLStoreSharedManager sharedManager] openDatabaseAtPath:path];
+        if(!isOpened)
+        {
+            //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
+        }
+        else{
+            [[SQLStoreSharedManager sharedManager] getAllTablesinPath:path completion:^(NSArray *tables) {
+                SQLDatabaseDescription *database = [[SQLDatabaseDescription alloc] init];
+                database.name = path.lastPathComponent;
+                database.path = path;
+                database.tables = tables;
+                
+                completion(database);
+            }];
+        }
+    }
+}
+
 - (void)refreshSimulator
 {
-    [[SQLDatabaseManager sharedManager] clearDatabaseItems];
+    [[SQLDatabaseManager sharedManager] clearDatabaseDescriptions];
     
     NSArray *apps = [[SQLSimulatorManager sharedManager] fetchAppsWithSelectedSimulators:[[SQLSimulatorManager sharedManager] allSimulators]];
     
     for (SQLApplicationModel *app in apps) {
         
-        for (SQLDatabaseModel *dbModel in app.databases) {
-            SQLDatabaseModel *model = [[SQLDatabaseModel alloc] initWithAppId:dbModel.appId path:dbModel.path];
-            [[SQLDatabaseManager sharedManager] addDatabaseItem:model];
+        for (SQLDatabaseDescription *dbModel in app.databases) {
+            [self fetchDatabaseInPath:dbModel.path completion:^(SQLDatabaseDescription *database) {
+                [[SQLDatabaseManager sharedManager] addDatabaseDescription:database];
+                [self setCurrentDatabase:database];
+            }];
         }
     }
 }
@@ -195,8 +234,8 @@ NSTextFieldDelegate
 
 - (void)selectedDatabaseItem:(NSMenuItem *)item
 {
-    NSArray *databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
-    SQLDatabaseModel *obj = [databases objectAtIndex:item.tag];
+    NSArray *databases = [[SQLDatabaseManager sharedManager] databaseDescriptions];
+    SQLDatabaseDescription *obj = [databases objectAtIndex:item.tag];
     [self setCurrentDatabase:obj];
 }
 
@@ -219,14 +258,15 @@ NSTextFieldDelegate
                 return;
             }
             
-            SQLDatabaseModel *model = [[SQLDatabaseModel alloc] initWithAppId:@"" path:path];
-            [[SQLDatabaseManager sharedManager] addDatabaseItem:model];
-            [self setCurrentDatabase:model];
+            [self fetchDatabaseInPath:path completion:^(SQLDatabaseDescription *database) {
+                [[SQLDatabaseManager sharedManager] addDatabaseDescription:database];
+                [self setCurrentDatabase:database];
+            }];
         }
     }
 }
 
-- (void)setCurrentDatabase:(SQLDatabaseModel *)currentDatabase
+- (void)setCurrentDatabase:(SQLDatabaseDescription *)currentDatabase
 {
     _currentDatabase = currentDatabase;
     
@@ -304,15 +344,15 @@ NSTextFieldDelegate
 
 -(IBAction)didPressDatabaseButton:(NSButton *)sender
 {
-    NSArray *databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
+    NSArray *databases = [[SQLDatabaseManager sharedManager] databaseDescriptions];
     
     if ([databases count] == 0) {
         [self refreshSimulator];
-        databases = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
+        databases = [[SQLDatabaseManager sharedManager] databaseDescriptions];
     }
     
     NSMenu *menu = [[NSMenu alloc] init];
-    [databases enumerateObjectsUsingBlock:^(SQLDatabaseModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [databases enumerateObjectsUsingBlock:^(SQLDatabaseDescription *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[self pathInfoWith:obj] action:@selector(selectedDatabaseItem:) keyEquivalent:@""];
         item.tag = idx;

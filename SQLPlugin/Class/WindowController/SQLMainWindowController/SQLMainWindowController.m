@@ -121,7 +121,7 @@ NSTextFieldDelegate
     
     [_operationVC.window center];
     [_operationVC.window makeKeyAndOrderFront:nil];
-    _operationVC.currentDatabase = [[SQLDatabaseManager sharedManager] databaseInPath:path];
+    _operationVC.currentDatabase = [[SQLDatabaseManager sharedManager] databaseDescriptionInPath:path];
 }
 
 -(IBAction)didPressCSVButton:(NSButton *)sender
@@ -182,18 +182,9 @@ NSTextFieldDelegate
                 
                 if (!_sqliteList) {
                     _sqliteList = [[SQLDatabaseListDescription alloc] init];
-                    _sqliteList.databases = [NSMutableArray array];
                 }
                 
-                [_sqliteList.databases enumerateObjectsUsingBlock:^(SQLDatabaseDescription * obj, NSUInteger idx, BOOL * stop) {
-                    //
-                    if ([obj.path isEqualToString:path]) {
-                        [_sqliteList.databases removeObjectAtIndex:idx];
-                        *stop = YES;
-                    }
-                }];
-                
-                [_sqliteList.databases insertObject:database atIndex:0];
+                [_sqliteList addDatabase:database];
                 
                 self.tableListView.databases = _sqliteList;
             }];
@@ -219,12 +210,12 @@ NSTextFieldDelegate
 
 - (void)setupDatabaseList
 {
-    NSArray *databasesList = [[SQLDatabaseManager sharedManager] recordDatabaseItems];
+    NSArray *databasesList = [[SQLDatabaseManager sharedManager] databaseDescriptions];
     if (!databasesList || [databasesList count] == 0) {
         [self refreshSimulator];
     }
     else{
-        [databasesList enumerateObjectsUsingBlock:^(SQLDatabaseModel * obj, NSUInteger idx, BOOL * stop) {
+        [databasesList enumerateObjectsUsingBlock:^(SQLDatabaseDescription * obj, NSUInteger idx, BOOL * stop) {
             [self addFetchOperation:obj.path];
         }];
     }
@@ -238,7 +229,7 @@ NSTextFieldDelegate
     
     for (SQLApplicationModel *app in apps) {
         
-        for (SQLDatabaseModel *dbModel in app.databases) {
+        for (SQLDatabaseDescription *dbModel in app.databases) {
             [self addFetchOperation:dbModel.path];
         }
     }
@@ -249,8 +240,6 @@ NSTextFieldDelegate
     if (![@[@"sqlite", @"sql", @"db"] containsObject:[aPath pathExtension]]) {
         return;
     }
-    
-    [[SQLDatabaseManager sharedManager] addDatabaseItem:[[SQLDatabaseModel alloc] initWithAppId:@"" path:aPath]];
     
     if(queue == nil){
         queue = [[NSOperationQueue  alloc]init];
@@ -270,7 +259,7 @@ NSTextFieldDelegate
         [[SQLStoreSharedManager sharedManager] close];
     }
     
-    [[SQLDatabaseManager sharedManager] clearDatabaseItems];
+    [[SQLDatabaseManager sharedManager] clearDatabaseDescriptions];
 }
 
 - (NSString *)removeSelectedItemReference
@@ -290,8 +279,8 @@ NSTextFieldDelegate
         return path;
     }
     
-    SQLDatabaseModel *database = [[SQLDatabaseManager sharedManager] databaseInPath:path];
-    [[SQLDatabaseManager sharedManager] removeDatabaseItem:database];
+    SQLDatabaseDescription *database = [[SQLDatabaseManager sharedManager] databaseDescriptionInPath:path];
+    [[SQLDatabaseManager sharedManager] removeDatabaseDescription:database];
     [self.tableListView removeSelectedItem];
     
     return path;
@@ -320,7 +309,7 @@ NSTextFieldDelegate
         return;
     }
     
-    SQLDatabaseModel *database = [[SQLDatabaseManager sharedManager] databaseInPath:path];
+    SQLDatabaseDescription *database = [[SQLDatabaseManager sharedManager] databaseDescriptionInPath:path];
     
     [self addFetchOperation:database.path];
 }
