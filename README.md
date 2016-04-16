@@ -29,11 +29,11 @@ After installed, You can see **SQL** Menu in your Xcode Window Menu.
 
 ![Screenshots0](Screenshots/Screenshots0.png)
 
-**SQL Viewer** helps to list all database files in your simulator. You can use `shift + command + V` to quick open it. All the files with database type in your simulator will list out automatically after **SQL Viewer** window loaded. You can also add any other file with database type by click `Add` button or just drag them into your plugin window.
+* **SQL Viewer** helps to list all database files in your simulator. You can use `shift + command + V` to quick open it. All the files with database type in your simulator will list out automatically after **SQL Viewer** window loaded. You can also add any other file with database type by click `Add` button or just drag them into your plugin window.
 
 ![Screenshots2](Screenshots/Screenshots2.png)
 
-**SQL Query** helps to operate database file. You can use `shift + command + D` to quick open it. Then you can easily to query your SQL data by SQL commands. You can see the list of databases in your simulator by click `Database` button or `Database -> Refresh Database`. You can also add any other file with database type by click `Database -> Add New Database` or just drag them into your plugin window.
+* **SQL Query** helps to operate database file. You can use `shift + command + D` to quick open it. Then you can easily to query your SQL data by SQL commands. You can see the list of databases in your simulator by click `Database` button or `Database -> Refresh Database`. You can also add any other file with database type by click `Database -> Add New Database` or just drag them into your plugin window.
 
 ![Screenshots3](Screenshots/Screenshots3.png)
 
@@ -49,7 +49,7 @@ curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | s
 ~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
 
-	You'll need to restart Xcode after the installation.
+You'll need to restart Xcode after the installation.
 
 ## Uninstall
 
@@ -58,7 +58,7 @@ curl -fsSL https://raw.github.com/viktyz/SQLPlugin/master/Scripts/install.sh | s
 rm -rf ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/SQLPlugin.xcplugin
 ```
 
-	The `SQL` Menu will disappear after restart Xcode.
+The `SQL` Menu will disappear after restart Xcode.
 
 ## SQL Help
 
