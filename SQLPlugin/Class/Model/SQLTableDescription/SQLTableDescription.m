@@ -27,13 +27,13 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    return [NSString stringWithFormat:@"%@ (%@)",self.name, self.rows];
+    return [NSString stringWithFormat:@"%@ (%@)",self.name, self.rowCount];
 }
 
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     NSTableCellView *cell = [outlineView makeViewWithIdentifier:@"SQLTableNameView" owner:self];
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ rows)",self.name,self.rows];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@ (%@ %@)",self.name,self.rowCount,([self.rowCount integerValue] > 1) ? @"rows" : @"row"];
     return cell;
 }
 
@@ -44,8 +44,10 @@
 
 - (NSString *)selectedPropertName
 {
-    if (!_selectedPropertName || [_selectedPropertName length] == 0) {
-        if (_properties && [_properties count] > 0) {
+    if (!_selectedPropertName || [_selectedPropertName length] == 0)
+    {
+        if (_properties && [_properties count] > 0)
+        {
             SQLTableProperty *property = [_properties firstObject];
             return property.name;
         }

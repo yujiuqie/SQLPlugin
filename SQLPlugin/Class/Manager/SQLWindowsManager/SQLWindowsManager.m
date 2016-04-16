@@ -7,7 +7,6 @@
 //
 
 #import "SQLWindowsManager.h"
-#import "SQLMainViewController.h"
 
 @interface SQLWindowsManager()
 
@@ -25,37 +24,80 @@ static SQLWindowsManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLWindowsManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
-- (SQLMainViewController *)createWindowController
+- (NSWindowController *)windowWithType:(SQLWindowType)windowType
 {
-    SQLMainViewController *mainVC = [[SQLMainViewController alloc] initWithWindowNibName:@"SQLMainViewController"];
-    [self addWindowController:mainVC];
-    return mainVC;
+    Class targetWindowVCClass = nil;
+    
+    switch (windowType)
+    {
+        case SQLWindowType_SQL_Viewer:
+        {
+            targetWindowVCClass = [SQLMainWindowController class];
+        }
+            break;
+            
+        case SQLWindowType_SQL_Operation:
+        {
+            targetWindowVCClass = [SQLOperationWindowController class];
+        }
+            break;
+    }
+    
+    if (targetWindowVCClass)
+    {
+        __block NSWindowController *targetVC = nil;
+        
+        [windows enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if ([obj isKindOfClass:targetWindowVCClass]) {
+                targetVC = obj;
+                *stop = YES;
+            }
+        }];
+        
+        if (!targetVC)
+        {
+            targetVC = [[targetWindowVCClass alloc] initWithWindowNibName:NSStringFromClass(targetWindowVCClass)];
+            [self addWindowController:targetVC];
+        }
+        
+        return targetVC;
+    }
+    
+    return nil;
 }
 
-- (void)addWindowController:(SQLMainViewController *)aWindow
+- (void)addWindowController:(NSWindowController *)aWindowVC
 {
-    if (!windows) {
+    if (!windows)
+    {
         windows = [NSMutableArray array];
     }
     
-    [windows addObject:aWindow];
+    [windows addObject:aWindowVC];
 }
 
 - (void)removeWindow:(NSWindow *)aWindow
 {
-    if (!windows || [windows count] == 0) {
+    if (!windows || [windows count] == 0)
+    {
         return;
     }
     
-    [windows enumerateObjectsUsingBlock:^(SQLMainViewController *obj, NSUInteger idx, BOOL * stop) {
-        if ([obj.window isEqualTo:aWindow]) {
+    [windows enumerateObjectsUsingBlock:^(NSWindowController *obj, NSUInteger idx, BOOL * stop) {
+        
+        if ([obj.window isEqualTo:aWindow])
+        {
             [obj close];
             [windows removeObject:obj];
             *stop = YES;

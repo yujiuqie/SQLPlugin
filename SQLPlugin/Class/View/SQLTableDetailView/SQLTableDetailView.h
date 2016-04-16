@@ -15,4 +15,6 @@
 @property (nonatomic, weak) NSButton *leftButton;
 @property (nonatomic, weak) NSButton *rightButton;
 
+- (void)refreshTable:(SQLTableDescription *)table;
+
 @end

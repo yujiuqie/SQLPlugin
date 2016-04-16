@@ -18,7 +18,7 @@ NSTableViewDelegate
 
 @property (nonatomic, weak) IBOutlet NSTableView *detailView;
 @property (nonatomic, strong) NSNumber *offset;
-@property (nonatomic, strong) NSArray *rows;
+
 @end
 
 @implementation SQLTableDetailView
@@ -34,7 +34,7 @@ NSTableViewDelegate
 
 -(void)awakeFromNib
 {
-    self.rows = [[NSMutableArray alloc] init];
+    self.table.rows = [[NSMutableArray alloc] init];
     [self clearColumns];
     self.leftButton.target = self;
     self.leftButton.action = NSSelectorFromString(@"didPressLeftButton:");
@@ -57,12 +57,19 @@ NSTableViewDelegate
 -(void)setTable:(SQLTableDescription *)table
 {
     _table = table;
+    _table.rows = @[];
+    [self reloadUI];
+    [self fetchRowForOffset];
+}
+
+- (void)refreshTable:(SQLTableDescription *)table
+{
+    _table = table;
     [self reloadUI];
 }
 
 -(void)reloadUI
 {
-    self.rows = @[];
     self.offset = @(0);
     self.leftButton.enabled = NO;
     self.rightButton.enabled = NO;
@@ -82,13 +89,12 @@ NSTableViewDelegate
     }
     
     [self.detailView reloadData];
-    
-    [self fetchRowForOffset];
 }
 
 -(void)fetchRowForOffset
 {
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:self.table.path isDirectory:NO];
+    
     if(!fileExists)
     {
         //        [self showAlert:[NSString stringWithFormat:@"%@ Doesn't Exist",path]];
@@ -96,38 +102,46 @@ NSTableViewDelegate
     else
     {
         BOOL isOpened = [[SQLStoreSharedManager sharedManager] openDatabaseAtPath:self.table.path];
+        
         if(!isOpened)
         {
             //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
         }
         else
         {
-            [[SQLStoreSharedManager sharedManager] getRowsWithOffset:self.offset withTableDescription:self.table completion:^(NSArray *rows) {
-                self.rows = rows;
-                
-                if(self.rows.count + self.offset.intValue != self.table.rows.intValue){
-                    self.rightButton.enabled = YES;
-                }
-                else{
-                    self.rightButton.enabled = NO;
-                }
-                
-                if(self.offset.intValue == 0){
-                    self.leftButton.enabled = NO;
-                }
-                else{
-                    self.leftButton.enabled = YES;
-                }
-                
-                [self.detailView reloadData];
-            }];
+            [[SQLStoreSharedManager sharedManager] getRowsWithOffset:self.offset
+                                                withTableDescription:self.table
+                                                          completion:^(NSArray *rows) {
+                                                              
+                                                              self.table.rows = rows;
+                                                              
+                                                              if(self.table.rows.count + self.offset.intValue != [self.table.rowCount integerValue])
+                                                              {
+                                                                  self.rightButton.enabled = YES;
+                                                              }
+                                                              else
+                                                              {
+                                                                  self.rightButton.enabled = NO;
+                                                              }
+                                                              
+                                                              if(self.offset.intValue == 0)
+                                                              {
+                                                                  self.leftButton.enabled = NO;
+                                                              }
+                                                              else
+                                                              {
+                                                                  self.leftButton.enabled = YES;
+                                                              }
+                                                              
+                                                              [self.detailView reloadData];
+                                                          }];
         }
     }
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return self.rows.count;
+    return [self.table.rows count];
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
@@ -140,17 +154,23 @@ NSTableViewDelegate
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     NSUInteger rowIndex = row;
     
-    NSArray *rowValues = self.rows[rowIndex];
+    NSArray *rowValues = self.table.rows[rowIndex];
     
     return [NSString stringWithFormat:@"%@",rowValues[columnIndex]];
 }
 
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn
 {
+    if (!_table.name)
+    {
+        return;
+    }
+    
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     SQLTableProperty *property = [self.table.properties objectAtIndex:columnIndex];
     
-    if ([self.table.selectedPropertName isEqualToString:property.name]) {
+    if ([self.table.selectedPropertName isEqualToString:property.name])
+    {
         self.table.desc = !self.table.desc;
     }
     else

@@ -10,44 +10,41 @@
 
 @implementation SQLMainWindow
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    printf("Awake\n");
 }
 
-- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
-    printf("Enter\n");
+- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
+{
     return NSDragOperationEvery;
 }
 
-- (void)draggingExited:(id<NSDraggingInfo>)sender {
-    printf("Exit\n");
+- (void)draggingExited:(id<NSDraggingInfo>)sender
+{
+    //
 }
 
-- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
-    printf("Prepare\n");
+- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender
+{
     return YES;
 }
 
-- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
-    printf("Perform\n");
-    
+- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender
+{
     NSPasteboard *pboard = [sender draggingPasteboard];
     
-    if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
+    if ([[pboard types] containsObject:NSFilenamesPboardType])
+    {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-        unsigned long numberOfFiles = [files count];
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTI_ADD_NEW_DATABASE_PATH" object:files];
-        
-        printf("%lu\n", numberOfFiles);
     }
     
     return YES;
 }
 
 - (void)concludeDragOperation:(id<NSDraggingInfo>)sender {
-    printf("Conclude\n");
+    //
 }
 
 @end

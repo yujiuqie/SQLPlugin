@@ -7,8 +7,10 @@
 //
 
 #import "SQLSimulatorManager.h"
+
 #import "IDEKit.h"
 #import "SQLSimulatorModel.h"
+#import "SQLDatabaseDescription.h"
 
 @interface SQLSimulatorManager()
 
@@ -26,10 +28,13 @@ static SQLSimulatorManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLSimulatorManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
@@ -42,10 +47,12 @@ static SQLSimulatorManager *_sharedManager = nil;
     NSString *identifier = nil;
     NSString *pathIdentifier = [[targetDevice.deviceLocation standardizedURL]relativeString];
     NSArray *listItems = [pathIdentifier componentsSeparatedByString:@":"];
+    
     if(listItems.count == 2 && [targetDevice.deviceType.identifier caseInsensitiveCompare:@"Xcode.DeviceType.iPhoneSimulator"] == NSOrderedSame )
     {
         identifier = listItems[1];
     }
+    
     return identifier;
 }
 
@@ -55,14 +62,15 @@ static SQLSimulatorManager *_sharedManager = nil;
     NSString *appDocDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Developer/CoreSimulator/Devices"];
     NSArray *contentOfFolder = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:appDocDir error:NULL];
     
-    for (NSString *aPath in contentOfFolder) {
-        
+    for (NSString *aPath in contentOfFolder)
+    {
         NSString * fullPath = [appDocDir stringByAppendingPathComponent:aPath];
         BOOL isDir;
         
         if([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir] && !isDir)
         {
-            if ([[aPath pathExtension] isEqualToString:@"plist"] ) {
+            if ([[aPath pathExtension] isEqualToString:@"plist"])
+            {
                 self.deviceInfos = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:fullPath]];
             }
         }
@@ -71,9 +79,10 @@ static SQLSimulatorManager *_sharedManager = nil;
     NSDictionary *dicDefaultDevices = [self.deviceInfos objectForKey:@"DefaultDevices"];
     NSArray *allSystemkeys = [dicDefaultDevices allKeys];
     
-    for (NSString *systemKey in allSystemkeys) {
-        
-        if ([systemKey isEqualToString:@"version"]) {
+    for (NSString *systemKey in allSystemkeys)
+    {
+        if ([systemKey isEqualToString:@"version"])
+        {
             continue;
         }
         
@@ -81,8 +90,8 @@ static SQLSimulatorManager *_sharedManager = nil;
         NSDictionary *dicDevices = [dicDefaultDevices objectForKey:systemKey];
         NSArray *allDeviceKeys = [dicDevices allKeys];
         
-        for (NSString *deviceKey in allDeviceKeys) {
-            
+        for (NSString *deviceKey in allDeviceKeys)
+        {
             NSString *deviceVersion = [[deviceKey componentsSeparatedByString:@"."] lastObject];
             NSString *deviceid = [dicDevices objectForKey:deviceKey];
             
@@ -99,13 +108,15 @@ static SQLSimulatorManager *_sharedManager = nil;
 
 - (void)addSimulator:(SQLSimulatorModel *)model
 {
-    if (!_allSimulators) {
+    if (!_allSimulators)
+    {
         _allSimulators = [NSMutableArray array];
     }
     
     SQLSimulatorModel *obj = [self deviceInfoWithId:model.simulatorId];
     
-    if (obj) {
+    if (obj)
+    {
         NSInteger index = [_allSimulators indexOfObject:obj];
         
         obj.systemVersion = model.systemVersion;
@@ -129,20 +140,25 @@ static SQLSimulatorManager *_sharedManager = nil;
     NSString *appDocDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Developer/CoreSimulator/Devices"];
     
     NSArray *contentOfFolder = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:appDocDir error:NULL];
-    for (NSString *aPath in contentOfFolder) {
-        
+    
+    for (NSString *aPath in contentOfFolder)
+    {
         NSString * fullPath = [appDocDir stringByAppendingPathComponent:aPath];
         BOOL isDir;
+        
         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir] && isDir)
         {
             SQLSimulatorModel *model = [self deviceInfoWithId:aPath];
-            if (model && model.selected) {
+            
+            if (model && model.selected)
+            {
                 [list addObjectsFromArray:[self applicationsforSimulator:aPath]];
             }
         }
         else if([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir] && !isDir)
         {
-            if ([[aPath pathExtension] isEqualToString:@"plist"] ) {
+            if ([[aPath pathExtension] isEqualToString:@"plist"])
+            {
                 self.deviceInfos = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:fullPath]];
             }
         }
@@ -154,10 +170,12 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (NSArray*)applicationsforSimulator:(NSString*)deviceIdentifier
 {
     NSMutableArray *apps = [NSMutableArray array];
+    
     if([[self class] ios7Vesion:deviceIdentifier])
     {
         NSString * path = [NSHomeDirectory() stringByAppendingFormat:@"/Library/Developer/CoreSimulator/Devices/%@/data/Applications",deviceIdentifier];
         NSArray *array = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+        
         for(NSString * uuid in array)
         {
             NSString *appPath = [path stringByAppendingFormat:@"/%@",uuid];
@@ -177,6 +195,7 @@ static SQLSimulatorManager *_sharedManager = nil;
     {
         NSString * path = [NSHomeDirectory() stringByAppendingFormat:@"/Library/Developer/CoreSimulator/Devices/%@/data/Containers/Data/Application",deviceIdentifier];
         NSArray * applications = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+        
         for(NSString * applicationIdentifier in applications)
         {
             NSString *appPath = [path stringByAppendingFormat:@"/%@",applicationIdentifier];
@@ -211,7 +230,7 @@ static SQLSimulatorManager *_sharedManager = nil;
         {
             NSString *fullPath = [aPath stringByAppendingFormat:@"/%@",fileName];
             
-            SQLDatabaseModel *model = [[SQLDatabaseModel alloc] init];
+            SQLDatabaseDescription *model = [[SQLDatabaseDescription alloc] init];
             model.appId = [self appIdWithPath:aPath];
             model.path = fullPath;
             
@@ -233,12 +252,15 @@ static SQLSimulatorManager *_sharedManager = nil;
     NSComparisonResult result = [@"iOS-8-0" caseInsensitiveCompare:ext];
     
     if(result  ==  NSOrderedDescending)
+    {
         return YES;
+    }
     
     if(result  ==  NSOrderedSame || result ==  NSOrderedAscending)
     {
         return NO ;
     }
+    
     return NO;
 }
 
@@ -246,8 +268,11 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (SQLSimulatorModel *)deviceInfoWithId:(NSString *)deviceId
 {
     __block SQLSimulatorModel *model = nil;
+    
     [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * obj, NSUInteger idx, BOOL * stop) {
-        if ([obj.simulatorId isEqualToString:deviceId]) {
+        
+        if ([obj.simulatorId isEqualToString:deviceId])
+        {
             model = obj;
             *stop = YES;
         }
@@ -270,10 +295,12 @@ static SQLSimulatorManager *_sharedManager = nil;
     }
     
     NSArray *contentOfFolder = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
-    for (NSString *aPath in contentOfFolder) {
-        
+    
+    for (NSString *aPath in contentOfFolder)
+    {
         NSString * fullPath = [path stringByAppendingPathComponent:aPath];
         BOOL isDir;
+        
         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir] && isDir)
         {
             return aPath;
@@ -300,10 +327,11 @@ static SQLSimulatorManager *_sharedManager = nil;
     
     NSArray *contentOfFolder = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
-    for (NSString *aPath in contentOfFolder) {
-        
+    for (NSString *aPath in contentOfFolder)
+    {
         NSString * fullPath = [path stringByAppendingPathComponent:aPath];
         BOOL isDir;
+        
         if ([[NSFileManager defaultManager] fileExistsAtPath:fullPath isDirectory:&isDir] && isDir)
         {
             SQLDirectoryModel *model = [[SQLDirectoryModel alloc] init];
@@ -321,7 +349,8 @@ static SQLSimulatorManager *_sharedManager = nil;
 {
     NSArray *items = [path componentsSeparatedByString:@"/"];
     
-    if ([items count] > 7) {
+    if ([items count] > 7)
+    {
         return [items objectAtIndex:7];
     }
     
@@ -335,7 +364,8 @@ static SQLSimulatorManager *_sharedManager = nil;
     
     NSInteger index = [[self class] ios7Vesion:deviceIdentifier] ? 10 : 12;
     
-    if ([items count] > index) {
+    if ([items count] > index)
+    {
         return [items objectAtIndex:index];
     }
     
@@ -347,7 +377,9 @@ static SQLSimulatorManager *_sharedManager = nil;
     __block SQLSimulatorModel * existSimulator = nil;
     
     [_allSimulators enumerateObjectsUsingBlock:^(SQLSimulatorModel * simulator, NSUInteger idx, BOOL * stop) {
-        if ([simulator.simulatorId isEqualToString:deviceId]) {
+        
+        if ([simulator.simulatorId isEqualToString:deviceId])
+        {
             existSimulator = simulator;
             *stop = YES;
         }

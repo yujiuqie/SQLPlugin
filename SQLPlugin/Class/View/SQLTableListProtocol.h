@@ -10,9 +10,12 @@
 #define SQLTableListProtocol_h
 
 @protocol SQLTableListDelegate <NSObject>
+
 @required
+
 -(void)didSelectTable:(SQLTableDescription*)table;
 -(void)didSelectDatabase:(SQLDatabaseDescription*)database;
+
 @end
 
 #endif /* SQLTableListProtocol_h */

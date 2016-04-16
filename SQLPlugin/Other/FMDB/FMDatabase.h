@@ -69,6 +69,7 @@ typedef int(^FMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDictionary
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-interface-ivars"
 
+extern NSString * const FMDATABASEERRORNOTIFICATION;
 
 @interface FMDatabase : NSObject  {
     

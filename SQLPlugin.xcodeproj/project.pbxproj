@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06003C111CC12CB5000D5C92 /* ic_folder_open_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */; };
+		060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352361CC099430021AB81 /* ic_computer_18pt.png */; };
+		060352391CC099430021AB81 /* ic_computer_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 060352371CC099430021AB81 /* ic_computer_black_24dp.png */; };
+		0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */; };
 		061AB5DE1CB2253600EDCB4C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061AB5DD1CB2253600EDCB4C /* AppKit.framework */; };
 		061AB5E01CB2253600EDCB4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061AB5DF1CB2253600EDCB4C /* Foundation.framework */; };
 		061AB5E41CB2253600EDCB4C /* SQLPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 061AB5E31CB2253600EDCB4C /* SQLPlugin.xcscheme */; };
@@ -18,36 +22,51 @@
 		0625C31B1CBC8D5C007C990F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3001CBC8D5C007C990F /* FMDatabaseQueue.m */; };
 		0625C31C1CBC8D5C007C990F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3031CBC8D5C007C990F /* FMResultSet.m */; };
 		0625C31D1CBC8D5C007C990F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3041CBC8D5C007C990F /* Info.plist */; };
-		0625C31E1CBC8D5C007C990F /* ic_add_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */; };
 		0625C31F1CBC8D5C007C990F /* ic_add_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */; };
 		0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */; };
-		0625C3211CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */; };
 		0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */; };
 		0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */; };
-		0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */; };
 		0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */; };
 		0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */; };
 		0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */; };
 		0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */; };
 		063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */; };
+		0658C07E1CC0C768001FEEFE /* SQLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */; };
+		0658C0861CC0CC38001FEEFE /* ic_description_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0658C0841CC0CC38001FEEFE /* ic_description_black_24dp.png */; };
+		06766A421CC13D0E00F44700 /* SQLCSVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06766A411CC13D0E00F44700 /* SQLCSVManager.m */; };
 		06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */; };
 		06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */; };
 		06B4F8BB1CBCA69A0012F727 /* SQLDatabaseDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B41CBCA69A0012F727 /* SQLDatabaseDescription.m */; };
 		06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */; };
 		06B4F8BD1CBCA69A0012F727 /* SQLTableDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */; };
+		06B995BE1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */; };
+		06B995C01CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */; };
+		06B995C21CC1FA04009A2DCD /* ic_description_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */; };
+		06B995C41CC204C7009A2DCD /* ic_help_outline_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */; };
+		06CE27901CC0B52700ADC45F /* ic_insert_chart_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */; };
+		06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */; };
+		06CE279B1CC0C3EF00ADC45F /* SQLMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */; };
+		06CE279C1CC0C3EF00ADC45F /* SQLOperationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */; };
+		06CE279D1CC0C3EF00ADC45F /* SQLOperationWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */; };
 		06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */; };
 		06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3311CB34CDB0089DC5C /* SQLStoreSharedManager.m */; };
 		06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3341CB34CDB0089DC5C /* SQLWindowsManager.m */; };
 		06DDD35D1CB34CDB0089DC5C /* SQLTableProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD33E1CB34CDB0089DC5C /* SQLTableProperty.m */; };
 		06DDD3611CB34CDB0089DC5C /* SQLTableDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34B1CB34CDB0089DC5C /* SQLTableDetailView.m */; };
 		06DDD3621CB34CDB0089DC5C /* SQLTableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34F1CB34CDB0089DC5C /* SQLTableListView.m */; };
-		06DDD3641CB34CDB0089DC5C /* SQLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */; };
-		06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */; };
 		06DDD36D1CB3AFDE0089DC5C /* SQLSimulatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */; };
 		06E1CBB71CB237CE00C08E57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */; };
+		06EB450F1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB450E1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png */; };
+		06EB45111CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB45101CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png */; };
+		06EB45131CC0CFE900291DDD /* ic_history_18pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EB45121CC0CFE900291DDD /* ic_history_18pt.png */; };
+		06F793DC1CC1243100D5A1C7 /* SQLKeybindingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_folder_open_black_18dp.png; sourceTree = "<group>"; };
+		060352361CC099430021AB81 /* ic_computer_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_18pt.png; sourceTree = "<group>"; };
+		060352371CC099430021AB81 /* ic_computer_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_computer_black_24dp.png; sourceTree = "<group>"; };
+		0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_24dp.png; sourceTree = "<group>"; };
 		061AB5DA1CB2253600EDCB4C /* SQLPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SQLPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		061AB5DD1CB2253600EDCB4C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		061AB5DF1CB2253600EDCB4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -75,19 +94,21 @@
 		0625C3091CBC8D5C007C990F /* IDEKeyBindingPreferenceSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKeyBindingPreferenceSet.h; sourceTree = "<group>"; };
 		0625C30A1CBC8D5C007C990F /* IDEKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
 		0625C30B1CBC8D5C007C990F /* IDESourceEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
-		0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_18dp.png; sourceTree = "<group>"; };
 		0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_add_black_24dp.png; sourceTree = "<group>"; };
 		0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_delete_forever_black_18dp.png; sourceTree = "<group>"; };
-		0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_drive_file_black_24dp.png; sourceTree = "<group>"; };
 		0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_before_black_24dp.png; sourceTree = "<group>"; };
 		0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_navigate_next_black_24dp.png; sourceTree = "<group>"; };
-		0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_browser_black_18dp.png; sourceTree = "<group>"; };
 		0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_open_in_new_black_18dp.png; sourceTree = "<group>"; };
 		0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_phone_iphone_black_24dp.png; sourceTree = "<group>"; };
 		0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pie_chart_black_24dp.png; sourceTree = "<group>"; };
 		0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh_black_18dp.png; sourceTree = "<group>"; };
 		063A7D0E1CBB7939003AA338 /* SQLDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDatabaseManager.h; sourceTree = "<group>"; };
 		063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDatabaseManager.m; sourceTree = "<group>"; };
+		0658C07C1CC0C768001FEEFE /* SQLCommandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLCommandManager.h; sourceTree = "<group>"; };
+		0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLCommandManager.m; sourceTree = "<group>"; };
+		0658C0841CC0CC38001FEEFE /* ic_description_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_description_black_24dp.png; sourceTree = "<group>"; };
+		06766A401CC13D0E00F44700 /* SQLCSVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLCSVManager.h; path = SQLCSVManager/SQLCSVManager.h; sourceTree = "<group>"; };
+		06766A411CC13D0E00F44700 /* SQLCSVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLCSVManager.m; path = SQLCSVManager/SQLCSVManager.m; sourceTree = "<group>"; };
 		06A459E91CB4123500A0A260 /* SQLDatabaseListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLDatabaseListView.h; path = SQLDatabaseListView/SQLDatabaseListView.h; sourceTree = "<group>"; };
 		06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLDatabaseListView.m; path = SQLDatabaseListView/SQLDatabaseListView.m; sourceTree = "<group>"; };
 		06B004C71CBBD85A0043E3D8 /* SQLMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLMainWindow.h; path = SQLMainWindow/SQLMainWindow.h; sourceTree = "<group>"; };
@@ -98,6 +119,17 @@
 		06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDatabaseListDescription.m; sourceTree = "<group>"; };
 		06B4F8B91CBCA69A0012F727 /* SQLTableDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableDescription.h; sourceTree = "<group>"; };
 		06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTableDescription.m; sourceTree = "<group>"; };
+		06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_format_list_bulleted_black_24dp.png; sourceTree = "<group>"; };
+		06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_folder_open_black_24dp.png; sourceTree = "<group>"; };
+		06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_description_black_18dp.png; sourceTree = "<group>"; };
+		06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_help_outline_black_24dp.png; sourceTree = "<group>"; };
+		06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_insert_chart_black_18dp.png; sourceTree = "<group>"; };
+		06CE27931CC0C3EF00ADC45F /* SQLMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainWindowController.h; sourceTree = "<group>"; };
+		06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainWindowController.m; sourceTree = "<group>"; };
+		06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLMainWindowController.xib; sourceTree = "<group>"; };
+		06CE27971CC0C3EF00ADC45F /* SQLOperationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLOperationWindowController.h; sourceTree = "<group>"; };
+		06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLOperationWindowController.m; sourceTree = "<group>"; };
+		06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLOperationWindowController.xib; sourceTree = "<group>"; };
 		06DDD32D1CB34CDB0089DC5C /* SQLSimulatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLSimulatorManager.h; sourceTree = "<group>"; };
 		06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLSimulatorManager.m; sourceTree = "<group>"; };
 		06DDD3301CB34CDB0089DC5C /* SQLStoreSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLStoreSharedManager.h; sourceTree = "<group>"; };
@@ -111,12 +143,14 @@
 		06DDD34C1CB34CDB0089DC5C /* SQLTableListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableListProtocol.h; sourceTree = "<group>"; };
 		06DDD34E1CB34CDB0089DC5C /* SQLTableListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLTableListView.h; sourceTree = "<group>"; };
 		06DDD34F1CB34CDB0089DC5C /* SQLTableListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLTableListView.m; sourceTree = "<group>"; };
-		06DDD3551CB34CDB0089DC5C /* SQLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainViewController.h; sourceTree = "<group>"; };
-		06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainViewController.m; sourceTree = "<group>"; };
-		06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLMainViewController.xib; sourceTree = "<group>"; };
 		06DDD36B1CB3AFDE0089DC5C /* SQLSimulatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLSimulatorModel.h; path = SQLSimulatorModel/SQLSimulatorModel.h; sourceTree = "<group>"; };
 		06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLSimulatorModel.m; path = SQLSimulatorModel/SQLSimulatorModel.m; sourceTree = "<group>"; };
 		06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		06EB450E1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_play_arrow_black_18dp.png; sourceTree = "<group>"; };
+		06EB45101CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_remove_circle_outline_18pt.png; sourceTree = "<group>"; };
+		06EB45121CC0CFE900291DDD /* ic_history_18pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_history_18pt.png; sourceTree = "<group>"; };
+		06F793DA1CC1243100D5A1C7 /* SQLKeybindingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLKeybindingManager.h; path = SQLKeybindingManager/SQLKeybindingManager.h; sourceTree = "<group>"; };
+		06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLKeybindingManager.m; path = SQLKeybindingManager/SQLKeybindingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,13 +262,23 @@
 		0625C30C1CBC8D5C007C990F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				0625C30D1CBC8D5C007C990F /* ic_add_black_18dp.png */,
+				06B995C31CC204C7009A2DCD /* ic_help_outline_black_24dp.png */,
+				06B995C11CC1FA04009A2DCD /* ic_description_black_18dp.png */,
+				06B995BF1CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png */,
+				06B995BD1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png */,
+				06003C101CC12CB5000D5C92 /* ic_folder_open_black_18dp.png */,
+				06EB45121CC0CFE900291DDD /* ic_history_18pt.png */,
+				06EB45101CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png */,
+				06EB450E1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png */,
+				0658C0841CC0CC38001FEEFE /* ic_description_black_24dp.png */,
+				06CE278F1CC0B52700ADC45F /* ic_insert_chart_black_18dp.png */,
+				0603523A1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png */,
+				060352361CC099430021AB81 /* ic_computer_18pt.png */,
+				060352371CC099430021AB81 /* ic_computer_black_24dp.png */,
 				0625C30E1CBC8D5C007C990F /* ic_add_black_24dp.png */,
 				0625C30F1CBC8D5C007C990F /* ic_delete_forever_black_18dp.png */,
-				0625C3101CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png */,
 				0625C3111CBC8D5C007C990F /* ic_navigate_before_black_24dp.png */,
 				0625C3121CBC8D5C007C990F /* ic_navigate_next_black_24dp.png */,
-				0625C3131CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png */,
 				0625C3141CBC8D5C007C990F /* ic_open_in_new_black_18dp.png */,
 				0625C3151CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png */,
 				0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */,
@@ -250,6 +294,24 @@
 				063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */,
 			);
 			path = SQLDatabaseManager;
+			sourceTree = "<group>";
+		};
+		0658C07B1CC0C768001FEEFE /* SQLCommandManager */ = {
+			isa = PBXGroup;
+			children = (
+				0658C07C1CC0C768001FEEFE /* SQLCommandManager.h */,
+				0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */,
+			);
+			path = SQLCommandManager;
+			sourceTree = "<group>";
+		};
+		06766A3F1CC13CF700F44700 /* SQLCSVManager */ = {
+			isa = PBXGroup;
+			children = (
+				06766A401CC13D0E00F44700 /* SQLCSVManager.h */,
+				06766A411CC13D0E00F44700 /* SQLCSVManager.m */,
+			);
+			name = SQLCSVManager;
 			sourceTree = "<group>";
 		};
 		06A459E81CB4121100A0A260 /* SQLDatabaseListView */ = {
@@ -297,13 +359,42 @@
 			path = SQLTableDescription;
 			sourceTree = "<group>";
 		};
+		06CE27911CC0C3EF00ADC45F /* WindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27921CC0C3EF00ADC45F /* SQLMainWindowController */,
+				06CE27961CC0C3EF00ADC45F /* SQLOperationWindowController */,
+			);
+			path = WindowController;
+			sourceTree = "<group>";
+		};
+		06CE27921CC0C3EF00ADC45F /* SQLMainWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27931CC0C3EF00ADC45F /* SQLMainWindowController.h */,
+				06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */,
+				06CE27951CC0C3EF00ADC45F /* SQLMainWindowController.xib */,
+			);
+			path = SQLMainWindowController;
+			sourceTree = "<group>";
+		};
+		06CE27961CC0C3EF00ADC45F /* SQLOperationWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				06CE27971CC0C3EF00ADC45F /* SQLOperationWindowController.h */,
+				06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */,
+				06CE27991CC0C3EF00ADC45F /* SQLOperationWindowController.xib */,
+			);
+			path = SQLOperationWindowController;
+			sourceTree = "<group>";
+		};
 		06DDD32A1CB34CDB0089DC5C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				06CE27911CC0C3EF00ADC45F /* WindowController */,
 				06DDD32B1CB34CDB0089DC5C /* Manager */,
 				06DDD3351CB34CDB0089DC5C /* Model */,
 				06DDD3421CB34CDB0089DC5C /* View */,
-				06DDD3531CB34CDB0089DC5C /* ViewController */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -311,6 +402,9 @@
 		06DDD32B1CB34CDB0089DC5C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				06766A3F1CC13CF700F44700 /* SQLCSVManager */,
+				06F793D91CC1240900D5A1C7 /* SQLKeybindingManager */,
+				0658C07B1CC0C768001FEEFE /* SQLCommandManager */,
 				063A7D0D1CBB7939003AA338 /* SQLDatabaseManager */,
 				06DDD32C1CB34CDB0089DC5C /* SQLSimulatorManager */,
 				06DDD32F1CB34CDB0089DC5C /* SQLStoreSharedManager */,
@@ -397,24 +491,6 @@
 			path = SQLTableListView;
 			sourceTree = "<group>";
 		};
-		06DDD3531CB34CDB0089DC5C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				06DDD3541CB34CDB0089DC5C /* SQLMainViewController */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		06DDD3541CB34CDB0089DC5C /* SQLMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				06DDD3551CB34CDB0089DC5C /* SQLMainViewController.h */,
-				06DDD3561CB34CDB0089DC5C /* SQLMainViewController.m */,
-				06DDD3571CB34CDB0089DC5C /* SQLMainViewController.xib */,
-			);
-			path = SQLMainViewController;
-			sourceTree = "<group>";
-		};
 		06DDD36A1CB3AFCD0089DC5C /* SQLSimulatorModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +498,15 @@
 				06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */,
 			);
 			name = SQLSimulatorModel;
+			sourceTree = "<group>";
+		};
+		06F793D91CC1240900D5A1C7 /* SQLKeybindingManager */ = {
+			isa = PBXGroup;
+			children = (
+				06F793DA1CC1243100D5A1C7 /* SQLKeybindingManager.h */,
+				06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */,
+			);
+			name = SQLKeybindingManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,20 +565,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				060352391CC099430021AB81 /* ic_computer_black_24dp.png in Resources */,
+				06EB45111CC0CF9100291DDD /* ic_remove_circle_outline_18pt.png in Resources */,
+				06CE279B1CC0C3EF00ADC45F /* SQLMainWindowController.xib in Resources */,
 				0625C31F1CBC8D5C007C990F /* ic_add_black_24dp.png in Resources */,
-				0625C3211CBC8D5C007C990F /* ic_insert_drive_file_black_24dp.png in Resources */,
-				0625C31E1CBC8D5C007C990F /* ic_add_black_18dp.png in Resources */,
 				061AB5E41CB2253600EDCB4C /* SQLPlugin.xcscheme in Resources */,
-				06DDD3651CB34CDB0089DC5C /* SQLMainViewController.xib in Resources */,
 				0625C3201CBC8D5C007C990F /* ic_delete_forever_black_18dp.png in Resources */,
+				06EB450F1CC0CEE600291DDD /* ic_play_arrow_black_18dp.png in Resources */,
 				0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */,
-				0625C3241CBC8D5C007C990F /* ic_open_in_browser_black_18dp.png in Resources */,
 				0625C31D1CBC8D5C007C990F /* Info.plist in Resources */,
 				0625C3221CBC8D5C007C990F /* ic_navigate_before_black_24dp.png in Resources */,
+				06B995BE1CC1F7E7009A2DCD /* ic_format_list_bulleted_black_24dp.png in Resources */,
+				06B995C41CC204C7009A2DCD /* ic_help_outline_black_24dp.png in Resources */,
+				06B995C21CC1FA04009A2DCD /* ic_description_black_18dp.png in Resources */,
+				06B995C01CC1F8B3009A2DCD /* ic_folder_open_black_24dp.png in Resources */,
 				0625C3261CBC8D5C007C990F /* ic_phone_iphone_black_24dp.png in Resources */,
 				0625C3251CBC8D5C007C990F /* ic_open_in_new_black_18dp.png in Resources */,
+				060352381CC099430021AB81 /* ic_computer_18pt.png in Resources */,
+				06CE279D1CC0C3EF00ADC45F /* SQLOperationWindowController.xib in Resources */,
 				0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */,
+				06EB45131CC0CFE900291DDD /* ic_history_18pt.png in Resources */,
 				0625C3231CBC8D5C007C990F /* ic_navigate_next_black_24dp.png in Resources */,
+				0658C0861CC0CC38001FEEFE /* ic_description_black_24dp.png in Resources */,
+				06003C111CC12CB5000D5C92 /* ic_folder_open_black_18dp.png in Resources */,
+				0603523B1CC0B19E0021AB81 /* ic_insert_chart_black_24dp.png in Resources */,
+				06CE27901CC0B52700ADC45F /* ic_insert_chart_black_18dp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,14 +600,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F793DC1CC1243100D5A1C7 /* SQLKeybindingManager.m in Sources */,
 				06DDD3621CB34CDB0089DC5C /* SQLTableListView.m in Sources */,
 				0625C31A1CBC8D5C007C990F /* FMDatabasePool.m in Sources */,
 				06DDD35A1CB34CDB0089DC5C /* SQLWindowsManager.m in Sources */,
 				0625C31B1CBC8D5C007C990F /* FMDatabaseQueue.m in Sources */,
+				06CE279C1CC0C3EF00ADC45F /* SQLOperationWindowController.m in Sources */,
 				06B4F8BB1CBCA69A0012F727 /* SQLDatabaseDescription.m in Sources */,
 				0625C3181CBC8D5C007C990F /* FMDatabase.m in Sources */,
 				0625C3191CBC8D5C007C990F /* FMDatabaseAdditions.m in Sources */,
-				06DDD3641CB34CDB0089DC5C /* SQLMainViewController.m in Sources */,
 				0625C31C1CBC8D5C007C990F /* FMResultSet.m in Sources */,
 				061AB5E71CB2253600EDCB4C /* SQLPlugin.m in Sources */,
 				06DDD3581CB34CDB0089DC5C /* SQLSimulatorManager.m in Sources */,
@@ -519,12 +616,15 @@
 				06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */,
 				06B4F8BD1CBCA69A0012F727 /* SQLTableDescription.m in Sources */,
 				06DDD3611CB34CDB0089DC5C /* SQLTableDetailView.m in Sources */,
+				06766A421CC13D0E00F44700 /* SQLCSVManager.m in Sources */,
 				06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */,
 				06DDD35D1CB34CDB0089DC5C /* SQLTableProperty.m in Sources */,
 				06B4F8BC1CBCA69A0012F727 /* SQLDatabaseListDescription.m in Sources */,
 				063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */,
 				061AB5EA1CB2253600EDCB4C /* NSObject_Extension.m in Sources */,
+				06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */,
 				06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */,
+				0658C07E1CC0C768001FEEFE /* SQLCommandManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

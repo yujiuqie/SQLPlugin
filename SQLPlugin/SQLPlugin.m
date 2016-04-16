@@ -7,24 +7,32 @@
 //
 
 #import "SQLPlugin.h"
-#import "IDEKeyBindingPreferenceSet.h"
-#import "SQLMainViewController.h"
+
+#import "IDEKit.h"
 #import "SQLWindowsManager.h"
 #import "SQLSimulatorManager.h"
-#import "IDEKit.h"
+#import "SQLKeybindingManager.h"
 
-#define SP_DEFAULT_SHORTCUT      @"$@V" // for key binding system
-#define DEFAULTS_KEY_BINDING     @"SQLPluginKeyBinding"
-#define SP_MENU_PARENT_TITLE     @"SQL"
-#define SP_MENU_ITEM_TITLE       @"Run"
+#define SP_MENU_PARENT_TITLE            @"SQL"
+#define SP_MENU_ITEM_GROUP_TITLE        @"TitleGroup"
+
+#define SP_SHORTCUT_V                   @"$@V" // for key binding system
+#define KEY_BINDING_V                   @"SQLPluginKeyBindingV"
+#define SP_MENU_ITEM_VIEWER_TITLE       @"SQL Viewer"
+
+#define SP_SHORTCUT_D                   @"$@D" // for key binding system
+#define KEY_BINDING_D                   @"SQLPluginKeyBindingD"
+#define SP_MENU_ITEM_QUERY_TITLE        @"SQL Query"
 
 static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindingSetDidActivateNotification";
 
 @interface SQLPlugin()
 
+@property (nonatomic, strong) NSMenuItem *sqlQueryMenuItem;
+@property (nonatomic, strong) NSMenuItem *sqlViewerMenuItem;
+@property (nonatomic, strong) SQLMainWindowController *sqlMainVC;
+@property (nonatomic, strong) SQLOperationWindowController *sqlQueryVC;
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
-@property (nonatomic, strong) NSMenuItem *sqlPluginMenuItem;
-@property (nonatomic, strong) SQLMainViewController *sqlMainVC;
 
 @end
 
@@ -37,14 +45,16 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 - (id)initWithBundle:(NSBundle *)plugin
 {
-    if (self = [super init]) {
-        
+    if (self = [super init])
+    {
         self.bundle = plugin;
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
     }
+    
     return self;
 }
 
@@ -52,8 +62,22 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
     
-    [self setupKeyBindingsIfNeeded];
-    [self installStandardKeyBinding];
+    [[SQLKeybindingManager sharedManager] setupKeyBinding:KEY_BINDING_V
+                                             withShortcut:SP_SHORTCUT_V];
+    
+    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:KEY_BINDING_V
+                                                          withTitle:SP_MENU_ITEM_VIEWER_TITLE
+                                                             parent:SP_MENU_PARENT_TITLE
+                                                              group:SP_MENU_ITEM_GROUP_TITLE];
+    
+    [[SQLKeybindingManager sharedManager] setupKeyBinding:KEY_BINDING_D
+                                             withShortcut:SP_SHORTCUT_D];
+    
+    [[SQLKeybindingManager sharedManager] installStandardKeyBinding:KEY_BINDING_D
+                                                          withTitle:SP_MENU_ITEM_QUERY_TITLE
+                                                             parent:SP_MENU_PARENT_TITLE
+                                                              group:SP_MENU_ITEM_GROUP_TITLE];
+    
     [self addPluginMenu];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -66,9 +90,10 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [[NSNotificationCenter defaultCenter] addObserverForName:@"ExecutionEnvironmentLastBuildCompletedNotification"
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      [[SQLSimulatorManager sharedManager] setupLocalDeviceInfosWithWorkspace:[self workspaceForKeyWindow]];
-                                                  }];
+                                                  usingBlock:^(NSNotification *note)
+     {
+         [[SQLSimulatorManager sharedManager] setupLocalDeviceInfosWithWorkspace:[self workspaceForKeyWindow]];
+     }];
 }
 
 - (void)dealloc
@@ -81,8 +106,11 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 - (IDEWorkspaceWindowController *)keyWindowController
 {
     NSArray *workspaceWindowControllers = [NSClassFromString(@"IDEWorkspaceWindowController") valueForKey:@"workspaceWindowControllers"];
-    for (IDEWorkspaceWindowController *controller in workspaceWindowControllers) {
-        if (controller.window.isKeyWindow) {
+    
+    for (IDEWorkspaceWindowController *controller in workspaceWindowControllers)
+    {
+        if (controller.window.isKeyWindow)
+        {
             return controller;
         }
     }
@@ -99,12 +127,14 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 - (void)addPluginMenu
 {
     NSMenu *mainMenu = [NSApp mainMenu];
+    
     if (!mainMenu)
     {
         return;
     }
     
     NSMenuItem *pluginsMenuItem = [mainMenu itemWithTitle:SP_MENU_PARENT_TITLE];
+    
     if (!pluginsMenuItem)
     {
         pluginsMenuItem = [[NSMenuItem alloc] init];
@@ -122,13 +152,24 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     
     [pluginsMenuItem.submenu addItem:[NSMenuItem separatorItem]];
     
-    self.sqlPluginMenuItem = [[NSMenuItem alloc] init];
-    self.sqlPluginMenuItem.title = SP_MENU_ITEM_TITLE;
-    self.sqlPluginMenuItem.target = self;
-    self.sqlPluginMenuItem.action = @selector(openSqlPluginWindow);
-    [pluginsMenuItem.submenu addItem:self.sqlPluginMenuItem];
+    self.sqlViewerMenuItem = [[NSMenuItem alloc] init];
+    self.sqlViewerMenuItem.title = SP_MENU_ITEM_VIEWER_TITLE;
+    self.sqlViewerMenuItem.target = self;
+    self.sqlViewerMenuItem.action = @selector(openSqlViewerWindow);
+    [pluginsMenuItem.submenu addItem:self.sqlViewerMenuItem];
     
-    [self updateMenuItem:self.sqlPluginMenuItem withShortcut:[self keyboardShortcutFromUserDefaults]];
+    [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlViewerMenuItem
+                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:KEY_BINDING_V]];
+    
+    
+    self.sqlQueryMenuItem = [[NSMenuItem alloc] init];
+    self.sqlQueryMenuItem.title = SP_MENU_ITEM_QUERY_TITLE;
+    self.sqlQueryMenuItem.target = self;
+    self.sqlQueryMenuItem.action = @selector(openSqlQueryWindow);
+    [pluginsMenuItem.submenu addItem:self.sqlQueryMenuItem];
+    
+    [[SQLKeybindingManager sharedManager] updateMenuItem:self.sqlQueryMenuItem
+                                            withShortcut:[[SQLKeybindingManager sharedManager] keyboardShortcutFrom:KEY_BINDING_D]];
 }
 
 - (void)openAboutWindow
@@ -138,128 +179,51 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:msgText];
     
-    NSString *infoText = @"Created by Alfred Jiang \
+    NSString *infoText = @"Created by Alfred Jiang (viktyz)  2016-4-4 \
     \n  \
-    \n2016-4-4  \
-    \n \
+    \nhttps://github.com/viktyz \
+    \n  \
+    \nThank You For Using ! \
     ";
     
     [alert setInformativeText:infoText];
     [alert runModal];
 }
 
-- (void)openSqlPluginWindow
+- (void)openSqlViewerWindow
 {
-    if (!_sqlMainVC) {
-        _sqlMainVC = [[SQLWindowsManager sharedManager] createWindowController];
+    if (!_sqlMainVC)
+    {
+        _sqlMainVC = (SQLMainWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Viewer];
     }
     
     [_sqlMainVC.window center];
     [_sqlMainVC.window makeKeyAndOrderFront:nil];
 }
 
-#pragma mark -
-
-- (id<IDEKeyboardShortcut>)keyboardShortcutFromUserDefaults
+- (void)openSqlQueryWindow
 {
-    Class<IDEKeyboardShortcut> _IDEKeyboardShortcut = NSClassFromString(@"IDEKeyboardShortcut");
-    return [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[self keyBindingFromUserDefaults]];
-}
-
-- (void)setupKeyBindingsIfNeeded
-{
-    if (IsEmpty([self keyBindingFromUserDefaults])) {
-        [self saveKeyBindingToUserDefaults:SP_DEFAULT_SHORTCUT forKey:DEFAULTS_KEY_BINDING];
+    if (!_sqlQueryVC)
+    {
+        _sqlQueryVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
     }
+    
+    [_sqlQueryVC.window center];
+    [_sqlQueryVC.window makeKeyAndOrderFront:nil];
 }
 
-- (NSString *)keyBindingFromUserDefaults
-{
-    return [[NSUserDefaults standardUserDefaults] valueForKey:DEFAULTS_KEY_BINDING];
-}
-
-- (void)saveKeyBindingToUserDefaults:(NSString *)keyBinding forKey:(NSString *)defaultsKey
-{
-    [[NSUserDefaults standardUserDefaults] setObject:keyBinding forKey:defaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
 
 - (void)keyBindingsHaveChanged:(NSNotification *)notification
 {
-    [self updateKeyBinding:[self currentUserCPKeyBinding] forMenuItem:self.sqlPluginMenuItem defaultsKey:DEFAULTS_KEY_BINDING];
+    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_VIEWER_TITLE
+                                                                                                             underMenuCalled:SP_MENU_ITEM_GROUP_TITLE]
+                                               forMenuItem:self.sqlViewerMenuItem
+                                               defaultsKey:KEY_BINDING_V];
+    
+    [[SQLKeybindingManager sharedManager] updateKeyBinding:[[SQLKeybindingManager sharedManager] menuKeyBindingWithItemTitle:SP_MENU_ITEM_QUERY_TITLE
+                                                                                                             underMenuCalled:SP_MENU_ITEM_GROUP_TITLE]
+                                               forMenuItem:self.sqlQueryMenuItem
+                                               defaultsKey:KEY_BINDING_D];
 }
-
-- (void)updateKeyBinding:(id<IDEKeyBinding>)keyBinding forMenuItem:(NSMenuItem *)menuItem defaultsKey:(NSString *)defaultsKey
-{
-    if ([[keyBinding keyboardShortcuts] count] > 0) {
-        id<IDEKeyboardShortcut> keyboardShortcut = [[keyBinding keyboardShortcuts] objectAtIndex:0];
-        [self saveKeyBindingToUserDefaults:[keyboardShortcut stringRepresentation] forKey:defaultsKey];
-        [self updateMenuItem:menuItem withShortcut:keyboardShortcut];
-    }
-}
-
-- (void)updateMenuItem:(NSMenuItem *)menuItem withShortcut:(id<IDEKeyboardShortcut>)keyboardShortcut
-{
-    [menuItem setKeyEquivalent:[keyboardShortcut keyEquivalent]];
-    [menuItem setKeyEquivalentModifierMask:[keyboardShortcut modifierMask]];
-}
-
-- (id<IDEKeyBinding>)currentUserCPKeyBinding
-{
-    return [self menuKeyBindingWithItemTitle:SP_MENU_ITEM_TITLE underMenuCalled:SP_MENU_ITEM_TITLE];
-}
-
-- (id<IDEMenuKeyBinding>)menuKeyBindingWithItemTitle:(NSString *)itemTitle underMenuCalled:(NSString *)menuName
-{
-    Class<IDEKeyBindingPreferenceSet> _IDEKeyBindingPreferenceSet = NSClassFromString(@"IDEKeyBindingPreferenceSet");
-    
-    id<IDEKeyBindingPreferenceSet> currentPreferenceSet = [[_IDEKeyBindingPreferenceSet preferenceSetsManager] currentPreferenceSet];
-    
-    id<IDEMenuKeyBindingSet> menuKeyBindingSet = [currentPreferenceSet menuKeyBindingSet] ;
-    
-    for (id<IDEMenuKeyBinding> keyBinding in [menuKeyBindingSet keyBindings]) {
-        if ([[keyBinding group] isEqualToString:menuName] && [[keyBinding title] isEqualToString:itemTitle]) {
-            return keyBinding;
-        }
-    }
-    
-    return nil;
-}
-
-- (void)installStandardKeyBinding
-{
-    Class<IDEKeyBindingPreferenceSet> _IDEKeyBindingPreferenceSet = NSClassFromString(@"IDEKeyBindingPreferenceSet");
-    
-    id<IDEKeyBindingPreferenceSet> currentPreferenceSet = [[_IDEKeyBindingPreferenceSet preferenceSetsManager] currentPreferenceSet];
-    
-    id<IDEMenuKeyBindingSet> menuKeyBindingSet = [currentPreferenceSet menuKeyBindingSet];
-    
-    Class<IDEKeyboardShortcut> _IDEKeyboardShortcut = NSClassFromString(@"IDEKeyboardShortcut");
-    
-    id<IDEKeyboardShortcut> defaultShortcut = [_IDEKeyboardShortcut keyboardShortcutFromStringRepresentation:[self keyBindingFromUserDefaults]];
-    
-    Class<IDEMenuKeyBinding> _IDEMenuKeyBinding = NSClassFromString(@"IDEMenuKeyBinding");
-    
-    id<IDEMenuKeyBinding> cpKeyBinding = [_IDEMenuKeyBinding keyBindingWithTitle:SP_MENU_ITEM_TITLE
-                                                                     parentTitle:SP_MENU_PARENT_TITLE
-                                                                           group:SP_MENU_ITEM_TITLE
-                                                                         actions:[NSArray arrayWithObject:@"whatever:"]
-                                                               keyboardShortcuts:[NSArray arrayWithObject:defaultShortcut]];
-    
-    [cpKeyBinding setCommandIdentifier:SP_MENU_ITEM_TITLE];
-    
-    [menuKeyBindingSet insertObject:cpKeyBinding inKeyBindingsAtIndex:0];
-    [menuKeyBindingSet updateDictionary];
-}
-
-#pragma mark -
-
-static inline BOOL IsEmpty(id thing) {
-    return thing == nil
-    || ([NSNull null]==thing)
-    || ([thing respondsToSelector:@selector(length)] && [(NSData *)thing length] == 0)
-    || ([thing respondsToSelector:@selector(count)] && [(NSArray *)thing count] == 0);
-}
-
 
 @end

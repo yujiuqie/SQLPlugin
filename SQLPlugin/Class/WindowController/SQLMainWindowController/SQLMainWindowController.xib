@@ -4,8 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SQLMainViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="SQLMainWindowController">
             <connections>
+                <outlet property="csvButton" destination="DEp-zg-VOK" id="dro-7Y-1KF"/>
                 <outlet property="databaseList" destination="26I-8e-wOE" id="pLV-YV-duL"/>
                 <outlet property="leftButton" destination="ndq-D4-dWm" id="iI2-Fg-9CZ"/>
                 <outlet property="rightButton" destination="pa8-1q-w6s" id="TVt-qP-2TB"/>
@@ -40,7 +41,7 @@
                                             <rect key="frame" x="1" y="1" width="302" height="432"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <outlineView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="l2h-PB-LaU" id="26I-8e-wOE" customClass="SQLDatabaseListView">
+                                                <outlineView identifier="SQLDatabaseListView" appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="l2h-PB-LaU" id="26I-8e-wOE" customClass="SQLDatabaseListView">
                                                     <rect key="frame" x="0.0" y="0.0" width="302" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
@@ -70,7 +71,7 @@
                                                                                 <constraint firstAttribute="width" constant="17" id="c3U-27-E0H"/>
                                                                                 <constraint firstAttribute="height" constant="17" id="nG4-Ic-2Ta"/>
                                                                             </constraints>
-                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_insert_drive_file_black_24dp" id="R45-sh-Xww"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_description_black_24dp" id="R45-sh-Xww"/>
                                                                         </imageView>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-YP-YFy">
                                                                             <rect key="frame" x="28" y="2" width="273" height="17"/>
@@ -257,7 +258,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="pa8-1q-w6s">
-                        <rect key="frame" x="750" y="441" width="40" height="45"/>
+                        <rect key="frame" x="690" y="441" width="40" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="Ped-sf-mWZ"/>
                             <constraint firstAttribute="width" constant="40" id="wuA-MC-7gF"/>
@@ -271,7 +272,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="ndq-D4-dWm">
-                        <rect key="frame" x="710" y="441" width="40" height="45"/>
+                        <rect key="frame" x="650" y="441" width="40" height="45"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="R0R-Ow-peS"/>
                             <constraint firstAttribute="height" constant="45" id="xUf-XB-9Xl"/>
@@ -304,23 +305,55 @@
                             <action selector="didPressSimulatorButton:" target="-2" id="Frg-Nz-mxT"/>
                         </connections>
                     </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="DEp-zg-VOK">
+                        <rect key="frame" x="118" y="440" width="55" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="iSE-Jz-FFr"/>
+                            <constraint firstAttribute="width" constant="55" id="pof-fk-sD8"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" title="CSV" bezelStyle="shadowlessSquare" image="ic_insert_chart_black_24dp" imagePosition="above" alignment="center" state="on" inset="2" id="TPb-X4-fR0">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system" size="10"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didPressCSVButton:" target="-2" id="Oqj-n5-xBq"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="skg-1W-MXQ">
+                        <rect key="frame" x="735" y="440" width="55" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="AFa-b0-jbO"/>
+                            <constraint firstAttribute="height" constant="45" id="GX5-f4-ZXe"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" title="Query" bezelStyle="shadowlessSquare" image="ic_computer_black_24dp" imagePosition="above" alignment="center" state="on" inset="2" id="0jg-VU-yrq">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system" size="10"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="didPressSQLButton:" target="-2" id="dfu-6L-8xs"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Bc5-8d-YjB" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="8" id="2nC-Vh-lh4"/>
+                    <constraint firstItem="skg-1W-MXQ" firstAttribute="leading" secondItem="pa8-1q-w6s" secondAttribute="trailing" constant="5" id="3F4-6U-utp"/>
                     <constraint firstItem="C0I-Tv-6eN" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="5Hh-dW-dIs"/>
                     <constraint firstAttribute="trailing" secondItem="C0I-Tv-6eN" secondAttribute="trailing" id="86f-4E-She"/>
                     <constraint firstItem="ndq-D4-dWm" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="8ZT-YH-NSU"/>
+                    <constraint firstItem="DEp-zg-VOK" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="9" id="8cg-ht-8op"/>
                     <constraint firstItem="C0I-Tv-6eN" firstAttribute="top" secondItem="6HD-3D-8DG" secondAttribute="bottom" constant="1" id="DwS-pW-Xcq"/>
                     <constraint firstItem="6HD-3D-8DG" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="FgT-uQ-9dq"/>
                     <constraint firstItem="Bc5-8d-YjB" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="NYl-8L-p9J"/>
-                    <constraint firstAttribute="trailing" secondItem="pa8-1q-w6s" secondAttribute="trailing" constant="10" id="Udi-IE-y59"/>
+                    <constraint firstAttribute="trailing" secondItem="skg-1W-MXQ" secondAttribute="trailing" constant="10" id="Q4j-0Y-0Zu"/>
                     <constraint firstAttribute="trailing" secondItem="6HD-3D-8DG" secondAttribute="trailing" id="Uun-LU-p3U"/>
                     <constraint firstItem="O7A-U3-7Nk" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="9" id="Wly-kV-YkM"/>
                     <constraint firstItem="pa8-1q-w6s" firstAttribute="leading" secondItem="ndq-D4-dWm" secondAttribute="trailing" id="X3e-LN-J70"/>
+                    <constraint firstItem="skg-1W-MXQ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="9" id="aFf-M4-XI3"/>
                     <constraint firstItem="pa8-1q-w6s" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="8" id="gXH-B8-4Sx"/>
                     <constraint firstItem="O7A-U3-7Nk" firstAttribute="leading" secondItem="Bc5-8d-YjB" secondAttribute="trailing" constant="10" id="pcU-CI-bQ9"/>
                     <constraint firstAttribute="bottom" secondItem="C0I-Tv-6eN" secondAttribute="bottom" id="qdX-Yx-3kn"/>
                     <constraint firstItem="6HD-3D-8DG" firstAttribute="top" secondItem="ndq-D4-dWm" secondAttribute="bottom" constant="5" id="qkc-AI-xNC"/>
+                    <constraint firstItem="DEp-zg-VOK" firstAttribute="leading" secondItem="O7A-U3-7Nk" secondAttribute="trailing" constant="5" id="zca-tU-HzH"/>
                 </constraints>
             </view>
             <connections>
@@ -328,31 +361,39 @@
             </connections>
             <point key="canvasLocation" x="186" y="425"/>
         </window>
-        <menu id="DoG-Wp-qVd" userLabel="databaseItem">
+        <menu autoenablesItems="NO" id="DoG-Wp-qVd" userLabel="databaseItem">
             <items>
-                <menuItem title="Reveal in Finder" image="ic_open_in_browser_black_18dp" id="Wa5-Id-dha">
+                <menuItem title="Execute SQL" image="ic_computer_18pt" id="Ogv-di-0Uj">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="revealInFinder:" target="-2" id="79R-wu-GB9"/>
+                        <action selector="executeSQL:" target="-2" id="fn7-4j-9SP"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Refresh" image="ic_refresh_black_18dp" id="1r1-GK-Xhe">
+                <menuItem isSeparatorItem="YES" id="wTT-eC-cM1"/>
+                <menuItem title="Refresh Database" image="ic_refresh_black_18dp" id="1r1-GK-Xhe">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="refreshDatabase:" target="-2" id="qBz-27-8Jb"/>
                     </connections>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="KWx-Pl-yqZ"/>
-                <menuItem title="Add" image="ic_add_black_18dp" id="YaJ-U1-F0W">
+                <menuItem isSeparatorItem="YES" id="faa-mb-wpu"/>
+                <menuItem title="Reveal in Finder" image="ic_folder_open_black_18dp" id="Wa5-Id-dha">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="add:" target="-2" id="fCi-g6-y7i"/>
+                        <action selector="revealInFinder:" target="-2" id="79R-wu-GB9"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Export" image="ic_open_in_new_black_18dp" id="off-eX-76I" userLabel="Export">
+                <menuItem title="Export Database" image="ic_open_in_new_black_18dp" id="off-eX-76I" userLabel="Export">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="export:" target="-2" id="Cdd-Hx-DUL"/>
+                        <action selector="exportDatabase:" target="-2" id="yHv-ig-FpE"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="7aE-zj-s87"/>
+                <menuItem title="Save to CSV" image="ic_insert_chart_black_18dp" id="8cT-ml-y73" userLabel="Export">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="exportTable:" target="-2" id="mbH-Iq-NkR"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="j9c-vn-x72"/>
@@ -373,13 +414,16 @@
         </menu>
     </objects>
     <resources>
-        <image name="ic_add_black_18dp" width="18" height="18"/>
         <image name="ic_add_black_24dp" width="24" height="24"/>
+        <image name="ic_computer_18pt" width="18" height="18"/>
+        <image name="ic_computer_black_24dp" width="24" height="24"/>
         <image name="ic_delete_forever_black_18dp" width="18" height="18"/>
-        <image name="ic_insert_drive_file_black_24dp" width="24" height="24"/>
+        <image name="ic_description_black_24dp" width="24" height="24"/>
+        <image name="ic_folder_open_black_18dp" width="18" height="18"/>
+        <image name="ic_insert_chart_black_18dp" width="18" height="18"/>
+        <image name="ic_insert_chart_black_24dp" width="24" height="24"/>
         <image name="ic_navigate_before_black_24dp" width="24" height="24"/>
         <image name="ic_navigate_next_black_24dp" width="24" height="24"/>
-        <image name="ic_open_in_browser_black_18dp" width="18" height="18"/>
         <image name="ic_open_in_new_black_18dp" width="18" height="18"/>
         <image name="ic_phone_iphone_black_24dp" width="24" height="24"/>
         <image name="ic_pie_chart_black_24dp" width="24" height="24"/>

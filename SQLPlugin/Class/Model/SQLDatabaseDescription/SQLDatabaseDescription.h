@@ -10,10 +10,16 @@
 #import <AppKit/AppKit.h>
 #import "SQLTableDescription.h"
 
-@interface SQLDatabaseDescription : NSObject<NSOutlineViewDataSource>
+@interface SQLDatabaseDescription : NSObject
+<
+NSOutlineViewDataSource
+>
 
+@property (nonatomic, strong) NSString *appId;
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *tables;
+
+- (NSString *)databaseName;
 
 @end
