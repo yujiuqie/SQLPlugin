@@ -10,7 +10,10 @@
 #import <Foundation/Foundation.h>
 #import "SQLTableProperty.h"
 
-@interface SQLTableDescription : NSObject <NSOutlineViewDataSource>
+@interface SQLTableDescription : NSObject
+<
+NSOutlineViewDataSource
+>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *path;

@@ -10,11 +10,12 @@
 #import <AppKit/AppKit.h>
 #import "SQLDatabaseDescription.h"
 
-@interface SQLDatabaseListDescription : NSObject<NSOutlineViewDataSource,NSOutlineViewDelegate>
+@interface SQLDatabaseListDescription : NSObject
+<
+NSOutlineViewDataSource,
+NSOutlineViewDelegate
+>
 
 @property (nonatomic, strong, readonly) NSArray *databases;
-
-- (void)addDatabase:(SQLDatabaseDescription *)database;
-- (void)removeDatabase:(SQLDatabaseDescription *)database;
 
 @end

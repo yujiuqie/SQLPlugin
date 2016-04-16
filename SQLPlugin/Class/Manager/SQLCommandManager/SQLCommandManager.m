@@ -18,6 +18,7 @@
 @end
 
 @implementation SQLCommandManager
+
 static SQLCommandManager *_sharedManager = nil;
 
 + (instancetype)sharedManager
@@ -25,26 +26,32 @@ static SQLCommandManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLCommandManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
 - (void)addCommandHistoryItem:(NSString *)info
 {
-    if (!info || [info length] == 0) {
+    if (!info || [info length] == 0)
+    {
         return;
     }
     
     self.commandHistoryList = [NSMutableArray arrayWithArray:[self commandHistoryList]];
     
-    if ([self.commandHistoryList containsObject:info]) {
+    if ([self.commandHistoryList containsObject:info])
+    {
         [self.commandHistoryList removeObject:info];
     }
     
-    if ([self.commandHistoryList count] >= MAX_COUNT) {
+    if ([self.commandHistoryList count] >= MAX_COUNT)
+    {
         [self.commandHistoryList removeLastObject];
     }
     
@@ -58,8 +65,8 @@ static SQLCommandManager *_sharedManager = nil;
 {
     self.commandHistoryList = [[NSUserDefaults standardUserDefaults] objectForKey:SQLCommandManagercommandHistoryList];
     
-    if ([self.commandHistoryList count] == 0) {
-        
+    if ([self.commandHistoryList count] == 0)
+    {
         return @[];
     }
     

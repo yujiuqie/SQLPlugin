@@ -94,6 +94,7 @@ NSTableViewDelegate
 -(void)fetchRowForOffset
 {
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:self.table.path isDirectory:NO];
+    
     if(!fileExists)
     {
         //        [self showAlert:[NSString stringWithFormat:@"%@ Doesn't Exist",path]];
@@ -101,32 +102,39 @@ NSTableViewDelegate
     else
     {
         BOOL isOpened = [[SQLStoreSharedManager sharedManager] openDatabaseAtPath:self.table.path];
+        
         if(!isOpened)
         {
             //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
         }
         else
         {
-            [[SQLStoreSharedManager sharedManager] getRowsWithOffset:self.offset withTableDescription:self.table completion:^(NSArray *rows) {
-
-                self.table.rows = rows;
-                
-                if(self.table.rows.count + self.offset.intValue != [self.table.rowCount integerValue]){
-                    self.rightButton.enabled = YES;
-                }
-                else{
-                    self.rightButton.enabled = NO;
-                }
-                
-                if(self.offset.intValue == 0){
-                    self.leftButton.enabled = NO;
-                }
-                else{
-                    self.leftButton.enabled = YES;
-                }
-                
-                [self.detailView reloadData];
-            }];
+            [[SQLStoreSharedManager sharedManager] getRowsWithOffset:self.offset
+                                                withTableDescription:self.table
+                                                          completion:^(NSArray *rows) {
+                                                              
+                                                              self.table.rows = rows;
+                                                              
+                                                              if(self.table.rows.count + self.offset.intValue != [self.table.rowCount integerValue])
+                                                              {
+                                                                  self.rightButton.enabled = YES;
+                                                              }
+                                                              else
+                                                              {
+                                                                  self.rightButton.enabled = NO;
+                                                              }
+                                                              
+                                                              if(self.offset.intValue == 0)
+                                                              {
+                                                                  self.leftButton.enabled = NO;
+                                                              }
+                                                              else
+                                                              {
+                                                                  self.leftButton.enabled = YES;
+                                                              }
+                                                              
+                                                              [self.detailView reloadData];
+                                                          }];
         }
     }
 }
@@ -153,14 +161,16 @@ NSTableViewDelegate
 
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn
 {
-    if (!_table.name) {
+    if (!_table.name)
+    {
         return;
     }
     
     NSUInteger columnIndex = [tableColumn.identifier integerValue];
     SQLTableProperty *property = [self.table.properties objectAtIndex:columnIndex];
     
-    if ([self.table.selectedPropertName isEqualToString:property.name]) {
+    if ([self.table.selectedPropertName isEqualToString:property.name])
+    {
         self.table.desc = !self.table.desc;
     }
     else

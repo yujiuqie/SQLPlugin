@@ -7,6 +7,7 @@
 //
 
 #import "SQLPlugin.h"
+
 #import "IDEKit.h"
 #import "SQLWindowsManager.h"
 #import "SQLSimulatorManager.h"
@@ -27,11 +28,11 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 @interface SQLPlugin()
 
-@property (nonatomic, strong, readwrite) NSBundle *bundle;
-@property (nonatomic, strong) NSMenuItem *sqlViewerMenuItem;
 @property (nonatomic, strong) NSMenuItem *sqlQueryMenuItem;
+@property (nonatomic, strong) NSMenuItem *sqlViewerMenuItem;
 @property (nonatomic, strong) SQLMainWindowController *sqlMainVC;
 @property (nonatomic, strong) SQLOperationWindowController *sqlQueryVC;
+@property (nonatomic, strong, readwrite) NSBundle *bundle;
 
 @end
 
@@ -44,14 +45,16 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 - (id)initWithBundle:(NSBundle *)plugin
 {
-    if (self = [super init]) {
-        
+    if (self = [super init])
+    {
         self.bundle = plugin;
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
     }
+    
     return self;
 }
 
@@ -87,9 +90,10 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     [[NSNotificationCenter defaultCenter] addObserverForName:@"ExecutionEnvironmentLastBuildCompletedNotification"
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *note) {
-                                                      [[SQLSimulatorManager sharedManager] setupLocalDeviceInfosWithWorkspace:[self workspaceForKeyWindow]];
-                                                  }];
+                                                  usingBlock:^(NSNotification *note)
+     {
+         [[SQLSimulatorManager sharedManager] setupLocalDeviceInfosWithWorkspace:[self workspaceForKeyWindow]];
+     }];
 }
 
 - (void)dealloc
@@ -102,8 +106,11 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 - (IDEWorkspaceWindowController *)keyWindowController
 {
     NSArray *workspaceWindowControllers = [NSClassFromString(@"IDEWorkspaceWindowController") valueForKey:@"workspaceWindowControllers"];
-    for (IDEWorkspaceWindowController *controller in workspaceWindowControllers) {
-        if (controller.window.isKeyWindow) {
+    
+    for (IDEWorkspaceWindowController *controller in workspaceWindowControllers)
+    {
+        if (controller.window.isKeyWindow)
+        {
             return controller;
         }
     }
@@ -120,12 +127,14 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 - (void)addPluginMenu
 {
     NSMenu *mainMenu = [NSApp mainMenu];
+    
     if (!mainMenu)
     {
         return;
     }
     
     NSMenuItem *pluginsMenuItem = [mainMenu itemWithTitle:SP_MENU_PARENT_TITLE];
+    
     if (!pluginsMenuItem)
     {
         pluginsMenuItem = [[NSMenuItem alloc] init];
@@ -183,7 +192,8 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 - (void)openSqlViewerWindow
 {
-    if (!_sqlMainVC) {
+    if (!_sqlMainVC)
+    {
         _sqlMainVC = (SQLMainWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Viewer];
     }
     
@@ -193,7 +203,8 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
 
 - (void)openSqlQueryWindow
 {
-    if (!_sqlQueryVC) {
+    if (!_sqlQueryVC)
+    {
         _sqlQueryVC = (SQLOperationWindowController *)[[SQLWindowsManager sharedManager] windowWithType:SQLWindowType_SQL_Operation];
     }
     

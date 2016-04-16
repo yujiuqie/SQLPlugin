@@ -26,16 +26,20 @@ static SQLDatabaseManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLDatabaseManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
 - (void)clearDatabaseDescriptions
 {
-    if (!_databaseDescriptionList) {
+    if (!_databaseDescriptionList)
+    {
         return;
     }
     
@@ -44,11 +48,10 @@ static SQLDatabaseManager *_sharedManager = nil;
 
 #pragma mark -
 
-#pragma mark -
-
 - (NSArray *)databaseDescriptions
 {
-    if (!_databaseDescriptionList) {
+    if (!_databaseDescriptionList)
+    {
         _databaseDescriptionList = [NSMutableArray array];
     }
     
@@ -57,12 +60,15 @@ static SQLDatabaseManager *_sharedManager = nil;
 
 - (void)addDatabaseDescription:(SQLDatabaseDescription *)databaseDescription
 {
-    if (!_databaseDescriptionList) {
+    if (!_databaseDescriptionList)
+    {
         _databaseDescriptionList = [NSMutableArray array];
     }
     
     [_databaseDescriptionList enumerateObjectsUsingBlock:^(SQLDatabaseDescription *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.path isEqualToString:databaseDescription.path]) {
+        
+        if ([obj.path isEqualToString:databaseDescription.path])
+        {
             [_databaseDescriptionList removeObject:obj];
         }
     }];
@@ -72,7 +78,10 @@ static SQLDatabaseManager *_sharedManager = nil;
 
 - (void)removeDatabaseDescription:(SQLDatabaseDescription *)databaseDescription
 {
-    if (_databaseDescriptionList || [_databaseDescriptionList count] == 0 || ![_databaseDescriptionList containsObject:databaseDescription]) {
+    if (_databaseDescriptionList
+        || [_databaseDescriptionList count] == 0
+        || ![_databaseDescriptionList containsObject:databaseDescription])
+    {
         return;
     }
     
@@ -82,8 +91,11 @@ static SQLDatabaseManager *_sharedManager = nil;
 - (SQLDatabaseDescription *)databaseDescriptionInPath:(NSString *)path;
 {
     __block SQLDatabaseDescription *database = nil;
+    
     [self.databaseDescriptions enumerateObjectsUsingBlock:^(SQLDatabaseDescription *  obj, NSUInteger idx, BOOL * stop) {
-        if ([obj.path isEqualToString:path]) {
+        
+        if ([obj.path isEqualToString:path])
+        {
             database = obj;
             *stop = YES;
         }

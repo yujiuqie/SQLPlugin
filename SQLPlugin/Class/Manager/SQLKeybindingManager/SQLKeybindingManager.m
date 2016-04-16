@@ -9,6 +9,7 @@
 #import "SQLKeybindingManager.h"
 
 @implementation SQLKeybindingManager
+
 static SQLKeybindingManager *_sharedManager = nil;
 
 + (instancetype)sharedManager
@@ -16,10 +17,13 @@ static SQLKeybindingManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLKeybindingManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
@@ -33,7 +37,8 @@ static SQLKeybindingManager *_sharedManager = nil;
 
 - (void)setupKeyBinding:(NSString *)keybinding withShortcut:(NSString *)shortcut
 {
-    if (IsEmpty([[NSUserDefaults standardUserDefaults] valueForKey:keybinding])) {
+    if (IsEmpty([[NSUserDefaults standardUserDefaults] valueForKey:keybinding]))
+    {
         [self saveKeyBindingToUserDefaults:shortcut forKey:keybinding];
     }
 }
@@ -46,7 +51,8 @@ static SQLKeybindingManager *_sharedManager = nil;
 
 - (void)updateKeyBinding:(id<IDEKeyBinding>)keyBinding forMenuItem:(NSMenuItem *)menuItem defaultsKey:(NSString *)defaultsKey
 {
-    if ([[keyBinding keyboardShortcuts] count] > 0) {
+    if ([[keyBinding keyboardShortcuts] count] > 0)
+    {
         id<IDEKeyboardShortcut> keyboardShortcut = [[keyBinding keyboardShortcuts] objectAtIndex:0];
         [self saveKeyBindingToUserDefaults:[keyboardShortcut stringRepresentation] forKey:defaultsKey];
         [self updateMenuItem:menuItem withShortcut:keyboardShortcut];
@@ -67,8 +73,10 @@ static SQLKeybindingManager *_sharedManager = nil;
     
     id<IDEMenuKeyBindingSet> menuKeyBindingSet = [currentPreferenceSet menuKeyBindingSet] ;
     
-    for (id<IDEMenuKeyBinding> keyBinding in [menuKeyBindingSet keyBindings]) {
-        if ([[keyBinding group] isEqualToString:menuName] && [[keyBinding title] isEqualToString:itemTitle]) {
+    for (id<IDEMenuKeyBinding> keyBinding in [menuKeyBindingSet keyBindings])
+    {
+        if ([[keyBinding group] isEqualToString:menuName] && [[keyBinding title] isEqualToString:itemTitle])
+        {
             return keyBinding;
         }
     }
@@ -104,7 +112,8 @@ static SQLKeybindingManager *_sharedManager = nil;
 
 #pragma mark -
 
-static inline BOOL IsEmpty(id thing) {
+static inline BOOL IsEmpty(id thing)
+{
     return thing == nil
     || ([NSNull null]==thing)
     || ([thing respondsToSelector:@selector(length)] && [(NSData *)thing length] == 0)

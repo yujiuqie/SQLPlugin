@@ -7,6 +7,7 @@
 //
 
 #import "SQLDatabaseListDescription.h"
+
 #import "SQLDatabaseManager.h"
 
 @interface SQLDatabaseListDescription()
@@ -17,10 +18,12 @@
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
-    if(!item){
+    if(!item)
+    {
         return [self.databases count];
     }
-    else{
+    else
+    {
         return [item outlineView:outlineView numberOfChildrenOfItem:item];
     }
 }
@@ -32,10 +35,12 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
-    if(!item){
+    if(!item)
+    {
         return [self.databases objectAtIndex:index];
     }
-    else{
+    else
+    {
         return [item outlineView:outlineView child:index ofItem:item];
     }
 }
@@ -50,16 +55,6 @@
 - (NSArray *)databases
 {
     return [[SQLDatabaseManager sharedManager] databaseDescriptions];
-}
-
-- (void)addDatabase:(SQLDatabaseDescription *)database
-{
-    [[SQLDatabaseManager sharedManager] addDatabaseDescription:database];
-}
-
-- (void)removeDatabase:(SQLDatabaseDescription *)database
-{
-    [[SQLDatabaseManager sharedManager] removeDatabaseDescription:database];
 }
 
 @end

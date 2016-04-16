@@ -7,6 +7,7 @@
 //
 
 #import "SQLDatabaseDescription.h"
+
 #import "SQLSimulatorManager.h"
 #import "SQLSimulatorModel.h"
 
@@ -18,6 +19,7 @@
     {
         return 1;
     }
+    
     return self.tables.count;
 }
 
@@ -32,6 +34,7 @@
     {
         return self;
     }
+    
     return self.tables[index];
 }
 
@@ -41,14 +44,17 @@
     
     SQLDatabaseDescription *database = (SQLDatabaseDescription *)item;
     
-    SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager] deviceIdWithPath:database.path]];
+    SQLSimulatorModel *model = [[SQLSimulatorManager sharedManager] simulatorWithId:[[SQLSimulatorManager sharedManager]
+                                                                                     deviceIdWithPath:database.path]];
     
     NSString *info = @"";
     
-    if (model.deviceVersion && model.systemVersion) {
+    if (model.deviceVersion && model.systemVersion)
+    {
         info = [NSString stringWithFormat:@"%@-%@",model.deviceVersion,model.systemVersion];
     }
-    else{
+    else
+    {
         info = database.path;
     }
     

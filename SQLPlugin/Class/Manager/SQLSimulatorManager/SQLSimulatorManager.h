@@ -17,9 +17,9 @@
 
 + (instancetype)sharedManager;
 
-- (void)setupLocalDeviceInfosWithWorkspace:(IDEWorkspace *)workspace;
 - (NSArray *)fetchAppsWithSelectedSimulators:(NSArray *)selectedList;
 - (NSString *)deviceIdWithPath:(NSString *)path;
 - (SQLSimulatorModel *)simulatorWithId:(NSString *)deviceId;
+- (void)setupLocalDeviceInfosWithWorkspace:(IDEWorkspace *)workspace;
 
 @end

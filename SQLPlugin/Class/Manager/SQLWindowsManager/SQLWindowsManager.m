@@ -24,10 +24,13 @@ static SQLWindowsManager *_sharedManager = nil;
     if(!_sharedManager)
     {
         static dispatch_once_t onceToken;
+        
         dispatch_once(&onceToken, ^{
+            
             _sharedManager = [[SQLWindowsManager alloc] init];
         });
     }
+    
     return _sharedManager;
 }
 
@@ -35,27 +38,35 @@ static SQLWindowsManager *_sharedManager = nil;
 {
     Class targetWindowVCClass = nil;
     
-    switch (windowType) {
+    switch (windowType)
+    {
         case SQLWindowType_SQL_Viewer:
+        {
             targetWindowVCClass = [SQLMainWindowController class];
+        }
             break;
+            
         case SQLWindowType_SQL_Operation:
+        {
             targetWindowVCClass = [SQLOperationWindowController class];
+        }
             break;
     }
     
-    if (targetWindowVCClass) {
-        
+    if (targetWindowVCClass)
+    {
         __block NSWindowController *targetVC = nil;
         
         [windows enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
             if ([obj isKindOfClass:targetWindowVCClass]) {
                 targetVC = obj;
                 *stop = YES;
             }
         }];
         
-        if (!targetVC) {
+        if (!targetVC)
+        {
             targetVC = [[targetWindowVCClass alloc] initWithWindowNibName:NSStringFromClass(targetWindowVCClass)];
             [self addWindowController:targetVC];
         }
@@ -68,7 +79,8 @@ static SQLWindowsManager *_sharedManager = nil;
 
 - (void)addWindowController:(NSWindowController *)aWindowVC
 {
-    if (!windows) {
+    if (!windows)
+    {
         windows = [NSMutableArray array];
     }
     
@@ -77,12 +89,15 @@ static SQLWindowsManager *_sharedManager = nil;
 
 - (void)removeWindow:(NSWindow *)aWindow
 {
-    if (!windows || [windows count] == 0) {
+    if (!windows || [windows count] == 0)
+    {
         return;
     }
     
     [windows enumerateObjectsUsingBlock:^(NSWindowController *obj, NSUInteger idx, BOOL * stop) {
-        if ([obj.window isEqualTo:aWindow]) {
+        
+        if ([obj.window isEqualTo:aWindow])
+        {
             [obj close];
             [windows removeObject:obj];
             *stop = YES;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SQLSimulatorModel.h"
 #import "SQLDatabaseDescription.h"
 
@@ -16,12 +17,9 @@
 
 + (instancetype)sharedManager;
 
-- (void)addDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
-
-- (void)removeDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
-
 - (SQLDatabaseDescription *)databaseDescriptionInPath:(NSString *)path;
-
+- (void)addDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
 - (void)clearDatabaseDescriptions;
+- (void)removeDatabaseDescription:(SQLDatabaseDescription *)databaseDescription;
 
 @end

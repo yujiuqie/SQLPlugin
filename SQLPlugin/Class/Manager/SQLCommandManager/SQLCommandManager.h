@@ -12,8 +12,8 @@
 
 + (instancetype)sharedManager;
 
-- (void)addCommandHistoryItem:(NSString *)info;
 - (NSArray *)commandHistoryItems;
+- (void)addCommandHistoryItem:(NSString *)info;
 - (void)clearCommandHistoryItems;
 
 @end
