@@ -170,10 +170,11 @@ static NSString * const IDEKeyBindingSetDidActivateNotification = @"IDEKeyBindin
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:msgText];
     
-    NSString *infoText = @"Created by Alfred Jiang \
+    NSString *infoText = @"Created by Alfred Jiang (viktyz)  2016-4-4 \
     \n  \
-    \n2016-4-4  \
-    \n \
+    \nhttps://github.com/viktyz \
+    \n  \
+    \nThank You For Using ! \
     ";
     
     [alert setInformativeText:infoText];

@@ -92,7 +92,7 @@ NSTextFieldDelegate
         info = database.path;
     }
     
-    return [NSString stringWithFormat:@"%@ (%@)",[database databaseName],info];
+    return [NSString stringWithFormat:@"%@ (%lu %@) (%@)",[database databaseName],(unsigned long)[database.tables count],[database.tables count] > 0 ? @"tables" : @"table",info];
 }
 
 #pragma mark -
@@ -223,7 +223,7 @@ NSTextFieldDelegate
 - (void)selectTableItem:(NSMenuItem *)item
 {
     SQLTableDescription *table = [_tables objectAtIndex:item.tag];
-    [self refreshTextFieldSQLCommand:[NSString stringWithFormat:@"select * from %@;",table.name]];
+    [self refreshTextFieldSQLCommand:[NSString stringWithFormat:@"PRAGMA table_info(%@);",table.name]];
     
 }
 
@@ -317,6 +317,14 @@ NSTextFieldDelegate
                                                             if([self.textFieldErrorLog.stringValue length] == 0)
                                                             {
                                                                 [self setCurrentDatabase:self.currentDatabase];
+                                                                
+                                                                if ([self.textFieldSQLCommand.stringValue hasPrefix:@"select"]) {
+                                                                    [self refreshTextFieldInfo:[NSString stringWithFormat:@"Result Items : %@",table.rowCount]];
+                                                                }
+                                                                else
+                                                                {
+                                                                    [self refreshTextFieldInfo:@"Execute Finished"];
+                                                                }
                                                             }
                                                         }];
 }
@@ -381,7 +389,8 @@ NSTextFieldDelegate
 
 -(IBAction)didPressHelpButton:(NSButton *)sender
 {
-    //TODO::
+    NSURL *url = [NSURL URLWithString:@"https://github.com/viktyz/SQLPlugin"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 -(IBAction)didPressViewerButton:(NSButton *)sender
