@@ -7,33 +7,33 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "SQLStoreSharedManager.h"
 
 @interface SQLPluginTests : XCTestCase
+
+@property (nonatomic,strong) SQLStoreSharedManager *storeManager;
 
 @end
 
 @implementation SQLPluginTests
 
 - (void)setUp {
+    
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    _storeManager = [SQLStoreSharedManager sharedManager];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    [_storeManager close];
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testOpenSqliteDB {
+    
+    NSBundle *testBundle = [NSBundle bundleWithIdentifier:@"com.alfredjiang.SQLPluginTests"];
+    NSString *testDBPath = [NSString stringWithFormat:@"%@/SQLPluginTestDB.sqlite",[testBundle resourcePath]];
+    XCTAssert([_storeManager openDatabaseAtPath:testDBPath], @"Pass");
 }
 
 @end
