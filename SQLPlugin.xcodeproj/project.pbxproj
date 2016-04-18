@@ -31,8 +31,36 @@
 		0625C3271CBC8D5C007C990F /* ic_pie_chart_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3161CBC8D5C007C990F /* ic_pie_chart_black_24dp.png */; };
 		0625C3281CBC8D5C007C990F /* ic_refresh_black_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */; };
 		063A7D101CBB7939003AA338 /* SQLDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */; };
+		0645749B1CC5258F00883DEF /* SQLPluginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645749A1CC5258F00883DEF /* SQLPluginTests.m */; };
 		0658C07E1CC0C768001FEEFE /* SQLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */; };
 		0658C0861CC0CC38001FEEFE /* ic_description_black_24dp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0658C0841CC0CC38001FEEFE /* ic_description_black_24dp.png */; };
+		065C02471CC52640009A4BDE /* SQLPluginTestDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 065C02461CC52640009A4BDE /* SQLPluginTestDB.sqlite */; };
+		065C02481CC52679009A4BDE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FA1CBC8D5C007C990F /* FMDatabase.m */; };
+		065C02491CC52679009A4BDE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FC1CBC8D5C007C990F /* FMDatabaseAdditions.m */; };
+		065C024A1CC52679009A4BDE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C2FE1CBC8D5C007C990F /* FMDatabasePool.m */; };
+		065C024B1CC52679009A4BDE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3001CBC8D5C007C990F /* FMDatabaseQueue.m */; };
+		065C024C1CC52679009A4BDE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0625C3031CBC8D5C007C990F /* FMResultSet.m */; };
+		065C024D1CC52679009A4BDE /* SQLMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27941CC0C3EF00ADC45F /* SQLMainWindowController.m */; };
+		065C024E1CC52679009A4BDE /* SQLOperationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CE27981CC0C3EF00ADC45F /* SQLOperationWindowController.m */; };
+		065C024F1CC52679009A4BDE /* SQLCSVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06766A411CC13D0E00F44700 /* SQLCSVManager.m */; };
+		065C02501CC52679009A4BDE /* SQLKeybindingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F793DB1CC1243100D5A1C7 /* SQLKeybindingManager.m */; };
+		065C02511CC52679009A4BDE /* SQLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */; };
+		065C02521CC52679009A4BDE /* SQLDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */; };
+		065C02531CC52679009A4BDE /* SQLSimulatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD32E1CB34CDB0089DC5C /* SQLSimulatorManager.m */; };
+		065C02541CC52679009A4BDE /* SQLStoreSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3311CB34CDB0089DC5C /* SQLStoreSharedManager.m */; };
+		065C02551CC52679009A4BDE /* SQLWindowsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD3341CB34CDB0089DC5C /* SQLWindowsManager.m */; };
+		065C02561CC52679009A4BDE /* SQLDatabaseDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B41CBCA69A0012F727 /* SQLDatabaseDescription.m */; };
+		065C02571CC52679009A4BDE /* SQLDatabaseListDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8B71CBCA69A0012F727 /* SQLDatabaseListDescription.m */; };
+		065C02581CC52679009A4BDE /* SQLTableDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B4F8BA1CBCA69A0012F727 /* SQLTableDescription.m */; };
+		065C02591CC52679009A4BDE /* SQLSimulatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD36C1CB3AFDE0089DC5C /* SQLSimulatorModel.m */; };
+		065C025A1CC52679009A4BDE /* SQLTableProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD33E1CB34CDB0089DC5C /* SQLTableProperty.m */; };
+		065C025B1CC52679009A4BDE /* SQLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */; };
+		065C025C1CC52679009A4BDE /* SQLDatabaseListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */; };
+		065C025D1CC52679009A4BDE /* SQLTableDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34B1CB34CDB0089DC5C /* SQLTableDetailView.m */; };
+		065C025E1CC52679009A4BDE /* SQLTableListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DDD34F1CB34CDB0089DC5C /* SQLTableListView.m */; };
+		065C025F1CC52679009A4BDE /* SQLPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 061AB5E61CB2253600EDCB4C /* SQLPlugin.m */; };
+		065C02601CC52679009A4BDE /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 061AB5E91CB2253600EDCB4C /* NSObject_Extension.m */; };
+		065C02611CC5268C009A4BDE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E1CBB61CB237CE00C08E57 /* libsqlite3.tbd */; };
 		06766A421CC13D0E00F44700 /* SQLCSVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06766A411CC13D0E00F44700 /* SQLCSVManager.m */; };
 		06A459EB1CB4123500A0A260 /* SQLDatabaseListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A459EA1CB4123500A0A260 /* SQLDatabaseListView.m */; };
 		06B004C91CBBD85A0043E3D8 /* SQLMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B004C81CBBD85A0043E3D8 /* SQLMainWindow.m */; };
@@ -104,9 +132,13 @@
 		0625C3171CBC8D5C007C990F /* ic_refresh_black_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_refresh_black_18dp.png; sourceTree = "<group>"; };
 		063A7D0E1CBB7939003AA338 /* SQLDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDatabaseManager.h; sourceTree = "<group>"; };
 		063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDatabaseManager.m; sourceTree = "<group>"; };
+		064574981CC5258F00883DEF /* SQLPluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SQLPluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0645749A1CC5258F00883DEF /* SQLPluginTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLPluginTests.m; sourceTree = "<group>"; };
+		0645749C1CC5258F00883DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0658C07C1CC0C768001FEEFE /* SQLCommandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLCommandManager.h; sourceTree = "<group>"; };
 		0658C07D1CC0C768001FEEFE /* SQLCommandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLCommandManager.m; sourceTree = "<group>"; };
 		0658C0841CC0CC38001FEEFE /* ic_description_black_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_description_black_24dp.png; sourceTree = "<group>"; };
+		065C02461CC52640009A4BDE /* SQLPluginTestDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQLPluginTestDB.sqlite; sourceTree = "<group>"; };
 		06766A401CC13D0E00F44700 /* SQLCSVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLCSVManager.h; path = SQLCSVManager/SQLCSVManager.h; sourceTree = "<group>"; };
 		06766A411CC13D0E00F44700 /* SQLCSVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SQLCSVManager.m; path = SQLCSVManager/SQLCSVManager.m; sourceTree = "<group>"; };
 		06A459E91CB4123500A0A260 /* SQLDatabaseListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SQLDatabaseListView.h; path = SQLDatabaseListView/SQLDatabaseListView.h; sourceTree = "<group>"; };
@@ -164,6 +196,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		064574951CC5258F00883DEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				065C02611CC5268C009A4BDE /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -171,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				061AB5E11CB2253600EDCB4C /* SQLPlugin */,
+				064574991CC5258F00883DEF /* SQLPluginTests */,
 				061AB5DC1CB2253600EDCB4C /* Frameworks */,
 				061AB5DB1CB2253600EDCB4C /* Products */,
 			);
@@ -180,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				061AB5DA1CB2253600EDCB4C /* SQLPlugin.xcplugin */,
+				064574981CC5258F00883DEF /* SQLPluginTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,6 +336,16 @@
 				063A7D0F1CBB7939003AA338 /* SQLDatabaseManager.m */,
 			);
 			path = SQLDatabaseManager;
+			sourceTree = "<group>";
+		};
+		064574991CC5258F00883DEF /* SQLPluginTests */ = {
+			isa = PBXGroup;
+			children = (
+				065C02461CC52640009A4BDE /* SQLPluginTestDB.sqlite */,
+				0645749A1CC5258F00883DEF /* SQLPluginTests.m */,
+				0645749C1CC5258F00883DEF /* Info.plist */,
+			);
+			path = SQLPluginTests;
 			sourceTree = "<group>";
 		};
 		0658C07B1CC0C768001FEEFE /* SQLCommandManager */ = {
@@ -529,6 +581,23 @@
 			productReference = 061AB5DA1CB2253600EDCB4C /* SQLPlugin.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
+		064574971CC5258F00883DEF /* SQLPluginTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0645749F1CC5258F00883DEF /* Build configuration list for PBXNativeTarget "SQLPluginTests" */;
+			buildPhases = (
+				064574941CC5258F00883DEF /* Sources */,
+				064574951CC5258F00883DEF /* Frameworks */,
+				064574961CC5258F00883DEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SQLPluginTests;
+			productName = SQLPluginTests;
+			productReference = 064574981CC5258F00883DEF /* SQLPluginTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -539,6 +608,9 @@
 				ORGANIZATIONNAME = "Alfred Jiang";
 				TargetAttributes = {
 					061AB5D91CB2253600EDCB4C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					064574971CC5258F00883DEF = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -556,6 +628,7 @@
 			projectRoot = "";
 			targets = (
 				061AB5D91CB2253600EDCB4C /* SQLPlugin */,
+				064574971CC5258F00883DEF /* SQLPluginTests */,
 			);
 		};
 /* End PBXProject section */
@@ -593,6 +666,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		064574961CC5258F00883DEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				065C02471CC52640009A4BDE /* SQLPluginTestDB.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -625,6 +706,39 @@
 				06CE279A1CC0C3EF00ADC45F /* SQLMainWindowController.m in Sources */,
 				06DDD3591CB34CDB0089DC5C /* SQLStoreSharedManager.m in Sources */,
 				0658C07E1CC0C768001FEEFE /* SQLCommandManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		064574941CC5258F00883DEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				065C024C1CC52679009A4BDE /* FMResultSet.m in Sources */,
+				065C025D1CC52679009A4BDE /* SQLTableDetailView.m in Sources */,
+				065C025F1CC52679009A4BDE /* SQLPlugin.m in Sources */,
+				065C024B1CC52679009A4BDE /* FMDatabaseQueue.m in Sources */,
+				065C02551CC52679009A4BDE /* SQLWindowsManager.m in Sources */,
+				0645749B1CC5258F00883DEF /* SQLPluginTests.m in Sources */,
+				065C02521CC52679009A4BDE /* SQLDatabaseManager.m in Sources */,
+				065C024A1CC52679009A4BDE /* FMDatabasePool.m in Sources */,
+				065C02531CC52679009A4BDE /* SQLSimulatorManager.m in Sources */,
+				065C02591CC52679009A4BDE /* SQLSimulatorModel.m in Sources */,
+				065C02501CC52679009A4BDE /* SQLKeybindingManager.m in Sources */,
+				065C024F1CC52679009A4BDE /* SQLCSVManager.m in Sources */,
+				065C025A1CC52679009A4BDE /* SQLTableProperty.m in Sources */,
+				065C025E1CC52679009A4BDE /* SQLTableListView.m in Sources */,
+				065C025B1CC52679009A4BDE /* SQLMainWindow.m in Sources */,
+				065C02481CC52679009A4BDE /* FMDatabase.m in Sources */,
+				065C02541CC52679009A4BDE /* SQLStoreSharedManager.m in Sources */,
+				065C02511CC52679009A4BDE /* SQLCommandManager.m in Sources */,
+				065C02561CC52679009A4BDE /* SQLDatabaseDescription.m in Sources */,
+				065C025C1CC52679009A4BDE /* SQLDatabaseListView.m in Sources */,
+				065C02571CC52679009A4BDE /* SQLDatabaseListDescription.m in Sources */,
+				065C024D1CC52679009A4BDE /* SQLMainWindowController.m in Sources */,
+				065C024E1CC52679009A4BDE /* SQLOperationWindowController.m in Sources */,
+				065C02581CC52679009A4BDE /* SQLTableDescription.m in Sources */,
+				065C02491CC52679009A4BDE /* FMDatabaseAdditions.m in Sources */,
+				065C02601CC52679009A4BDE /* NSObject_Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +852,34 @@
 			};
 			name = Release;
 		};
+		0645749D1CC5258F00883DEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SQLPluginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alfredjiang.SQLPluginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0645749E1CC5258F00883DEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SQLPluginTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alfredjiang.SQLPluginTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -755,6 +897,15 @@
 			buildConfigurations = (
 				061AB5EF1CB2253600EDCB4C /* Debug */,
 				061AB5F01CB2253600EDCB4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0645749F1CC5258F00883DEF /* Build configuration list for PBXNativeTarget "SQLPluginTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0645749D1CC5258F00883DEF /* Debug */,
+				0645749E1CC5258F00883DEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

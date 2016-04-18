@@ -28,7 +28,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8966AFCA173EB7BF004150C0"
+               BlueprintIdentifier = "064574971CC5258F00883DEF"
                BuildableName = "SQLPluginTests.xctest"
                BlueprintName = "SQLPluginTests"
                ReferencedContainer = "container:SQLPlugin.xcodeproj">
@@ -42,7 +42,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "064574971CC5258F00883DEF"
+               BuildableName = "SQLPluginTests.xctest"
+               BlueprintName = "SQLPluginTests"
+               ReferencedContainer = "container:SQLPlugin.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "061AB5D91CB2253600EDCB4C"
+            BuildableName = "SQLPlugin.xcplugin"
+            BlueprintName = "SQLPlugin"
+            ReferencedContainer = "container:SQLPlugin.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -80,6 +99,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "061AB5D91CB2253600EDCB4C"
+            BuildableName = "SQLPlugin.xcplugin"
+            BlueprintName = "SQLPlugin"
+            ReferencedContainer = "container:SQLPlugin.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
