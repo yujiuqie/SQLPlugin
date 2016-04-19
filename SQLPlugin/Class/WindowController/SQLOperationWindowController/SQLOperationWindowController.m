@@ -487,7 +487,7 @@ NSTextFieldDelegate
         return;
     }
     
-    NSString *name = [[self.currentDatabase databaseName] stringByAppendingPathExtension:@"csv"];
+    NSString *name = [[[self.currentDatabase databaseName] stringByDeletingPathExtension] stringByAppendingPathExtension:@"csv"];
     
     NSSavePanel *panel = [NSSavePanel savePanel];
     
