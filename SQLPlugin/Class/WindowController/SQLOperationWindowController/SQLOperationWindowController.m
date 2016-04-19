@@ -218,9 +218,9 @@ NSTextFieldDelegate
     
     [self refreshHistoryCommandButton];
     
-    [[SQLStoreSharedManager sharedManager] getTableRowsWithCommand:command
-                                                          inDBPath:self.currentDatabase.path
-                                                        completion:^(SQLTableDescription *table)
+    [[SQLStoreSharedManager sharedManager] executeSQLCommand:command
+                                                    inDBPath:self.currentDatabase.path
+                                                  completion:^(SQLTableDescription *table, NSError *error)
      {
          [self.tableDetailView refreshTable:table];
          
@@ -229,7 +229,9 @@ NSTextFieldDelegate
          if([self.textFieldErrorLog.stringValue length] == 0)
          {
              [self setCurrentDatabase:self.currentDatabase];
-             
+         }
+         
+         if (error.code == 0) {
              if ([self.textFieldSQLCommand.stringValue hasPrefix:@"select"])
              {
                  [self refreshTextFieldInfo:[NSString stringWithFormat:@"Result Items : %@",table.rowCount]];
@@ -238,6 +240,10 @@ NSTextFieldDelegate
              {
                  [self refreshTextFieldInfo:@"Execute Finished"];
              }
+         }
+         else
+         {
+             [self refreshTextFieldErrorLog:error.userInfo[NSLocalizedDescriptionKey]];
          }
      }];
 }
