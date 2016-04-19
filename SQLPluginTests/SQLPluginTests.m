@@ -158,7 +158,7 @@
 
 - (void)testDeleteItem
 {
-    [_storeManager executeSQLCommand:@"delete * qfoo where foo like 'h%'"
+    [_storeManager executeSQLCommand:@"delete from qfoo where foo like 'h%'"
                             inDBPath:_testDBPath
                           completion:^(SQLTableDescription *table, NSError *error) {
                               
@@ -173,7 +173,7 @@
                                                     }];
                           }];
     
-    [_storeManager executeSQLCommand:@"delete * from qfoo"
+    [_storeManager executeSQLCommand:@"delete from qfoo"
                             inDBPath:_testDBPath
                           completion:^(SQLTableDescription *table, NSError *error) {
                               
