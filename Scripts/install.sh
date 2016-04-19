@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DOWNLOAD_URI=https://github.com/viktyz/SQLPlugin/releases/download/v1.1.0/SQLPlugin.tar.gz
+DOWNLOAD_URI=https://github.com/viktyz/SQLPlugin/releases/download/v1.1.1/SQLPlugin.tar.gz
 PLUGINS_DIR="${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
 XCODE_VERSION="$(xcrun xcodebuild -version | head -n1 | awk '{ print $2 }')"
 PLIST_PLUGINS_KEY="DVTPlugInManagerNonApplePlugIns-Xcode-${XCODE_VERSION}"
