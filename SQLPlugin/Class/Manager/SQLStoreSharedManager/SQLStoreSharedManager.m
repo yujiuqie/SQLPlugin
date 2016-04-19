@@ -10,6 +10,12 @@
 
 #import "FMDB.h"
 
+#if FMDB_SQLITE_STANDALONE
+#import <sqlite3/sqlite3.h>
+#else
+#import <sqlite3.h>
+#endif
+
 @interface SQLStoreSharedManager ()
 
 @property (nonatomic, strong) FMDatabaseQueue *databaseQueue;
@@ -100,8 +106,20 @@ static SQLStoreSharedManager *_sharedManager = nil;
      }];
 }
 
--(void)getTableRowsWithCommand:(NSString *)command inDBPath:(NSString *)path completion:(void(^)(SQLTableDescription *table))completion
+-(void)executeSQLCommand:(NSString *)command inDBPath:(NSString *)path completion:(void(^)(SQLTableDescription *table, NSError *error))completion
 {
+    if (!self.databaseQueue) {
+        
+        if (![self openDatabaseAtPath:path]) {
+            
+            if(completion)
+            {
+                NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:@"SQL error or missing database" forKey:NSLocalizedDescriptionKey];
+                completion(nil,[NSError errorWithDomain:@"FMDatabase" code:SQLITE_ERROR userInfo:errorMessage]);
+            }
+        }
+    }
+    
     [self.databaseQueue inDatabase:^(FMDatabase *db)
      {
          SQLTableDescription *table = [[SQLTableDescription alloc] init];
@@ -147,7 +165,7 @@ static SQLStoreSharedManager *_sharedManager = nil;
              
              if(completion)
              {
-                 completion(table);
+                 completion(table, [db lastError]);
              }
          });
      }];

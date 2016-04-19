@@ -4,7 +4,7 @@
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Analytics](https://ga-beacon.appspot.com/UA-76511929-1/sqlplugin/readme)](https://github.com/igrigorik/ga-beacon)
 
-SQLPlugin is a plugin for Xcode. There are 2 tools in this plugin for SQL operation. **SQL Viewer** and **SQL Query**.
+SQLPlugin is a plugin for Xcode. There are two tools in this plugin for SQL operation. **SQL Viewer** and **SQL Query**.
 
 **SQL Viewer** helps to list all files with database type in your simulator. And **SQL Query** helps to operate your database file.
 
@@ -63,6 +63,8 @@ The `SQL` Menu will disappear after restart Xcode.
 ## SQL Help
 
 * [SQL Tutorial](http://www.tutorialspoint.com/sql/sql-select-query.htm) : SQL is a database computer language designed for the retrieval and management of data in relational database. SQL stands for Structured Query Language. This tutorial will give you quick start with SQL.
+* [FMDB](https://github.com/ccgus/fmdb) : Most of the SQLPlugin functions are based on FMDB. You can read more about it from [here](http://ccgus.github.io/fmdb/).
+* [SQLite.org](http://sqlite.org/) : SQLite is a software library that implements a [self-contained](http://sqlite.org/selfcontained.html), [serverless](http://sqlite.org/serverless.html), [zero-configuration](http://sqlite.org/zeroconf.html), [transactional](http://sqlite.org/transactional.html) SQL database engine. SQLite is the most widely deployed database engine in the world. The source code for SQLite is in the [public domain](http://sqlite.org/copyright.html).
 
 ## License
 ```

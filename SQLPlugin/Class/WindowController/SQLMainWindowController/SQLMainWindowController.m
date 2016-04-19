@@ -445,13 +445,13 @@ NSTextFieldDelegate
             
             __strong SQLMainWindowController *strongSelf = weakSelf;
             
-            [[SQLStoreSharedManager sharedManager] getTableRowsWithCommand:[NSString stringWithFormat:@"select * from %@",strongSelf.tableDetailView.table.name]
-                                                                  inDBPath:path
-                                                                completion:^(SQLTableDescription *table) {
-                                                                    
-                                                                    [[SQLCSVManager sharedManager] exportTo:path0
-                                                                                                  withTable:table];
-                                                                }];
+            [[SQLStoreSharedManager sharedManager] executeSQLCommand:[NSString stringWithFormat:@"select * from %@",strongSelf.tableDetailView.table.name]
+                                                            inDBPath:path
+                                                          completion:^(SQLTableDescription *table, NSError *error) {
+                                                              
+                                                              [[SQLCSVManager sharedManager] exportTo:path0
+                                                                                            withTable:table];
+                                                          }];
         });
         
         if (error)
