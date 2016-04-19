@@ -63,8 +63,8 @@ The `SQL` Menu will disappear after restart Xcode.
 ## SQL Help
 
 * [SQL Tutorial](http://www.tutorialspoint.com/sql/sql-select-query.htm) : SQL is a database computer language designed for the retrieval and management of data in relational database. SQL stands for Structured Query Language. This tutorial will give you quick start with SQL.
+* [FMDB](https://github.com/ccgus/fmdb) : Most of the SQLPlugin functions are based on FMDB. You can read more about it from [here](http://ccgus.github.io/fmdb/).
 * [SQLite.org](http://sqlite.org/) : SQLite is a software library that implements a [self-contained](http://sqlite.org/selfcontained.html), [serverless](http://sqlite.org/serverless.html), [zero-configuration](http://sqlite.org/zeroconf.html), [transactional](http://sqlite.org/transactional.html) SQL database engine. SQLite is the most widely deployed database engine in the world. The source code for SQLite is in the [public domain](http://sqlite.org/copyright.html).
-* [FMDB](https://github.com/ccgus/fmdb) : Most of SQLPlugin functions are based on FMDB. You can read more about it from [here](http://ccgus.github.io/fmdb/).
 
 ## License
 ```
