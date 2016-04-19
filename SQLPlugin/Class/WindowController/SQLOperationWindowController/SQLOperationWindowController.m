@@ -124,7 +124,7 @@ NSTextFieldDelegate
     
     if(!fileExists)
     {
-        //        [self showAlert:[NSString stringWithFormat:@"%@ Doesn't Exist",path]];
+        //
     }
     else
     {
@@ -132,7 +132,7 @@ NSTextFieldDelegate
         
         if(!isOpened)
         {
-            //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
+            //
         }
         else
         {

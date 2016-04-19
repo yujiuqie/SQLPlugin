@@ -136,9 +136,7 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (NSArray *)fetchAppsWithSelectedSimulators:(NSArray *)selectedList
 {
     NSMutableArray *list = [NSMutableArray array];
-    
     NSString *appDocDir = [NSHomeDirectory() stringByAppendingString:@"/Library/Developer/CoreSimulator/Devices"];
-    
     NSArray *contentOfFolder = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:appDocDir error:NULL];
     
     for (NSString *aPath in contentOfFolder)
@@ -219,9 +217,7 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (NSArray *)fetchdatabaseInPath:(NSString *)aPath
 {
     NSDirectoryEnumerator *direnum = [[NSFileManager defaultManager] enumeratorAtPath:aPath];
-    
     NSMutableArray *files = [NSMutableArray array];
-    
     NSString *fileName;
     
     while (fileName = [direnum nextObject])
@@ -313,7 +309,6 @@ static SQLSimulatorManager *_sharedManager = nil;
 - (NSArray *)fetchAppDirsWithDeviceId:(NSString *)deviceId andAppId:(NSString *)appId
 {
     NSMutableArray *list = [NSMutableArray array];
-    
     NSString *path = @"";
     
     if([[self class] ios7Vesion:deviceId])   //TODO::

@@ -190,7 +190,7 @@ NSTextFieldDelegate
     
     if(!fileExists)
     {
-        //        [self showAlert:[NSString stringWithFormat:@"%@ Doesn't Exist",path]];
+        //
     }
     else
     {
@@ -198,7 +198,7 @@ NSTextFieldDelegate
         
         if(!isOpened)
         {
-            //            [self showAlert:[NSString stringWithFormat:@"%@ Couldn't Be Opened",path]];
+            //
         }
         else
         {
@@ -409,7 +409,6 @@ NSTextFieldDelegate
 - (void)exportTableToCSV
 {
     id cell = [_databaseList itemAtRow:_databaseList.selectedRow];
-    
     NSString *path = @"";
     
     if([cell isKindOfClass:[SQLTableDescription class]])
@@ -438,7 +437,6 @@ NSTextFieldDelegate
     if (result == NSModalResponseOK)
     {
         NSString *path0 = [[panel URL] path];
-        
         __weak SQLMainWindowController *weakSelf = self;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
