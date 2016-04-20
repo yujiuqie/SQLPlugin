@@ -4,7 +4,7 @@
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Analytics](https://ga-beacon.appspot.com/UA-76511929-1/sqlplugin/readme)](https://github.com/igrigorik/ga-beacon)
 
-SQLPlugin is a plugin for Xcode. There are two tools in this plugin for SQL operation. **SQL Viewer** and **SQL Query**.
+SQLPlugin is a plugin for Xcode. This plugin contains two tools for SQL operation. **SQL Viewer** and **SQL Query**.
 
 **SQL Viewer** helps to list all files with database type in your simulator. And **SQL Query** helps to operate your database file.
 
