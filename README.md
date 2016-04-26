@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/viktyz/SQLPlugin.svg?branch=master)](https://travis-ci.org/viktyz/SQLPlugin)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
-[![Analytics](https://ga-beacon.appspot.com/UA-76511929-1/sqlplugin/readme)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-76943272-1/sqlplugin/readme)](https://github.com/igrigorik/ga-beacon)
 
 SQLPlugin is a plugin for Xcode. This plugin contains two tools for SQL operation. **SQL Viewer** and **SQL Query**.
 
